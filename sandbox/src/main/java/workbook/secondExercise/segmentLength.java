@@ -1,7 +1,7 @@
 package workbook.secondExercise;
 
-// создаем запускаемый класс segmentLength для отображения результатов вычисления расстояния между точками.
-public class segmentLength {
+// создаем запускаемый класс SegmentLength для отображения результатов вычисления расстояния между точками.
+public class SegmentLength {
 
   private static Double Lenght;
 
