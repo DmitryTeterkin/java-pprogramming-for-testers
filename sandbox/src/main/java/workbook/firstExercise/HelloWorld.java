@@ -1,3 +1,5 @@
+package workbook.firstExercise;
+
 public class HelloWorld {
 
   public static void main(String[] args) {
