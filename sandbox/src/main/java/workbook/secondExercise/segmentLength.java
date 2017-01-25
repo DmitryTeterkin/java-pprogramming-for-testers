@@ -1,7 +1,7 @@
 package workbook.SecondExercise;
 
-// создаем запускаемый класс SegmentLength для отображения результатов вычисления расстояния между точками.
-public class SegmentLength {
+// создаем запускаемый класс segmentLength для отображения результатов вычисления расстояния между точками.
+public class segmentLength {
 
   private static Double Lenght;
 
