@@ -3,6 +3,12 @@ apply plugin: 'application'
 mainClassName = "workbook.firstExercise.HelloWorld"
 
 
+repositories{
+    mavenCentral()
+}
 
 
+dependencies {
+    compile 'org.testng:testng:6.10'
 
+}
