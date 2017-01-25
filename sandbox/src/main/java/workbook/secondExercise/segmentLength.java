@@ -21,3 +21,6 @@ public class SegmentLength {
     System.out.println("Расстояние между точками А("+ p1.x + "," + p1.y + ") и B(" + p2.x + "," + p2.y +") = " + Lenght);
   }
 }
+
+
+
