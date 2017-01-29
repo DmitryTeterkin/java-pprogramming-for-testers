@@ -28,4 +28,26 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
 
   }
+
+  // выбор контакта для изменения или удаления
+  public void selectContact() {
+    wd.findElement(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).click();
+
+  }
+
+  // подтверждение изменения контакта
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
+  // клик на редактировании контакта
+  public void gotoEditContact() {
+    wd.findElement(By.xpath("(//img[@alt='Edit'])[2]")).click();
+  }
+
+  // удаление контакта
+  public void deletionContact() {
+    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+    wd.switchTo().alert().accept();
+  }
 }

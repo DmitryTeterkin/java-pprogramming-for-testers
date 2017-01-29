@@ -27,4 +27,9 @@ public class NavigationHelper extends HelperBase {
   public void gotoContactEditorPage() {
     click(By.linkText("add new"));
   }
+
+  //переход на список контактов
+  public void gotoContactsPage(){
+    click(By.linkText("home"));
+  }
 }
