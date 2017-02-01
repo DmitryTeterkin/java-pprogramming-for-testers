@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.BrowserType;
 public class TestBase {
 
 // запуск из IE
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.IE);
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeMethod
   public void setUp() throws Exception {
