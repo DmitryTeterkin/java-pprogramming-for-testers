@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-/**
- * Created by dteterkin on 26.01.2017.
- */
+
 public class NavigationHelper extends HelperBase {
 
 
@@ -16,21 +14,35 @@ public class NavigationHelper extends HelperBase {
 
   // возврат на страницу группы
   public void gotoGroupPage() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+            && isElementPresent(By.name("new"))){
+      return;
+    }
     click(By.linkText("groups"));
   }
-
   // возврат на страницу контактов
   public void returnToContactList() {
-    click(By.linkText("home page"));
+
+    if (isElementPresent(By.linkText("home page"))) {
+      click(By.linkText("home page"));
+    } else{
+      return;
+    }
   }
 
   // переход на страницу создания контакта
+
+    // переход на страницу создания контакта
   public void gotoContactEditorPage() {
     click(By.linkText("add new"));
   }
 
   //переход на список контактов
-  public void gotoContactsPage(){
+  public void gotoHomePage(){
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
     click(By.linkText("home"));
   }
 }
