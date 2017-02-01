@@ -11,8 +11,8 @@ import org.openqa.selenium.remote.BrowserType;
  */
 public class TestBase {
 
-// запуск из Firefox
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+// запуск из IE
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.IE);
 
   @BeforeMethod
   public void setUp() throws Exception {
