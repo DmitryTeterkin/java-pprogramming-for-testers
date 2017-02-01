@@ -11,8 +11,8 @@ import org.openqa.selenium.remote.BrowserType;
  */
 public class TestBase {
 
-// запуск из Хрома
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+// запуск из Firefox
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeMethod
   public void setUp() throws Exception {
