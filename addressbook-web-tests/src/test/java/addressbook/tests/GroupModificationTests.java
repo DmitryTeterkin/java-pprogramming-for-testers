@@ -10,6 +10,10 @@ public class GroupModificationTests extends TestBase {
   public void testGroupModification () {
 
     app.getNavigationHelper().gotoGroupPage();
+// проверка на наличие группы, и если ее нет, то создаем новую группу.
+    if (! app.getGroupHelper().isThereAGroup()){
+      app.getGroupHelper().createGroup(new GroupData("test1", "test1", "test2"));
+    }
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
 // оставляем дефолтные поля при изменении группы

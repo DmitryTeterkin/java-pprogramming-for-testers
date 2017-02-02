@@ -37,7 +37,7 @@ public class ContactHelper extends HelperBase {
 
   // выбор контакта для изменения или удаления
   public void selectContact() {
-    wd.findElement(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input")).click();
+    wd.findElement(By.name("selected[]")).click();
 
   }
 
@@ -48,12 +48,23 @@ public class ContactHelper extends HelperBase {
 
   // клик на редактировании контакта
   public void gotoEditContact() {
-    wd.findElement(By.xpath("(//img[@alt='Edit'])[2]")).click();
+    wd.findElement(By.xpath("(//img[@alt='Edit'])[1]")).click();
   }
 
   // удаление контакта
   public void deletionContact() {
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
     wd.switchTo().alert().accept();
+  }
+
+  public void createContact(ContactData contact, boolean creation) {
+
+    fillContactForm(contact, true);
+    submitContactCreation();
+
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent((By.name("selected[]")));
   }
 }
