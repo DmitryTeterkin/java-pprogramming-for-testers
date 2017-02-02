@@ -4,7 +4,7 @@ public class ContactData {
   private final String firstName;
   private final String secondName;
   private final String nickName;
-  private String group;
+  private final String group;
   private final String address;
   private final String email;
 

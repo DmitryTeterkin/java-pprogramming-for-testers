@@ -6,12 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.remote.BrowserType;
 
 
-/**
- * Created by dteterkin on 26.01.2017.
- */
 public class TestBase {
 
-// запуск из IE
+// запуск из Firefox
   protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeMethod

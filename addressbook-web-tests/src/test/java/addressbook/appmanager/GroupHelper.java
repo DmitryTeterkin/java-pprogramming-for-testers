@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-/**
- * Created by dteterkin on 26.01.2017.
- */
+
 public class GroupHelper extends HelperBase {
 
   public GroupHelper(WebDriver wd) {

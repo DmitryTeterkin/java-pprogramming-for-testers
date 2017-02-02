@@ -3,9 +3,7 @@ package addressbook.tests;
 import addressbook.model.GroupData;
 import org.testng.annotations.Test;
 
-/**
- * Created by Dmitry on 29.01.2017.
- */
+
 public class GroupModificationTests extends TestBase {
 
   @Test
