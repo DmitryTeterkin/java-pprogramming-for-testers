@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.BrowserType;
 
 public class TestBase {
 
-// запуск из Firefox
+// указываем, из какого браузера будут запускаться тесты
   protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeMethod
