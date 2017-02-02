@@ -22,12 +22,17 @@ public class ContactHelper extends HelperBase {
   }
 
   // заполнение контакта
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName());
     type(By.name("lastname"), contactData.getSecondName());
     type(By.name("nickname"), contactData.getNickName());
     type(By.name("address"), contactData.getAddress());
     type(By.name("email"), contactData.getEmail());
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
   }
 
   // выбор контакта для изменения или удаления

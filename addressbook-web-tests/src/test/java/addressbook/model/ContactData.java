@@ -8,13 +8,13 @@ public class ContactData {
   private final String address;
   private final String email;
 
-  public ContactData(String firstName, String secondName, String nickName, String group, String address, String email) {
+  public ContactData(String firstName, String secondName, String nickName, String address, String email, String group) {
     this.firstName = firstName;
     this.secondName = secondName;
     this.nickName = nickName;
-    this.group = group;
     this.address = address;
     this.email = email;
+    this.group = group;
   }
 
   public String getFirstName() {
