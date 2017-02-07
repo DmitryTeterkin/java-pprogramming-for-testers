@@ -1,4 +1,4 @@
-package workbook.secondExercise;
+package workbook;
 
 // создаем запускаемый класс segmentLength для отображения результатов вычисления расстояния между точками.
 public class segmentLength {

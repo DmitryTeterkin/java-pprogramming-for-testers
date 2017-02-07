@@ -1,9 +1,8 @@
-package workbook.firstExercise;
+package workbook;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.awt.geom.Area;
+import workbook.Square;
 
 /**
  * Created by Dmitry on 25.01.2017.

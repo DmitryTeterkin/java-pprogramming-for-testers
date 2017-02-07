@@ -1,4 +1,4 @@
-package workbook.firstExercise;
+package workbook;
 
 public class HelloWorld {
 

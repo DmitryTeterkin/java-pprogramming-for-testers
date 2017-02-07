@@ -1,7 +1,8 @@
-package workbook.secondExercise;
+package workbook;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import workbook.Point;
 
 /**
  * Created by dteterkin on 25.01.2017.

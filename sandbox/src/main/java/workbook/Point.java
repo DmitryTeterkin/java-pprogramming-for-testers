@@ -1,4 +1,4 @@
-package workbook.secondExercise;
+package workbook;
 
 /**
  *
