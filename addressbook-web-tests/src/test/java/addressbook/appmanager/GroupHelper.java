@@ -59,8 +59,13 @@ public class GroupHelper extends HelperBase {
     submitGroupCreation();
     returnToGroupPage();
   }
-
+// метод который выбирает группу по чекбоксу
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
+  }
+
+  // метод, который считает количество групп по количеству чекбоксов
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }

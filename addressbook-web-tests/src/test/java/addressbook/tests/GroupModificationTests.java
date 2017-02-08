@@ -14,6 +14,7 @@ public class GroupModificationTests extends TestBase {
     if (! app.getGroupHelper().isThereAGroup()){
       app.getGroupHelper().createGroup(new GroupData("test1", "test1", "test2"));
     }
+    //
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().initGroupModification();
 // оставляем дефолтные поля при изменении группы
