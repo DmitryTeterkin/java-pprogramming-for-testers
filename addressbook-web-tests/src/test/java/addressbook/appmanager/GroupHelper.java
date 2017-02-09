@@ -3,7 +3,10 @@ package addressbook.appmanager;
 import addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GroupHelper extends HelperBase {
@@ -40,15 +43,15 @@ public class GroupHelper extends HelperBase {
   }
 
   // выбор группы
-  public void selectGroup() {
-    click(By.name("selected[]"));
+  public void selectGroup(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click(); // выбираем по какому элементу (номеру элемента) нам нужно кликнуть
   }
 
   // нажатие кнопки редактирования группы
   public void initGroupModification() {
     click(By.name("edit"));
   }
-
+// подтверждение изменения группы
   public void submitGroupModification() {
     click(By.name("update"));
   }
@@ -59,7 +62,7 @@ public class GroupHelper extends HelperBase {
     submitGroupCreation();
     returnToGroupPage();
   }
-// метод который выбирает группу по чекбоксу
+// метод который определяет, есть ли группа по чекбоксу
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -67,5 +70,17 @@ public class GroupHelper extends HelperBase {
   // метод, который считает количество групп по количеству чекбоксов
   public int getGroupCount() {
     return wd.findElements(By.name("selected[]")).size();
+  }
+
+  // метод получения списка групп через множество
+  public List<GroupData> getGroupList() {
+    List<GroupData> groups = new ArrayList<GroupData>();                              // определяем множество элементов
+    List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
+    for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
+    String name = element.getText();                                                                                    // из каждого элемента получаем текст - имя группы
+    GroupData group = new GroupData(name, null, null);                                                    // создаем объект типа групдата
+    groups.add (group);                                                                                                 //добавляем созданный объект в список
+    }
+    return groups;
   }
 }
