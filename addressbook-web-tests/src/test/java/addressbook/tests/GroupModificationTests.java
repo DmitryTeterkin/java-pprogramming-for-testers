@@ -4,6 +4,7 @@ import addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -21,12 +22,17 @@ public class GroupModificationTests extends TestBase {
     //int before = app.getGroupHelper().getGroupCount(); // считаем количество групп до добавления
     app.getGroupHelper().selectGroup(before.size() - 1);// выбираем для модификации последнюю группу
     app.getGroupHelper().initGroupModification();
-// оставляем дефолтные поля при изменении группы
-    app.getGroupHelper().fillGroupForm(new GroupData("test5", null, null));
-        app.getGroupHelper().submitGroupModification();
+
+    GroupData group = new GroupData(before.get(before.size() - 1).getId(),"test2", "test6", "test7");
+    app.getGroupHelper().fillGroupForm(group);
+    app.getGroupHelper().submitGroupModification();
     app.getGroupHelper().returnToGroupPage();
     List<GroupData> after = app.getGroupHelper().getGroupList(); // построение списка групп после добавления новой группы
    // int after = app.getGroupHelper().getGroupCount(); // считаем количество групп после изменения группы
     Assert.assertEquals(after.size(), before.size()); // сравнение количества групп до и после изменения группы
+
+    before.remove(before.size() - 1);
+    before.add(group);
+    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
   }
 }
