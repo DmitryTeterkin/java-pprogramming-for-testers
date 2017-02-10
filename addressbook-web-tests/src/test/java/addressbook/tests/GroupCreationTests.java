@@ -3,6 +3,8 @@ package addressbook.tests;
 import addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -18,9 +20,10 @@ public class GroupCreationTests extends TestBase {
     Assert.assertEquals(after.size(), before.size() + 1); // сравнение количества групп до и после добавления новой группы
 
 // поиск группы с максимальным идентификатором с помощью потоков
-    group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
     before.add(group); // добавление в коллекцию "до" новой созданной группы
-    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after)); // сравнение двух коллекций групп
-
+    Comparator<? super GroupData> byId = Comparator.comparingInt(GroupData::getId);
+    before.sort(byId);
+    after.sort(byId);
+    Assert.assertEquals(before, after);
   }
 }
