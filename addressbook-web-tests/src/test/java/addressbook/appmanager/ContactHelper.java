@@ -3,8 +3,12 @@ package addressbook.appmanager;
 import addressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ContactHelper extends HelperBase {
@@ -38,8 +42,6 @@ public class ContactHelper extends HelperBase {
   // выбор контакта для изменения или удаления
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
-   // wd.findElement(By.name("selected[]")).click();
-
   }
 
   // подтверждение изменения контакта
@@ -72,5 +74,17 @@ public class ContactHelper extends HelperBase {
   //
   public int getContactsCount() {
    return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
+    for (WebElement element : elements){
+      String name = element.getText(); // здесь явно нужно искать не по гет текст.
+      String secondName = element.getText(); // здесь явно нужно искать не по гет текст.
+      ContactData contact = new ContactData(name, secondName, null, null, null, null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }
