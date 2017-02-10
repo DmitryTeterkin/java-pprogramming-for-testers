@@ -36,8 +36,9 @@ public class ContactHelper extends HelperBase {
   }
 
   // выбор контакта для изменения или удаления
-  public void selectContact() {
-    wd.findElement(By.name("selected[]")).click();
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
+   // wd.findElement(By.name("selected[]")).click();
 
   }
 

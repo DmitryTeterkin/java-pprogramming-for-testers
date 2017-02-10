@@ -18,7 +18,7 @@ public class ContactModificationTests extends TestBase {
       app.getNavigationHelper().gotoHomePage();
     }
     int before = app.getContactHelper().getContactsCount(); // считаем количество контактов на странице
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before - 1);
     app.getContactHelper().gotoEditContact();
     app.getContactHelper().fillContactForm(new ContactData("petro1111", "petrov", null, "testovii address44444","test@test.com555555", "test3"), false);
     app.getContactHelper().submitContactModification();
