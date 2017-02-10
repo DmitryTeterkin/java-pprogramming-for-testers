@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 
 public class HelperBase {
@@ -50,4 +53,10 @@ public class HelperBase {
       return false;
     }
   }
+  public void waitpresenceOf(String name) {
+
+    WebDriverWait wait = new WebDriverWait(wd, 10);
+    wait.until(presenceOfElementLocated(By.name(name)));
+  }
+
 }
