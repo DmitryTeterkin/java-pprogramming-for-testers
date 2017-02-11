@@ -41,12 +41,13 @@ public class ContactHelper extends HelperBase {
 
   // выбор контакта для изменения или удаления
   public void selectContact(int index) {
+
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   // подтверждение изменения контакта
   public void submitContactModification() {
-    click(By.name("update"));
+    wd.findElement(By.name("update")).click();
   }
 
   // клик на редактировании контакта
@@ -84,8 +85,7 @@ public class ContactHelper extends HelperBase {
     for (int i = 1; i <= getContactsCount() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
-     // int id = Integer.parseInt(wd.findElement(By.tagName("id")).getAttribute("value")); // находим id по имени input и атрибуту имени value
-     int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getText()); // находим id по хпасс
+      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс имени value
       ContactData contact = new ContactData(id, name, secondName, null, null, null, null);
       contacts.add(contact);
     }

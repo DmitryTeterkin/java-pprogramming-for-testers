@@ -10,7 +10,7 @@ public class ContactData {
   private final String email;
   // конструктор без ID
   public ContactData(String firstName, String secondName, String nickName, String address, String email, String group) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.firstName = firstName;
     this.secondName = secondName;
     this.nickName = nickName;
