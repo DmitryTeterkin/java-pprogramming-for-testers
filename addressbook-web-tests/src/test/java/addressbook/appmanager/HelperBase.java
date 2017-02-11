@@ -55,7 +55,7 @@ public class HelperBase {
   }
   public void waitpresenceOf(String name) {
 
-    WebDriverWait wait = new WebDriverWait(wd, 10);
+    WebDriverWait wait = new WebDriverWait(wd, 2);
     wait.until(presenceOfElementLocated(By.name(name)));
   }
 

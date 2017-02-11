@@ -4,6 +4,8 @@ import addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 
 public class ContactModificationTests extends TestBase {
 
@@ -17,13 +19,13 @@ public class ContactModificationTests extends TestBase {
       app.getContactHelper().createContact(new ContactData("petro", "petrov", "NiKnAmE", "testovii address", "test@test.com", "[none]"), true);
       app.getNavigationHelper().gotoHomePage();
     }
-    int before = app.getContactHelper().getContactsCount(); // считаем количество контактов на странице
-    app.getContactHelper().selectContact(before - 1);
+    List<ContactData> before = app.getContactHelper().getContactList(); // создаем список контактов до изменения
+    app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().gotoEditContact();
     app.getContactHelper().fillContactForm(new ContactData("petro1111", "petrov", null, "testovii address44444","test@test.com555555", "test3"), false);
     app.getContactHelper().submitContactModification();
     app.getNavigationHelper().returnToContactList();
-    int after = app.getContactHelper().getContactsCount(); // считаем количество контактов после изменения контакта
-    Assert.assertEquals(after, before); // сравниваем количество контактов до и после изменения
+    List<ContactData> after = app.getContactHelper().getContactList(); // создаем список контактов после изменения
+    Assert.assertEquals(after.size(), before.size()); // сравниваем размеры списков до и после изменения
   }
 }

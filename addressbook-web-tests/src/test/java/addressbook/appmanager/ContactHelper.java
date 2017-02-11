@@ -71,17 +71,19 @@ public class ContactHelper extends HelperBase {
     return isElementPresent((By.name("selected[]")));
   }
 
-  //
+  // считаем количество контактов по элементу selected
   public int getContactsCount() {
    return wd.findElements(By.name("selected[]")).size();
   }
 
+  // создаем список контактов в цикле
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
-    List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
-    for (WebElement element : elements){
-      String name = element.getText(); // здесь явно нужно искать не по гет текст.
-      String secondName = element.getText(); // здесь явно нужно искать не по гет текст.
+    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+
+    for (int i = 1; i <= getContactsCount() ; i++){
+      String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
+      String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
       ContactData contact = new ContactData(name, secondName, null, null, null, null);
       contacts.add(contact);
     }
