@@ -39,7 +39,7 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  // выбор контакта для изменения или удаления
+  // выбор определенного контакта для изменения или удаления
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
@@ -49,9 +49,9 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  // клик на редактировании контакта
-  public void gotoEditContact() {
-    wd.findElement(By.xpath("(//img[@alt='Edit'])[1]")).click();
+  // клик на редактировании определенного контакта
+  public void gotoEditContact(int index) {
+    wd.findElement(By.xpath("(//img[@alt='Edit'])["+index+"]")).click();
   }
 
   // удаление контакта
