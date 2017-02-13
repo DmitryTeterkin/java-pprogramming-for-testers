@@ -85,7 +85,7 @@ public class ContactHelper extends HelperBase {
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
      // String id = wd.findElement(By.tagName("input")).getAttribute("value"); // находим id по имени input и атрибуту имени value
-      String id = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id"); // находим id по хпасс
+      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
       ContactData contact = new ContactData(id, name, secondName, null, null, null, null);
       contacts.add(contact);
     }

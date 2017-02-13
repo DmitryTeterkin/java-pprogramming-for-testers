@@ -1,7 +1,7 @@
 package addressbook.model;
 
 public class ContactData {
-  private final String id;
+  private int id;
   private final String firstName;
   private final String secondName;
   private final String nickName;
@@ -10,7 +10,7 @@ public class ContactData {
   private final String email;
   // конструктор без ID
   public ContactData(String firstName, String secondName, String nickName, String address, String email, String group) {
-    this.id = null;
+    this.id = 0;
     this.firstName = firstName;
     this.secondName = secondName;
     this.nickName = nickName;
@@ -19,7 +19,7 @@ public class ContactData {
     this.group = group;
   }
 
-  public ContactData(String id, String firstName, String secondName, String nickName, String address, String email, String group) {
+  public ContactData(int id, String firstName, String secondName, String nickName, String address, String email, String group) {
     this.id = id;
     this.firstName = firstName;
     this.secondName = secondName;
@@ -29,7 +29,11 @@ public class ContactData {
     this.group = group;
   }
 
-  public String getId() {
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public int getId() {
     return id;
   }
 
@@ -73,14 +77,14 @@ public class ContactData {
 
     ContactData that = (ContactData) o;
 
-    if (id != null ? !id.equals(that.id) : that.id != null) return false;
+    if (id != that.id) return false;
     if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
     return secondName != null ? secondName.equals(that.secondName) : that.secondName == null;
   }
 
   @Override
   public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
+    int result = id;
     result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
     result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
     return result;
