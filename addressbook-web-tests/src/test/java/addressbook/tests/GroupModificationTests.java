@@ -1,10 +1,12 @@
 package addressbook.tests;
 
 import addressbook.model.GroupData;
-import org.testng.Assert;
+import addressbook.model.Groups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 
 public class GroupModificationTests extends TestBase {
@@ -22,7 +24,7 @@ public class GroupModificationTests extends TestBase {
 
   @Test
   public void testGroupModification () {
-    Set<GroupData> before = app.group().all(); // построение списка групп до добавления новой группы
+    Groups before = app.group().all(); // построение списка групп до добавления новой группы
     GroupData modifiedGroup = before.iterator().next();
     GroupData group = new GroupData()
             .withId(modifiedGroup.getId())
@@ -30,12 +32,10 @@ public class GroupModificationTests extends TestBase {
             .withHeader("test6")
             .withFooter("test7");
     app.group().modify(group); // вызываем метод для модификации группы
-    Set<GroupData> after = app.group().all(); // построение списка групп после добавления новой группы
-    Assert.assertEquals(after.size(), before.size()); // сравнение количества групп до и после изменения группы
+    Groups after = app.group().all(); // построение списка групп после добавления новой группы
+    assertEquals(after.size(), before.size()); // сравнение количества групп до и после изменения группы
 
-    before.remove(modifiedGroup);
-    before.add(group);
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
   }
 
 }

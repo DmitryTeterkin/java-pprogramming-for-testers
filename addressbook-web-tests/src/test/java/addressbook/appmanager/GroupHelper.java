@@ -1,6 +1,7 @@
 package addressbook.appmanager;
 
 import addressbook.model.GroupData;
+import addressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,8 +92,8 @@ public class GroupHelper extends HelperBase {
   }
 
  // метод, который возвращает множество
-  public Set<GroupData> all() {
-    Set<GroupData> groups = new HashSet<GroupData>();                              // определяем множество элементов
+  public Groups all() {
+    Groups groups = new Groups();                              // определяем множество элементов
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
     for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
       String name = element.getText();     // из каждого элемента получаем текст - имя группы
