@@ -43,7 +43,7 @@ public class ContactHelper extends HelperBase {
   // метод изменения контакта
   public void modify(ContactData contact) {
     selectContactById(contact.getId()); // выбор последнего контакта в списке дл редактирования
-    gotoEditContact(contact.getId() + 1); // нажатие на Edit для последнего контакта в списке
+    gotoEditContact(contact.getId()); // нажатие на Edit для последнего контакта в списке
     fillContactForm(contact, false);
     submitContactModification();
   }
