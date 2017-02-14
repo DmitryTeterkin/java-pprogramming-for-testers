@@ -1,10 +1,12 @@
 package addressbook.tests;
 
 import addressbook.model.ContactData;
-import org.testng.Assert;
+import addressbook.model.Contacts;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 
 public class ContactModificationTests extends TestBase {
@@ -25,19 +27,17 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void testContactModification() {
 
-    Set<ContactData> before = app.contact().all(); // создаем список контактов до изменения
+    Contacts before = app.contact().all(); // создаем список контактов до изменения
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstName("ivan")
             .withSecondName("ivanov").withAddress("testovii address44444")
             .withEmail("test@test.com555555").withGroup("test3");
     app.contact().modify(contact); // метод модификации контакта
     app.goTo().homePage();
-    Set<ContactData> after = app.contact().all(); // создаем список контактов после изменения
-    Assert.assertEquals(after.size(), before.size()); // сравниваем размеры списков до и после изменения
+    Contacts after = app.contact().all(); // создаем список контактов после изменения
 
-    before.remove(modifiedContact); // удаляем из списка before изменяемый контакт (последний)
-    before.add(contact); // добавляем в список before контакт с измененными атрибутами
-    Assert.assertEquals(before, after); // сравнивание списков, преобразованных в неотсортированные множества
+    assertEquals(after.size(), before.size()); // сравниваем размеры списков до и после изменения
+    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
 

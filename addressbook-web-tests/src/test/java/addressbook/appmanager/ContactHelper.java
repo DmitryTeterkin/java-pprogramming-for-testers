@@ -1,6 +1,7 @@
 package addressbook.appmanager;
 
 import addressbook.model.ContactData;
+import addressbook.model.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,7 @@ public class ContactHelper extends HelperBase {
     super (wd);
   }
 
-  // подтверждение создания контакта
+   // подтверждение создания контакта
   public void submitContactCreation() {
     click(By.name("submit"));
   }
@@ -86,8 +87,8 @@ public class ContactHelper extends HelperBase {
   }
 
   // создаем список контактов множеством
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for (int i = 1; i <= getContactsCount() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс

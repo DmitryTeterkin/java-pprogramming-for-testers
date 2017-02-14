@@ -35,7 +35,7 @@ public class GroupModificationTests extends TestBase {
     Groups after = app.group().all(); // построение списка групп после добавления новой группы
     assertEquals(after.size(), before.size()); // сравнение количества групп до и после изменения группы
 
-    assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
+    assertThat(after, equalTo(before.without(modifiedGroup).withAdded(group)));
   }
 
 }
