@@ -39,14 +39,14 @@ public class ContactHelper extends HelperBase {
   }
 
   // метод изменения контакта
-  public void modifyContact(int index, ContactData contact) {
-    selectContact(index); // выбор последнего контакта в списке дл редактирования
+  public void modify(int index, ContactData contact) {
+    select(index); // выбор последнего контакта в списке дл редактирования
     gotoEditContact(index + 1); // нажатие на Edit для последнего контакта в списке
     fillContactForm(contact, false);
     submitContactModification();
   }
   // выбор определенного контакта для изменения или удаления
-  public void selectContact(int index) {
+  public void select(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
@@ -61,12 +61,12 @@ public class ContactHelper extends HelperBase {
   }
 
   // удаление контакта
-  public void deletionContact() {
+  public void deletion() {
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
     wd.switchTo().alert().accept();
   }
 
-  public void createContact(ContactData contact, boolean creation) {
+  public void create(ContactData contact, boolean creation) {
 
     fillContactForm(contact, true);
     submitContactCreation();
@@ -83,7 +83,7 @@ public class ContactHelper extends HelperBase {
   }
 
   // создаем список контактов в цикле
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for (int i = 1; i <= getContactsCount() ; i++){

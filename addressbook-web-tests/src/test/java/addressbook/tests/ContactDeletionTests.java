@@ -14,12 +14,12 @@ public class ContactDeletionTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions () { // проверка предусловий теста
-    app.getNavigationHelper().gotoHomePage();
+    app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getNavigationHelper().gotoContactEditorPage();
-      app.getContactHelper().createContact(new ContactData("petro", "petrov", "NiKnAmE", "testovii address", "test@test.com", "[none]"), true);
-      app.getNavigationHelper().gotoHomePage();
+    if (app.contact().list().size() == 0) {
+      app.goTo().editorPage();
+      app.contact().create(new ContactData("petro", "petrov", "NiKnAmE", "testovii address", "test@test.com", "[none]"), true);
+      app.goTo().homePage();
     }
   }
 
@@ -27,11 +27,11 @@ public class ContactDeletionTests extends TestBase {
   @Test
   public void testContactDeletion() {
 
-    List<ContactData> before = app.getContactHelper().getContactList(); // создаем список контактов до удаления
-    app.getContactHelper().selectContact(before.size() - 1);
-    app.getContactHelper().deletionContact();
-    app.getNavigationHelper().gotoHomePage();
-    List<ContactData> after = app.getContactHelper().getContactList(); // создаем список контактов после удаления
+    List<ContactData> before = app.contact().list(); // создаем список контактов до удаления
+    app.contact().select(before.size() - 1);
+    app.contact().deletion();
+    app.goTo().homePage();
+    List<ContactData> after = app.contact().list(); // создаем список контактов после удаления
     Assert.assertEquals(after.size(), before.size() - 1); // сравниваем количество контактов до и после удаления
 
     before.remove(before.size() - 1);

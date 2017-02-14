@@ -58,7 +58,7 @@ public class GroupHelper extends HelperBase {
   }
 
   // метод создания группы
-  public void createGroup(GroupData group) {
+  public void create(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
@@ -66,11 +66,18 @@ public class GroupHelper extends HelperBase {
   }
 
   // метод модификации группы
-  public void modifyGroup(int index, GroupData group) {
+  public void modify(int index, GroupData group) {
     selectGroup(index);// выбираем для модификации последнюю группу
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
+    returnToGroupPage();
+  }
+
+  // метод удаления группы
+  public void delete(int index) {
+    selectGroup(index); // выбираем для удаления последнюю группу
+    deleteSelectedGroups();
     returnToGroupPage();
   }
 
@@ -85,7 +92,7 @@ public class GroupHelper extends HelperBase {
   }
 
   // метод получения списка групп через множество
-  public List<GroupData> getGroupList() {
+  public List<GroupData> list() {
     List<GroupData> groups = new ArrayList<GroupData>();                              // определяем множество элементов
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
     for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
