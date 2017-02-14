@@ -4,9 +4,9 @@ import addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class GroupHelper extends HelperBase {
@@ -42,11 +42,10 @@ public class GroupHelper extends HelperBase {
     click(By.name("delete"));
   }
 
-  // выбор группы
-  public void selectGroup(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click(); // выбираем по какому элементу (номеру элемента) нам нужно кликнуть
+   // выбор группы по Id
+  public void selectGroupById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click(); // выбираем по какому элементу (номеру элемента) нам нужно кликнуть
   }
-
   // нажатие кнопки редактирования группы
   public void initGroupModification() {
     click(By.name("edit"));
@@ -66,17 +65,17 @@ public class GroupHelper extends HelperBase {
   }
 
   // метод модификации группы
-  public void modify(int index, GroupData group) {
-    selectGroup(index);// выбираем для модификации последнюю группу
+  public void modify(GroupData group) {
+    selectGroupById(group.getId());// выбираем для модификации последнюю группу
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
     returnToGroupPage();
   }
 
-  // метод удаления группы
-  public void delete(int index) {
-    selectGroup(index); // выбираем для удаления последнюю группу
+  // метод удаления группы (новый)
+  public void delete(GroupData group) {
+    selectGroupById(group.getId()); // выбираем для удаления последнюю группу
     deleteSelectedGroups();
     returnToGroupPage();
   }
@@ -91,14 +90,14 @@ public class GroupHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  // метод получения списка групп через множество
-  public List<GroupData> list() {
-    List<GroupData> groups = new ArrayList<GroupData>();                              // определяем множество элементов
+ // метод, который возвращает множество
+  public Set<GroupData> all() {
+    Set<GroupData> groups = new HashSet<GroupData>();                              // определяем множество элементов
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
     for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
-    String name = element.getText();     // из каждого элемента получаем текст - имя группы
-    int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-    groups.add (new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
+      String name = element.getText();     // из каждого элемента получаем текст - имя группы
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      groups.add (new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
     }
     return groups;
   }

@@ -2,12 +2,12 @@ package addressbook.model;
 
 public class ContactData {
   private int id = Integer.MAX_VALUE;
-  private  String firstName;
-  private  String secondName;
-  private  String nickName;
-  private  String group;
-  private  String address;
-  private  String email;
+  private String firstName;
+  private String secondName;
+  private String nickName;
+  private String group;
+  private String address;
+  private String email;
 
   // setters
   public ContactData withId(int id) {
