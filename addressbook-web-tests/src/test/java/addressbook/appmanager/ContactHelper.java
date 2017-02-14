@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  // заполнение контакта
+  // метод заполнения контакта
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName());
     type(By.name("lastname"), contactData.getSecondName());
@@ -39,6 +38,13 @@ public class ContactHelper extends HelperBase {
     }
   }
 
+  // метод изменения контакта
+  public void modifyContact(int index, ContactData contact) {
+    selectContact(index); // выбор последнего контакта в списке дл редактирования
+    gotoEditContact(index + 1); // нажатие на Edit для последнего контакта в списке
+    fillContactForm(contact, false);
+    submitContactModification();
+  }
   // выбор определенного контакта для изменения или удаления
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
@@ -80,7 +86,6 @@ public class ContactHelper extends HelperBase {
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
-
     for (int i = 1; i <= getContactsCount() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс

@@ -51,17 +51,29 @@ public class GroupHelper extends HelperBase {
   public void initGroupModification() {
     click(By.name("edit"));
   }
-// подтверждение изменения группы
+
+  // подтверждение изменения группы
   public void submitGroupModification() {
     click(By.name("update"));
   }
 
+  // метод создания группы
   public void createGroup(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
     returnToGroupPage();
   }
+
+  // метод модификации группы
+  public void modifyGroup(int index, GroupData group) {
+    selectGroup(index);// выбираем для модификации последнюю группу
+    initGroupModification();
+    fillGroupForm(group);
+    submitGroupModification();
+    returnToGroupPage();
+  }
+
 // метод который определяет, есть ли группа по чекбоксу
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
