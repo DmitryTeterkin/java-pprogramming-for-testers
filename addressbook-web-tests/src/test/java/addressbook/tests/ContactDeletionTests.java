@@ -18,7 +18,10 @@ public class ContactDeletionTests extends TestBase {
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().list().size() == 0) {
       app.goTo().editorPage();
-      app.contact().create(new ContactData("petro", "petrov", "NiKnAmE", "testovii address", "test@test.com", "[none]"), true);
+      app.contact().create(new ContactData()
+              .withFirstName("petro").withSecondName("petrov").withNickName("NiKnAmE")
+              .withAddress("testovii address").withEmail("test@test.com")
+              .withGroup("[none]"), true);
       app.goTo().homePage();
     }
   }

@@ -1,38 +1,51 @@
 package addressbook.model;
 
 public class ContactData {
-  private int id;
-  private final String firstName;
-  private final String secondName;
-  private final String nickName;
-  private final String group;
-  private final String address;
-  private final String email;
-  // конструктор без ID
-  public ContactData(String firstName, String secondName, String nickName, String address, String email, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstName = firstName;
-    this.secondName = secondName;
-    this.nickName = nickName;
-    this.address = address;
-    this.email = email;
-    this.group = group;
-  }
+  private int id = Integer.MAX_VALUE;
+  private  String firstName;
+  private  String secondName;
+  private  String nickName;
+  private  String group;
+  private  String address;
+  private  String email;
 
-  public ContactData(int id, String firstName, String secondName, String nickName, String address, String email, String group) {
+  // setters
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstName(String firstName) {
     this.firstName = firstName;
+    return this;
+  }
+
+  public ContactData withSecondName(String secondName) {
     this.secondName = secondName;
+    return this;
+  }
+
+  public ContactData withNickName(String nickName) {
     this.nickName = nickName;
-    this.address = address;
-    this.email = email;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
     this.group = group;
+    return this;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
   }
 
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  // getters
   public int getId() {
     return id;
   }
