@@ -15,7 +15,7 @@ public class GroupDeletionTests extends TestBase {
     //  Наличие группы перед ее модификацией
     app.goTo().groupPage();            // переход на страницу со списокм групп
     if (app.group().list().size() == 0){          // проверка на наличие группы, и если ее нет, то создаем новую группу.
-      app.group().create(new GroupData("test1", "test1", "test2")); // заполняем новую группу
+      app.group().create(new GroupData().withName("test1")); // заполняем новую группу
     }
   }
 

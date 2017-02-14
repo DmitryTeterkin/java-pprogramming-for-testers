@@ -17,7 +17,7 @@ public class GroupModificationTests extends TestBase {
                                                           //  Наличие группы перед ее модификацией
     app.goTo().groupPage();            // переход на страницу со списокм групп
     if (app.group().list().size() == 0){          // проверка на наличие группы, и если ее нет, то создаем новую группу.
-      app.group().create(new GroupData("test1", "test1", "test2")); // заполняем новую группу
+      app.group().create(new GroupData().withName("test1")); // заполняем новую группу
     }
   }
 
@@ -26,7 +26,11 @@ public class GroupModificationTests extends TestBase {
   public void testGroupModification () {
     List<GroupData> before = app.group().list(); // построение списка групп до добавления новой группы
     int index = before.size() - 1; // локальная переменная для упрощения кода
-    GroupData group = new GroupData(before.get(index).getId(),"test2", "test6", "test7");
+    GroupData group = new GroupData()
+            .withId(before.get(index).getId())
+            .withName("test2")
+            .withHeader("test6")
+            .withFooter("test7");
     app.group().modify(index, group); // вызываем метод для модификации группы
     List<GroupData> after = app.group().list(); // построение списка групп после добавления новой группы
     Assert.assertEquals(after.size(), before.size()); // сравнение количества групп до и после изменения группы
