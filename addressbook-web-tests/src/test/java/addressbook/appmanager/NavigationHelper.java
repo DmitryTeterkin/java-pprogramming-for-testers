@@ -21,14 +21,6 @@ public class NavigationHelper extends HelperBase {
     }
     click(By.linkText("groups"));
   }
-  // возврат на страницу контактов
-  public void returnToContactList() {
-
-    if (isElementPresent(By.linkText("home page"))) {
-      click(By.linkText("home page"));
-    }
-  }
-
 
     // переход на страницу создания контакта
   public void editorPage() {

@@ -48,11 +48,6 @@ public class ContactHelper extends HelperBase {
     submitContactModification();
   }
 
-  // выбор определенного контакта для изменения или удаления
-  public void select(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
-  }
-
   // выбор определенного контакта по Id
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[id ='" + id + "']")).click();
@@ -63,16 +58,11 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  // клик на редактировании определенного контакта
+  // клик на редактировании выбранного контакта ищем элемент Edit в строке контакта с определенным ID
   public void gotoEditContact(int index) {
-    wd.findElement(By.xpath("(//img[@alt='Edit'])["+index+"]")).click();
+    wd.findElement(By.xpath(".//*[@id='maintable']/tbody/tr[td//*[@id='" + index + "']]//*[@title='Edit']")).click();
   }
 
-  // удаление контакта старый
-  public void delete() {
-    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
-    wd.switchTo().alert().accept();
-  }
   // удаление контакта новый
   public void delete(ContactData сontact) {
     selectContactById(сontact.getId());
@@ -95,20 +85,6 @@ public class ContactHelper extends HelperBase {
    return wd.findElements(By.name("selected[]")).size();
   }
 
-  // создаем список контактов в цикле
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
-    List<WebElement> elements = wd.findElements(By.name("selected[]"));
-    for (int i = 1; i <= getContactsCount() ; i++){
-      String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
-      String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
-     // String id = wd.findElement(By.tagName("input")).getAttribute("value"); // находим id по имени input и атрибуту имени value
-      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
-      ContactData contact = new ContactData().withId(id).withFirstName(name).withSecondName(secondName);
-      contacts.add(contact);
-    }
-    return contacts;
-  }
   // создаем список контактов множеством
   public Set<ContactData> all() {
     Set<ContactData> contacts = new HashSet<ContactData>();

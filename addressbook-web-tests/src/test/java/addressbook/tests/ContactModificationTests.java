@@ -4,8 +4,6 @@ import addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 
@@ -15,7 +13,7 @@ public class ContactModificationTests extends TestBase {
    public void ensurePreconditions () { // проверка предусловий теста
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
-    if (app.contact().list().size() == 0) {
+    if (app.contact().all().size() == 0) {
       app.goTo().editorPage();
       app.contact().create(new ContactData().withFirstName("petro").withSecondName("petrov")
               .withNickName("NiKnAmE").withAddress("testovii address")
