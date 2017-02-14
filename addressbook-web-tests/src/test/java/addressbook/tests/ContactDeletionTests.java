@@ -5,9 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-
+import java.util.Set;
 
 
 public class ContactDeletionTests extends TestBase {
@@ -30,15 +28,14 @@ public class ContactDeletionTests extends TestBase {
   @Test
   public void testContactDeletion() {
 
-    List<ContactData> before = app.contact().list(); // создаем список контактов до удаления
-    app.contact().select(before.size() - 1);
-    app.contact().deletion();
+    Set<ContactData> before = app.contact().all(); // создаем список контактов до удаления
+    ContactData deletedContact = before.iterator().next();
+    app.contact().delete(deletedContact);
     app.goTo().homePage();
-    List<ContactData> after = app.contact().list(); // создаем список контактов после удаления
+    Set<ContactData> after = app.contact().all(); // создаем список контактов после удаления
     Assert.assertEquals(after.size(), before.size() - 1); // сравниваем количество контактов до и после удаления
 
-    before.remove(before.size() - 1);
+    before.remove(deletedContact);
     Assert.assertEquals(before, after); // сравнение двух списков как списков, а не по количеству контактов.
-
   }
 }

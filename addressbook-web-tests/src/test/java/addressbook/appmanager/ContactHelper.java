@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -39,15 +41,21 @@ public class ContactHelper extends HelperBase {
   }
 
   // метод изменения контакта
-  public void modify(int index, ContactData contact) {
-    select(index); // выбор последнего контакта в списке дл редактирования
-    gotoEditContact(index + 1); // нажатие на Edit для последнего контакта в списке
+  public void modify(ContactData contact) {
+    selectContactById(contact.getId()); // выбор последнего контакта в списке дл редактирования
+    gotoEditContact(contact.getId() + 1); // нажатие на Edit для последнего контакта в списке
     fillContactForm(contact, false);
     submitContactModification();
   }
+
   // выбор определенного контакта для изменения или удаления
   public void select(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
+  }
+
+  // выбор определенного контакта по Id
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[id ='" + id + "']")).click();
   }
 
   // подтверждение изменения контакта
@@ -60,12 +68,17 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath("(//img[@alt='Edit'])["+index+"]")).click();
   }
 
-  // удаление контакта
-  public void deletion() {
+  // удаление контакта старый
+  public void delete() {
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
     wd.switchTo().alert().accept();
   }
-
+  // удаление контакта новый
+  public void delete(ContactData сontact) {
+    selectContactById(сontact.getId());
+    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+    wd.switchTo().alert().accept();
+  }
   public void create(ContactData contact, boolean creation) {
 
     fillContactForm(contact, true);
@@ -96,4 +109,17 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+  // создаем список контактов множеством
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+    for (int i = 1; i <= getContactsCount() ; i++){
+      String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
+      String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
+      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
+      contacts.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName));
+    }
+    return contacts;
+  }
+
 }
