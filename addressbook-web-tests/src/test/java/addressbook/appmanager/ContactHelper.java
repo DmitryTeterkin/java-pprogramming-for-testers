@@ -7,10 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -84,7 +82,7 @@ public class ContactHelper extends HelperBase {
   }
 
   // считаем количество контактов по элементу selected
-  public int getContactsCount() {
+  public int count() {
    return wd.findElements(By.name("selected[]")).size();
   }
 
@@ -99,7 +97,7 @@ public class ContactHelper extends HelperBase {
     }
     contactCash = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
-    for (int i = 1; i <= getContactsCount() ; i++){
+    for (int i = 1; i <= count() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
       int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс

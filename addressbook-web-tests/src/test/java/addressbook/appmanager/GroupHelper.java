@@ -90,7 +90,7 @@ public class GroupHelper extends HelperBase {
   }
 
   // метод, который считает количество групп по количеству чекбоксов
-  public int getGroupCount() {
+  public int count() {
     return wd.findElements(By.name("selected[]")).size();
   }
 

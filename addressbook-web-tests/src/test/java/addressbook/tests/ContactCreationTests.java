@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+
 public class ContactCreationTests extends TestBase {
 
 
@@ -19,11 +20,9 @@ public class ContactCreationTests extends TestBase {
             .withAddress("testovii address").withEmail("test@test.com").withGroup("[none]");
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
+    assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
     Contacts after = app.contact().all();
-
-    assertThat(after.size(), equalTo(before.size() + 1)); // сравниваем количество контактов до и после
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
-
   }
 
 }
