@@ -13,7 +13,7 @@ public class GroupCreationTests extends TestBase {
   public void testGroupCreation() {
     app.goTo().groupPage(); // преход на страницу групп
     Groups before = app.group().all(); // построение списка групп до добавления новой группы
-    GroupData group = new GroupData().withName("test1"); // перенос атрибутов новой группы в переменную
+    GroupData group = new GroupData().withName("test1").withFooter("test4").withHeader("test5"); // перенос атрибутов новой группы в переменную
     app.group().create(group);
     Groups after = app.group().all(); // построение списка групп после добавления новой группы
     assertThat(after.size(), equalTo(before.size() + 1)); // сравнение количества групп до и после добавления новой группы

@@ -47,6 +47,7 @@ public class ContactHelper extends HelperBase {
     gotoEditContact(contact.getId()); // нажатие на Edit для последнего контакта в списке
     fillContactForm(contact, false);
     submitContactModification();
+    contactCash = null;
   }
 
   // выбор определенного контакта по Id
@@ -69,12 +70,13 @@ public class ContactHelper extends HelperBase {
     selectContactById(сontact.getId());
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
     wd.switchTo().alert().accept();
+    contactCash = null;
   }
   public void create(ContactData contact, boolean creation) {
 
     fillContactForm(contact, true);
     submitContactCreation();
-
+    contactCash = null;
   }
 
   public boolean isThereAContact() {
@@ -86,17 +88,24 @@ public class ContactHelper extends HelperBase {
    return wd.findElements(By.name("selected[]")).size();
   }
 
+
+  // реализуем кэширование списка контактов, определяем переменную для кэша
+  private Contacts contactCash  = null;
+
   // создаем список контактов множеством
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCash != null) { // проверяем, пустой ли кэш
+      return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
+    }
+    contactCash = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("selected[]"));
     for (int i = 1; i <= getContactsCount() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
       int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
-      contacts.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName));
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName));
     }
-    return contacts;
+    return new Contacts(contactCash);
   }
 
 }

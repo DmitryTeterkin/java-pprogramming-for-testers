@@ -62,6 +62,7 @@ public class GroupHelper extends HelperBase {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
+    groupCash = null; // сбрасываем кэш после создания группы
     returnToGroupPage();
   }
 
@@ -71,6 +72,7 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
+    groupCash = null; // сбрасываем кэш списка групп после изменения группы
     returnToGroupPage();
   }
 
@@ -78,6 +80,7 @@ public class GroupHelper extends HelperBase {
   public void delete(GroupData group) {
     selectGroupById(group.getId()); // выбираем для удаления последнюю группу
     deleteSelectedGroups();
+    groupCash = null; // сбрасываем кэш списка групп после удаления группы
     returnToGroupPage();
   }
 
@@ -91,15 +94,22 @@ public class GroupHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  // реализуем кэширование списка групп, определяем переменную для кэша
+  private Groups groupCash  = null;
+
  // метод, который возвращает множество
   public Groups all() {
-    Groups groups = new Groups();                              // определяем множество элементов
+    if (groupCash != null) { // проверяем, пустой ли кэш
+      return new Groups(groupCash); // возвращаем копию кэша если он не пустой
+    }
+
+    groupCash = new Groups();                              // кэшируем список групп
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
     for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
       String name = element.getText();     // из каждого элемента получаем текст - имя группы
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      groups.add (new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
+      groupCash.add (new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
     }
-    return groups;
+    return new Groups(groupCash); // возвращаем копию кэша
   }
 }
