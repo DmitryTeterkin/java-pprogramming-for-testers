@@ -1,11 +1,8 @@
 package addressbook.tests;
 
 import addressbook.model.ContactData;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -26,16 +23,19 @@ public class ContactPhoneTests extends TestBase {
   }
 
   @Test
-
+// проверяем воответствие телефонов контакта на главной странице и на форме редактирования
   public void testContactPhones() {
     app.goTo().homePage();
-    ContactData contact = app.contact().all().iterator().next();
-    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+    ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка инфы из страницы редактирования контакта
 
-
-    assertThat(contact.getHomePhone(), equalTo(contactInfoFromEditForm.getHomePhone()));
-    assertThat(contact.getMobilePhone(), equalTo(contactInfoFromEditForm.getMobilePhone()));
-    assertThat(contact.getWorkPhone(), equalTo(contactInfoFromEditForm.getWorkPhone()));
+// проверка телефонов контакта
+    assertThat(contact.getHomePhone(), equalTo(cleaned(contactInfoFromEditForm.getHomePhone())));
+    assertThat(contact.getMobilePhone(), equalTo(cleaned(contactInfoFromEditForm.getMobilePhone())));
+    assertThat(contact.getWorkPhone(), equalTo(cleaned(contactInfoFromEditForm.getWorkPhone())));
   }
-
+// функция для замены определенных значений в номере телефона на пусто
+  public String cleaned (String phone){
+    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
+  }
 }
