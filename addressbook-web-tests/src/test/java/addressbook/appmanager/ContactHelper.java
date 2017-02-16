@@ -118,7 +118,9 @@ public class ContactHelper extends HelperBase {
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
       int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
       String[] phones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText().split("\n");
-      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+      String[] emailes = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText().split("\n");
+      String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]).withEmail(emailes[0]).withEmail2(emailes[1]).withEmail3(emailes[2]));
     }
     return new Contacts(contactCash);
   }
@@ -129,10 +131,16 @@ public class ContactHelper extends HelperBase {
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String home =  wd.findElement(By.name("home")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getText();
     String mobile =  wd.findElement(By.name("mobile")).getAttribute("value");
     String work =  wd.findElement(By.name("work")).getAttribute("value");
+    String email =  wd.findElement(By.name("email")).getAttribute("value");
+    String email2 =  wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 =  wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
-    return new ContactData().withId(contact.getId()).withFirstName(firstname).withSecondName(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    return new ContactData().withId(contact.getId())
+            .withFirstName(firstname).withSecondName(lastname).withHomePhone(home).withAddress(address)
+            .withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
 // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
