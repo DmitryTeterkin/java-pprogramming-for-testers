@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class ContactDetailInformationTests extends TestBase {
 
   @BeforeMethod   // проверка предусловий теста
@@ -25,18 +28,19 @@ public class ContactDetailInformationTests extends TestBase {
   public void testContactDetailInformation(){
    app.goTo().homePage();
    ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
-   ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
-   ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы редактирования контакта
- }
+//   нужно найти его данные  и сравнить.
+   ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
+   ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы просмотра контакта
+
+// проверка
+   assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
 
 
-  // метод получения данных со страницы просмотра контакта
-  public ContactData infoFromViewForm(ContactData contact) {
-    initContactViewById(contact.getId());
-    String information = findElement(By.id("content")).getText();
-
-    return new ;
   }
+
+
+
+
 
   // открытие формы просмотра контакта
   private void initContactViewById(int id) {

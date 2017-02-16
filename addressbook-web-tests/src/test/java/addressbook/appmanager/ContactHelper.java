@@ -137,7 +137,7 @@ public class ContactHelper extends HelperBase {
     initContactViewById(contact.getId());
     String information = wd.findElement(By.id("content")).getText();
 
-    return new ;
+    return new ContactData().withInformation(information);
   }
 
   // открытие формы просмотра контакта
