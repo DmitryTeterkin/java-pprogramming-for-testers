@@ -137,7 +137,7 @@ public class ContactHelper extends HelperBase {
 
 // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
   private void initContactModificationById(int id) {
-   wd.findElement(By.cssSelector(String.format("a[edit.php?id=%s]", id))).click();
+   wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
 }
