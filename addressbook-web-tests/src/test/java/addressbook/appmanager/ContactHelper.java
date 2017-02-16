@@ -91,23 +91,7 @@ public class ContactHelper extends HelperBase {
 
   // реализуем кэширование списка контактов, определяем переменную для кэша
   private Contacts contactCash = null;
-/*
-  public Contacts all() {
-    if (contactCash != null) { // проверяем, пустой ли кэш
-      return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
-    }
-    contactCash = new Contacts();
-    List<WebElement> rows = wd.findElements(By.name("selected[]"));
-    for (WebElement row : rows) {
-      List<WebElement> cells = row.findElements(By.tagName("/td"));
-      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
-      String lastname = cells.get(1).getText();
-      String firstname = cells.get(2).getText();
-      contactCash.add(new ContactData().withId(id).withFirstName(firstname).withSecondName(lastname));
-    }
-    return new Contacts(contactCash);
-  }
- */
+
   public Contacts all() {
     if (contactCash != null) { // проверяем, пустой ли кэш
       return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
@@ -117,10 +101,10 @@ public class ContactHelper extends HelperBase {
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
       int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
-      String[] phones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText().split("\n");
-      String[] emailes = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText().split("\n");
+      String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
+      String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
-      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]).withEmail(emailes[0]).withEmail2(emailes[1]).withEmail3(emailes[2]));
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales));
     }
     return new Contacts(contactCash);
   }

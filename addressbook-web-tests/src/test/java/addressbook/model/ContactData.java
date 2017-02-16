@@ -1,6 +1,8 @@
 package addressbook.model;
 
 public class ContactData {
+
+// пременные
   private int id = Integer.MAX_VALUE;
   private String firstName;
   private String secondName;
@@ -13,9 +15,11 @@ public class ContactData {
   private String homePhone;
   private String mobilePhone;
   private String workPhone;
+  private String allPhones;
+  private String allEmales;
 
 
-  // setters
+// setters
   public ContactData withId(int id) {
     this.id = id;
     return this;
@@ -46,6 +50,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withAllEmales(String allEmales) {
+    this.allEmales = allEmales;
+    return this;
+  }
+
   public ContactData withEmail(String email) {
     this.email = email;
     return this;
@@ -56,9 +65,13 @@ public class ContactData {
     return this;
   }
 
-
   public ContactData withEmail3(String email3) {
     this.email3 = email3;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
     return this;
   }
 
@@ -77,7 +90,7 @@ public class ContactData {
     return this;
   }
 
-  // getters
+// getters
   public int getId() {
     return id;
   }
@@ -96,6 +109,10 @@ public class ContactData {
 
   public String getAddress() {
     return address;
+  }
+
+  public String getAllEmales() {
+    return allEmales;
   }
 
   public String getEmail() {
@@ -126,6 +143,10 @@ public class ContactData {
     return workPhone;
   }
 
+  public String getAllPhones() {
+    return allPhones;
+  }
+
 
   @Override
   public String toString() {
@@ -142,6 +163,8 @@ public class ContactData {
             ", homePhone='" + homePhone + '\'' +
             ", mobilePhone='" + mobilePhone + '\'' +
             ", workPhone='" + workPhone + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", allEmales='" + allEmales + '\'' +
             '}';
   }
 
@@ -163,7 +186,9 @@ public class ContactData {
     if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
     if (homePhone != null ? !homePhone.equals(that.homePhone) : that.homePhone != null) return false;
     if (mobilePhone != null ? !mobilePhone.equals(that.mobilePhone) : that.mobilePhone != null) return false;
-    return workPhone != null ? workPhone.equals(that.workPhone) : that.workPhone == null;
+    if (workPhone != null ? !workPhone.equals(that.workPhone) : that.workPhone != null) return false;
+    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
+    return allEmales != null ? allEmales.equals(that.allEmales) : that.allEmales == null;
   }
 
   @Override
@@ -180,6 +205,8 @@ public class ContactData {
     result = 31 * result + (homePhone != null ? homePhone.hashCode() : 0);
     result = 31 * result + (mobilePhone != null ? mobilePhone.hashCode() : 0);
     result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
+    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
+    result = 31 * result + (allEmales != null ? allEmales.hashCode() : 0);
     return result;
   }
 }

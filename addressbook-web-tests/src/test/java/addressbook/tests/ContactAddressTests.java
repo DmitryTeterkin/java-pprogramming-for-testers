@@ -30,12 +30,12 @@ public class ContactAddressTests extends TestBase {
     ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка инфы из страницы редактирования контакта
 
-    // проверка адреса контакта
-    assertThat(cleaned(contact.getAddress()), equalTo(cleaned(contactInfoFromEditForm.getAddress()))); // убираем из адреса символы перехода строк
+    // проверка адреса контакта. При этом чистим данные от пробелов и символов перевода строки
+    assertThat(cleaned(contact.getAddress()), equalTo(cleaned(contactInfoFromEditForm.getAddress())));
   }
 
-  // функция для замены определенных значений в адресе на пробел
+  // убираем из адреса возможные пробелы (которых может быть больше одного) и переход строки
   public String cleaned (String phone){
-    return phone.replaceAll("\n", " ");  // "\n" - символ перехода строки заменяем на пробел
+    return phone.replaceAll("\n", "").replaceAll(" ", "");
   }
 }

@@ -5,8 +5,13 @@ import addressbook.model.ContactData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+
 
 public class ContactEmailTests extends TestBase {
 
@@ -28,10 +33,14 @@ public class ContactEmailTests extends TestBase {
     app.goTo().homePage();
     ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка инфы из страницы редактирования контакта
-    // проверка emails контакта
-    assertThat(contact.getEmail(), equalTo(contactInfoFromEditForm.getEmail()));
-    assertThat(contact.getEmail2(), equalTo(contactInfoFromEditForm.getEmail2()));
-    assertThat(contact.getEmail3(), equalTo(contactInfoFromEditForm.getEmail3()));
+
+// проверка Emails контакта
+    assertThat(contact.getAllEmales(), equalTo(mergeEmails(contactInfoFromEditForm)));
+  }
+
+  private String mergeEmails(ContactData contact) {
+    return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
+            .stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
   }
 
 }

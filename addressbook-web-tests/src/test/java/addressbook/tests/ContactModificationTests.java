@@ -31,9 +31,11 @@ public class ContactModificationTests extends TestBase {
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstName("ivan")
             .withSecondName("ivanov").withAddress("testovii address44444")
-            .withEmail("test@test.com555555").withGroup("test3");
+            .withEmail("test@test.com555555").withGroup("[none]");
     app.contact().modify(contact); // метод модификации контакта
     app.goTo().homePage();
+
+
     assertThat(app.contact().count(), equalTo(before.size())); // сравниваем размеры списков до и после изменения контакта
     Contacts after = app.contact().all(); // создаем список контактов после изменения
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact))); // сравниваем списки контактов до и после
