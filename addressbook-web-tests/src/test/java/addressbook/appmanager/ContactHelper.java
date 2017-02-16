@@ -104,7 +104,7 @@ public class ContactHelper extends HelperBase {
       String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
       String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
-      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales));
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales).withGroup("[none]"));
     }
     return new Contacts(contactCash);
   }
@@ -124,7 +124,7 @@ public class ContactHelper extends HelperBase {
     wd.navigate().back();
     return new ContactData().withId(contact.getId())
             .withFirstName(firstname).withSecondName(lastname).withHomePhone(home).withAddress(address)
-            .withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2).withEmail3(email3);
+            .withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2).withEmail3(email3).withGroup("[none]");
   }
 
 // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
