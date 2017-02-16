@@ -132,4 +132,16 @@ public class ContactHelper extends HelperBase {
    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
+  // метод получения данных со страницы просмотра контакта
+  public ContactData infoFromViewForm(ContactData contact) {
+    initContactViewById(contact.getId());
+    String information = wd.findElement(By.id("content")).getText();
+
+    return new ;
+  }
+
+  // открытие формы просмотра контакта
+  private void initContactViewById(int id) {
+    wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+  }
 }
