@@ -4,6 +4,10 @@ import addressbook.model.ContactData;
 import addressbook.model.Contacts;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -40,4 +44,5 @@ public class ContactModificationTests extends TestBase {
     Contacts after = app.contact().all(); // создаем список контактов после изменения
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact))); // сравниваем списки контактов до и после
   }
+
 }

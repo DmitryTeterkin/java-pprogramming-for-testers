@@ -36,18 +36,14 @@ public class ContactDetailInformationTests extends TestBase {
 //   нужно найти его данные  и сравнить.
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
     ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы просмотра контакта
-    String Information = contactInfoFromViewForm.getInformation();
-    Pattern Fio = Pattern.compile("[а-яА-Я]| |\n");
-    Pattern Address = Pattern.compile("\\n\\n+| |[а-я,А-Я]|[0-9]|[.,_@-]|\\n\\n");
-    Pattern Phones = Pattern.compile("\\n\\n+|[HMW]|[0-9]| |\\n|[+,:.()-]|\\n\\n|");
-    Pattern Emailes = Pattern.compile("\\n\\n+|[\\w]|[._@-]|\\s|");
-    String[] test = contactInfoFromViewForm.getInformation().split("\n\n");
+    String[] Inf = contactInfoFromViewForm.getInformation().split("\n\n"); // попилили из инфомации данные в массив.
+    // дальше нужно определиться, что есть что. адрес + фио в одном объекте, телефоны в другом, емейлы в третьем.
+    // Нужно проверить какой элемент, к какому относится. В телефонах не должно быть букв, в емейлах не должно быть русских букв и должен быть знак @
+    for (int i = 0; i <= Inf.length; i++){
+     {
 
-    Matcher fio = Fio.matcher(Information);
-    while (fio.find()){
-      System.out.println(fio.group());
+     }
     }
-
 
 
 // проверка

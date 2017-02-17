@@ -2,13 +2,17 @@ package addressbook.appmanager;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
+import addressbook.tests.ContactPhoneTests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 public class ContactHelper extends HelperBase {
@@ -97,6 +101,7 @@ public class ContactHelper extends HelperBase {
       return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
     }
     contactCash = new Contacts();
+
     for (int i = 1; i <= count() ; i++){
       String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
       String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
@@ -104,6 +109,7 @@ public class ContactHelper extends HelperBase {
       String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
       String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
+
       contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales).withGroup("[none]"));
     }
     return new Contacts(contactCash);
@@ -114,20 +120,27 @@ public class ContactHelper extends HelperBase {
     initContactModificationById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
-    String home =  wd.findElement(By.name("home")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getText();
-    String mobile =  wd.findElement(By.name("mobile")).getAttribute("value");
-    String work =  wd.findElement(By.name("work")).getAttribute("value");
-    String email =  wd.findElement(By.name("email")).getAttribute("value");
-    String email2 =  wd.findElement(By.name("email2")).getAttribute("value");
-    String email3 =  wd.findElement(By.name("email3")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
+    String mergePhones = Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone()).stream().filter((s) -> ! s.equals("")).map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
+    String mergeEmails = Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3()).stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
+
     return new ContactData().withId(contact.getId())
-            .withFirstName(firstname).withSecondName(lastname).withHomePhone(home).withAddress(address)
-            .withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2).withEmail3(email3).withGroup("[none]");
+            .withFirstName(firstname).withSecondName(lastname).withAddress(address).withAllPhones(mergePhones)
+            .withAllEmales(mergeEmails).withGroup("[none]");
   }
 
-// метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
+
+
+
+
+  // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
   private void initContactModificationById(int id) {
    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
@@ -144,6 +157,5 @@ public class ContactHelper extends HelperBase {
   private void initContactViewById(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }
-
 
 }
