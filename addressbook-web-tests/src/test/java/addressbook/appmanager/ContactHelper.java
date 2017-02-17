@@ -136,8 +136,8 @@ public class ContactHelper extends HelperBase {
   public ContactData infoFromViewForm(ContactData contact) {
     initContactViewById(contact.getId());
     String information = wd.findElement(By.id("content")).getText();
-
-    return new ContactData().withInformation(information);
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withInformation(information);
   }
 
   // открытие формы просмотра контакта

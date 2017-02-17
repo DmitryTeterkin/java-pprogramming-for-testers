@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactDetailInformationTests extends TestBase {
 
   @BeforeMethod   // проверка предусловий теста
-  public void ensurePreconditions () {
+  public void ensurePreconditions() {
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {
@@ -23,27 +23,23 @@ public class ContactDetailInformationTests extends TestBase {
     }
   }
 
- @Test
+  @Test
 
-  public void testContactDetailInformation(){
-   app.goTo().homePage();
-   ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
+  public void testContactDetailInformation() {
+    app.goTo().homePage();
+    ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
 //   нужно найти его данные  и сравнить.
-   ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
-   ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы просмотра контакта
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
+    ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы просмотра контакта
+
 
 // проверка
-   assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
+ assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
 
 
   }
 
-
-
-
-
-  // открытие формы просмотра контакта
-  private void initContactViewById(int id) {
-    findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
-  }
 }
+
+
+

@@ -17,6 +17,7 @@ public class ContactData {
   private String workPhone;
   private String allPhones;
   private String allEmales;
+  private String Information;
 
 
 // setters
@@ -90,7 +91,13 @@ public class ContactData {
     return this;
   }
 
-// getters
+  public ContactData withInformation(String information) {
+    Information = information;
+    return this;
+  }
+
+
+  // getters
   public int getId() {
     return id;
   }
@@ -147,6 +154,10 @@ public class ContactData {
     return allPhones;
   }
 
+  public String getInformation() {
+    return Information;
+  }
+
 
   @Override
   public String toString() {
@@ -165,6 +176,7 @@ public class ContactData {
             ", workPhone='" + workPhone + '\'' +
             ", allPhones='" + allPhones + '\'' +
             ", allEmales='" + allEmales + '\'' +
+            ", Information='" + Information + '\'' +
             '}';
   }
 
@@ -205,4 +217,6 @@ public class ContactData {
     result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
     return result;
   }
+
+
 }
