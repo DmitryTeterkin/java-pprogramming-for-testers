@@ -39,15 +39,14 @@ public class ContactDetailInformationTests extends TestBase {
     String[] Inf = contactInfoFromViewForm.getInformation().split("\n\n"); // попилили из инфомации данные в массив.
     // дальше нужно определиться, что есть что. адрес + фио в одном объекте, телефоны в другом, емейлы в третьем.
     // Нужно проверить какой элемент, к какому относится. В телефонах не должно быть букв, в емейлах не должно быть русских букв и должен быть знак @
-    for (int i = 0; i <= Inf.length; i++){
-     {
+  //  for (int i = 0; i <= Inf.length; i++){
+    // {
 
-     }
-    }
+    // }
 
 
-// проверка
-   // assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
+
+ assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
   }
 // для выделения из Information частей информации о клиенте нужно использовать регулярные выражения:
 //      [а-я_А-Я]|\n| - регулярное выражение для выбора ФИО отделяется \n
@@ -57,10 +56,7 @@ public class ContactDetailInformationTests extends TestBase {
 
 // функция обратного склеивания телефонов.
   private String mergePhones(ContactData contact) {
-    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
-            .stream().filter((s) -> ! s.equals(""))
-            .map(ContactPhoneTests::cleaned)
-            .collect(Collectors.joining("\n"));
+    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone()).stream().filter((s) -> ! s.equals("")).map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
 
   }
 
@@ -70,8 +66,40 @@ public class ContactDetailInformationTests extends TestBase {
             .stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
   }
 
-
 }
+
+/* - выделены жирным шрифтом, далее переход строки на адрес. Адрес
+Иван Иванович Иванов                  - выделены жирным шрифтом, далее переход строки на адрес. Адрес
+Республика Беларусь, Витебская обл. Браславский р-н. п.г.т. Видзы
+Ул Советская дом 8 этаж 2 квартира 123
+
+H: +375 29 571 41 80
+M: +375-29-571-41-80
+W: (+3758029)-571-41-80
+
+test1@test.com
+te_st1@test.com
+te_st1@test.com
+
+
+
+
+
+Вот примеры основных метасимволов:
+  ^     - (крышка, цирркумфлекс) начало проверяемой строки
+  $     - (доллар) конец проверяемой строки
+  .     - (точка) представляет собой сокращенную форму записи для символьного класса, совпадающего с любым символом
+  |     -  означает «или». Подвыражения, объединенные этим способом, называются альтернативами (alternatives)
+  ?     - (знак вопроса) означает, что предшествующий ему символ является необязательным
+  +     -  обозначает «один или несколько экземпляров непосредственно предшествующего элемента
+  *     –  любое количество экземпляров элемента (в том числе и нулевое)
+  \\d   –  цифровой символ
+  \\D   –  не цифровой символ
+  \\s   –  пробельный символ
+  \\S   –  не пробельный символ
+  \\w   –  буквенный или цифровой символ или знак подчёркивания
+  \\W   –  любой символ, кроме буквенного или цифрового символа или знака подчёркивания
+  */
 
 
 

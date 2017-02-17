@@ -36,6 +36,7 @@ public class ContactPhoneTests extends TestBase {
 // проверка телефонов контакта
     assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
   }
+
 // функция обратного склеивания телефонов.
   private String mergePhones(ContactData contact) {
     return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())

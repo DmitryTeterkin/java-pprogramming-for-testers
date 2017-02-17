@@ -41,6 +41,7 @@ public class ContactHelper extends HelperBase {
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
+
   }
 
   // метод изменения контакта
@@ -60,6 +61,7 @@ public class ContactHelper extends HelperBase {
   // подтверждение изменения контакта
   public void submitContactModification() {
     click(By.name("update"));
+    contactCash = null;
   }
 
   // клик на редактировании выбранного контакта. Ищем элемент Edit в строке контакта с определенным ID
@@ -109,8 +111,11 @@ public class ContactHelper extends HelperBase {
       String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
       String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
+      String clearphone = allphones.replace("\n","");
+      String cleanEmales = allemales.replace("\n","");
+      String cleanAddress = address.replace("\n", "");
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(cleanAddress).withAllPhones(clearphone).withAllEmales(cleanEmales).withGroup("[none]"));
 
-      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales).withGroup("[none]"));
     }
     return new Contacts(contactCash);
   }
@@ -121,22 +126,24 @@ public class ContactHelper extends HelperBase {
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getText();
-    String home = wd.findElement(By.name("home")).getAttribute("value");
-    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
-    String work = wd.findElement(By.name("work")).getAttribute("value");
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String homePhone = wd.findElement(By.name("home")).getAttribute("value");
+    String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
+    String workPhone = wd.findElement(By.name("work")).getAttribute("value");
     wd.navigate().back();
-    String mergePhones = Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone()).stream().filter((s) -> ! s.equals("")).map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
-    String mergeEmails = Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3()).stream().filter((s) -> ! s.equals("")).collect(Collectors.joining("\n"));
-
+    String mergePhones = Arrays.asList(homePhone, mobilePhone, workPhone).stream().filter((s) -> ! s.equals("")).toString();
+    String mergeEmails = Arrays.asList(email, email2, email3).stream().filter((s) -> ! s.equals("")).toString();
     return new ContactData().withId(contact.getId())
             .withFirstName(firstname).withSecondName(lastname).withAddress(address).withAllPhones(mergePhones)
             .withAllEmales(mergeEmails).withGroup("[none]");
   }
 
-
+  // функция для замены определенных значений в номере телефона на пусто
+  public static String cleaned (String phone){
+    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
+  }
 
 
 

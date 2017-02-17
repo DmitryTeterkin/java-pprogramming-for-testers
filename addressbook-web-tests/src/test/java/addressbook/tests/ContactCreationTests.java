@@ -20,12 +20,16 @@ public class ContactCreationTests extends TestBase {
     Contacts before = app.contact().all();
     app.goTo().editorPage(); // переход на страницу редактирования контакта
     ContactData contact = new ContactData().withFirstName("petro")
-            .withSecondName("petrov").withNickName("NiKnAmE")
-            .withAddress("testovii address").withEmail("test@test.com").withGroup("[none]");
+            .withSecondName("petrov").withAddress("testovii address").withEmail("test@test.com").withGroup("[none]");
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
+
+
+
     assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
     Contacts after = app.contact().all();
+
+
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
   }
 
