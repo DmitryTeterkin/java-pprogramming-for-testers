@@ -41,6 +41,8 @@ public class ContactDetailInformationTests extends TestBase {
     Pattern Address = Pattern.compile("\\n\\n+| |[а-я,А-Я]|[0-9]|[.,_@-]|\\n\\n");
     Pattern Phones = Pattern.compile("\\n\\n+|[HMW]|[0-9]| |\\n|[+,:.()-]|\\n\\n|");
     Pattern Emailes = Pattern.compile("\\n\\n+|[\\w]|[._@-]|\\s|");
+    String[] test = contactInfoFromViewForm.getInformation().split("\n\n");
+
     Matcher fio = Fio.matcher(Information);
     while (fio.find()){
       System.out.println(fio.group());
