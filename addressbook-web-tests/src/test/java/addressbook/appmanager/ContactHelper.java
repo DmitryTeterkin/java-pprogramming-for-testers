@@ -98,7 +98,7 @@ public class ContactHelper extends HelperBase {
   // реализуем кэширование списка контактов, определяем переменную для кэша
   private Contacts contactCash = null;
 
-// создаем список контактов по главной странице контактов
+// создаем список контактов по главной странице адресной книги
   public Contacts all() {
     if (contactCash != null) { // проверяем, пустой ли кэш
       return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
@@ -112,16 +112,10 @@ public class ContactHelper extends HelperBase {
       String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
       String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
-//      String clearphone = allphones.replace("\n","");
-//      String cleanEmales = allemales.replace("\n","");
-//      String cleanAddress = address.replace("\n", "");
       contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales));
-
     }
     return new Contacts(contactCash);
   }
-
-
 
 // получение информации со страницы редактирования контакта
   public ContactData infoFromEditForm(ContactData contact) {

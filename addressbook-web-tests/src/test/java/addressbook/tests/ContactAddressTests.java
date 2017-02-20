@@ -35,7 +35,7 @@ public class ContactAddressTests extends TestBase {
   }
 
   // убираем из адреса возможные пробелы (которых может быть больше одного) и переход строки
-  public String cleaned (String phone){
-    return phone.replaceAll("\n", "").replaceAll(" ", "");
+  public String cleaned (String address){
+    return address.replaceAll("\n", "").replaceAll(" ", "");
   }
 }

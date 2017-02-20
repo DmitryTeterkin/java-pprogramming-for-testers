@@ -19,8 +19,8 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() {
     Contacts before = app.contact().all();
     app.goTo().editorPage(); // переход на страницу редактирования контакта
-    ContactData contact = new ContactData().withFirstName("petro")
-            .withSecondName("petrov").withAddress("testovii address").withEmail("test@test.com").withGroup("[none]");
+    ContactData contact = new ContactData().withFirstName("иван")
+            .withSecondName("иванов").withAddress("тестовый адрес").withEmail("test@test.com").withGroup("[none]");
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
 

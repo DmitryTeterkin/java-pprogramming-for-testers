@@ -18,9 +18,9 @@ public class ContactModificationTests extends TestBase {
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {
       app.goTo().editorPage();
-      app.contact().create(new ContactData().withFirstName("petro").withSecondName("petrov")
-              .withNickName("NiKnAmE").withAddress("testovii address")
-              .withEmail("test@test.com").withGroup("[none]"), true);
+      app.contact().create(new ContactData().withFirstName("Иван").withSecondName("иванов")
+              .withAddress("тестовый адрес").withEmail("test@test.com")
+              .withGroup("[none]"), true);
       app.goTo().homePage();
     }
   }
