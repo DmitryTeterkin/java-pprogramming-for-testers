@@ -165,18 +165,6 @@ public class ContactData {
             "id=" + id +
             ", firstName='" + firstName + '\'' +
             ", secondName='" + secondName + '\'' +
-            ", nickName='" + nickName + '\'' +
-            ", group='" + group + '\'' +
-            ", address='" + address + '\'' +
-            ", email='" + email + '\'' +
-            ", email2='" + email2 + '\'' +
-            ", email3='" + email3 + '\'' +
-            ", homePhone='" + homePhone + '\'' +
-            ", mobilePhone='" + mobilePhone + '\'' +
-            ", workPhone='" + workPhone + '\'' +
-            ", allPhones='" + allPhones + '\'' +
-            ", allEmales='" + allEmales + '\'' +
-            ", Information='" + Information + '\'' +
             '}';
   }
 
