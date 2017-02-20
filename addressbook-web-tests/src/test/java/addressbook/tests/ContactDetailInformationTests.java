@@ -28,7 +28,7 @@ public class ContactDetailInformationTests extends TestBase {
     }
   }
 
-  @Test (enabled = false)
+  @Test (enabled = true)
 
   public void testContactDetailInformation() {
     app.goTo().homePage();
@@ -37,16 +37,23 @@ public class ContactDetailInformationTests extends TestBase {
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
     ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка инфы из страницы просмотра контакта
     String[] Inf = contactInfoFromViewForm.getInformation().split("\n\n"); // попилили из инфомации данные в массив.
+
     // дальше нужно определиться, что есть что. адрес + фио в одном объекте, телефоны в другом, емейлы в третьем.
     // Нужно проверить какой элемент, к какому относится. В телефонах не должно быть букв, в емейлах не должно быть русских букв и должен быть знак @
-  //  for (int i = 0; i <= Inf.length; i++){
-    // {
+    // должно быть сделано 3 проверки - ФИО+адрес, емейлы и телефоны. Емейлы и телефоны уже реализованы.
+    // Нужно сделать проверку для ФИО и адреса.
+    // Видимо нужно делать через if т.к. ккая-то информация у контакта может вообще отсутствовать.
+ //   Pattern fAndAdd = Pattern.compile("[а-яА-Я0-9., \\n-]+");
 
-    // }
+     for (int i = 0; i < Inf.length; i++) { // в цикле заменим все переводы строк на пробелы.
+       if (Inf[i] != "") {
+        Inf[i] = Inf[i].replaceAll("\n", " ");
+       }
+     }
 
 
 
- assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
+ // assertThat(contactInfoFromViewForm, equalTo((contactInfoFromEditForm)));
   }
 // для выделения из Information частей информации о клиенте нужно использовать регулярные выражения:
 //      [а-я_А-Я]|\n| - регулярное выражение для выбора ФИО отделяется \n
