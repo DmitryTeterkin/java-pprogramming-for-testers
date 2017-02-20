@@ -28,7 +28,7 @@ public class ContactDetailInformationTests extends TestBase {
     }
   }
 
-  @Test
+  @Test (enabled = false)
 
   public void testContactDetailInformation() {
     app.goTo().homePage();
