@@ -39,11 +39,11 @@ public class ContactPhoneTests extends TestBase {
 
 // функция обратного склеивания телефонов.
   private String mergePhones(ContactData contact) {
+
     return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
             .stream().filter((s) -> ! s.equals(""))
             .map(ContactPhoneTests::cleaned)
             .collect(Collectors.joining("\n"));
-
   }
 
   // функция для замены определенных значений в номере телефона на пусто

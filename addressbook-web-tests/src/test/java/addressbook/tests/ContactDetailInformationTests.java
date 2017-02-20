@@ -55,10 +55,10 @@ public class ContactDetailInformationTests extends TestBase {
 //  [\w]|[._@-]|\s| регулярное выражение для email-ов (без пробелов). отделяется от остальных \n\n
 
 // функция обратного склеивания телефонов.
-  private String mergePhones(ContactData contact) {
-    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone()).stream().filter((s) -> ! s.equals("")).map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
+//  private String mergePhones(ContactData contact) {
+//    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone()).stream().filter((s) -> ! s.equals("")).map(ContactPhoneTests::cleaned).collect(Collectors.joining("\n"));
 
-  }
+//}
 
   // функция обратного склеивания Emails контакта
   private String mergeEmails(ContactData contact) {

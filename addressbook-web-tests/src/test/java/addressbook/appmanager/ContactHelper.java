@@ -98,6 +98,7 @@ public class ContactHelper extends HelperBase {
   // реализуем кэширование списка контактов, определяем переменную для кэша
   private Contacts contactCash = null;
 
+// создаем список контактов по главной странице контактов
   public Contacts all() {
     if (contactCash != null) { // проверяем, пустой ли кэш
       return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
@@ -111,10 +112,10 @@ public class ContactHelper extends HelperBase {
       String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
       String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
       String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
-      String clearphone = allphones.replace("\n","");
-      String cleanEmales = allemales.replace("\n","");
-      String cleanAddress = address.replace("\n", "");
-      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(cleanAddress).withAllPhones(clearphone).withAllEmales(cleanEmales).withGroup("[none]"));
+//      String clearphone = allphones.replace("\n","");
+//      String cleanEmales = allemales.replace("\n","");
+//      String cleanAddress = address.replace("\n", "");
+      contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales));
 
     }
     return new Contacts(contactCash);
@@ -135,11 +136,9 @@ public class ContactHelper extends HelperBase {
     String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
     String workPhone = wd.findElement(By.name("work")).getAttribute("value");
     wd.navigate().back();
-    String mergePhones = Arrays.asList(homePhone, mobilePhone, workPhone).stream().filter((s) -> ! s.equals("")).toString();
-    String mergeEmails = Arrays.asList(email, email2, email3).stream().filter((s) -> ! s.equals("")).toString();
+
     return new ContactData().withId(contact.getId())
-            .withFirstName(firstname).withSecondName(lastname).withAddress(address).withAllPhones(mergePhones)
-            .withAllEmales(mergeEmails).withGroup("[none]");
+            .withFirstName(firstname).withSecondName(lastname).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3).withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
   }
 
 
