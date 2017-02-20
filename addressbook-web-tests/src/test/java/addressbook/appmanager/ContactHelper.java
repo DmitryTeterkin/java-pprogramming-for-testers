@@ -120,6 +120,8 @@ public class ContactHelper extends HelperBase {
     return new Contacts(contactCash);
   }
 
+
+
 // получение информации со страницы редактирования контакта
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
@@ -133,18 +135,12 @@ public class ContactHelper extends HelperBase {
     String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
     String workPhone = wd.findElement(By.name("work")).getAttribute("value");
     wd.navigate().back();
-    String mergePhones = Arrays.asList(homePhone, mobilePhone, workPhone).stream().filter((s) -> ! s.equals("")).toString();
-    String mergeEmails = Arrays.asList(email, email2, email3).stream().filter((s) -> ! s.equals("")).toString();
+  //  String mergePhones = Arrays.asList(homePhone, mobilePhone, workPhone).stream().filter((s) -> ! s.equals("")).toString();
+  //  String mergeEmails = Arrays.asList(email, email2, email3).stream().filter((s) -> ! s.equals("")).toString();
     return new ContactData().withId(contact.getId())
             .withFirstName(firstname).withSecondName(lastname).withAddress(address).withAllPhones(mergePhones)
             .withAllEmales(mergeEmails).withGroup("[none]");
   }
-
-  // функция для замены определенных значений в номере телефона на пусто
-  public static String cleaned (String phone){
-    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
-  }
-
 
 
   // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта

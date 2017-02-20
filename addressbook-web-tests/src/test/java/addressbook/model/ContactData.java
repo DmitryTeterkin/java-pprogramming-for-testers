@@ -189,12 +189,7 @@ public class ContactData {
 
     if (id != that.id) return false;
     if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-    if (secondName != null ? !secondName.equals(that.secondName) : that.secondName != null) return false;
-    if (nickName != null ? !nickName.equals(that.nickName) : that.nickName != null) return false;
-    if (group != null ? !group.equals(that.group) : that.group != null) return false;
-    if (address != null ? !address.equals(that.address) : that.address != null) return false;
-    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
-    return allEmales != null ? allEmales.equals(that.allEmales) : that.allEmales == null;
+    return secondName != null ? secondName.equals(that.secondName) : that.secondName == null;
   }
 
   @Override
@@ -202,11 +197,6 @@ public class ContactData {
     int result = id;
     result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
     result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
-    result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
-    result = 31 * result + (group != null ? group.hashCode() : 0);
-    result = 31 * result + (address != null ? address.hashCode() : 0);
-    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
-    result = 31 * result + (allEmales != null ? allEmales.hashCode() : 0);
     return result;
   }
 }
