@@ -27,10 +27,10 @@ public class HelperBase {
   // метод type
   protected void type(By locator, String text) {
     click(locator);
-    if (text != null){
+    if (text != null) {
 // реализация проверки на одинаковость заполнения полей.
       String existingText = wd.findElement(locator).getAttribute("value");
-      if (! text.equals(existingText)){
+      if (!text.equals(existingText)) {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
@@ -38,9 +38,9 @@ public class HelperBase {
   }
 
   // метод attach для файлов
-  protected void attach (By locator, File file) {
-    if (file != null){
-        wd.findElement(locator).sendKeys(file.getAbsolutePath());
+  protected void attach(By locator, File file) {
+    if (file != null) {
+      wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
   }
 
@@ -49,7 +49,7 @@ public class HelperBase {
     try {
       wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException ex){
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
@@ -62,6 +62,7 @@ public class HelperBase {
       return false;
     }
   }
+
   public void waitpresenceOf(String name) {
 
     WebDriverWait wait = new WebDriverWait(wd, 2);

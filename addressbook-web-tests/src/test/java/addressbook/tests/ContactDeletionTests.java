@@ -9,11 +9,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-
 public class ContactDeletionTests extends TestBase {
 
   @BeforeMethod
-  public void ensurePreconditions () { // проверка предусловий теста
+  public void ensurePreconditions() { // проверка предусловий теста
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {

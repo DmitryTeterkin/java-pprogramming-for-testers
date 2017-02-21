@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactPhoneTests extends TestBase {
 
   @BeforeMethod
-  public void ensurePreconditions () { // проверка предусловий теста
+  public void ensurePreconditions() { // проверка предусловий теста
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {
@@ -36,17 +36,17 @@ public class ContactPhoneTests extends TestBase {
     assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
   }
 
-// функция обратного склеивания телефонов.
+  // функция обратного склеивания телефонов.
   private String mergePhones(ContactData contact) {
 
     return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
-            .stream().filter((s) -> ! s.equals(""))
+            .stream().filter((s) -> !s.equals(""))
             .map(ContactPhoneTests::cleaned)
             .collect(Collectors.joining("\n"));
   }
 
   // функция для замены определенных значений в номере телефона на пусто
-  public static String cleaned (String phone){
+  public static String cleaned(String phone) {
     return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
   }
 }

@@ -9,15 +9,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-
 public class GroupDeletionTests extends TestBase {
 
   @BeforeMethod
 
-  public void ensurePreconditions () {                    // проверка предусловий теста
+  public void ensurePreconditions() {                    // проверка предусловий теста
     //  Наличие группы перед ее модификацией
     app.goTo().groupPage();            // переход на страницу со списокм групп
-    if (app.group().all().size() == 0){          // проверка на наличие группы, и если ее нет, то создаем новую группу.
+    if (app.group().all().size() == 0) {          // проверка на наличие группы, и если ее нет, то создаем новую группу.
       app.group().create(new GroupData().withName("test1")); // заполняем новую группу
     }
   }

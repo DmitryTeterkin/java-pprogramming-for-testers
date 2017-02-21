@@ -25,7 +25,6 @@ public class ContactCreationTests extends TestBase {
     app.goTo().homePage();         // возврат на список контактов
 
 
-
     assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
     Contacts after = app.contact().all();
 

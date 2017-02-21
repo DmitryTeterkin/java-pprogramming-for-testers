@@ -9,11 +9,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-
 public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
-   public void ensurePreconditions () { // проверка предусловий теста
+  public void ensurePreconditions() { // проверка предусловий теста
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {
@@ -37,12 +36,12 @@ public class ContactModificationTests extends TestBase {
     app.goTo().homePage();
 
 
- //  assertThat(app.contact().count(), equalTo(before.size())); // сравниваем размеры списков до и после изменения контакта
+    //  assertThat(app.contact().count(), equalTo(before.size())); // сравниваем размеры списков до и после изменения контакта
     Contacts after = app.contact().all(); // создаем список контактов после изменения
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact))); // сравниваем списки контактов до и после
   }
 
-  public static String cleaned (String phone){
+  public static String cleaned(String phone) {
     return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
   }
 }

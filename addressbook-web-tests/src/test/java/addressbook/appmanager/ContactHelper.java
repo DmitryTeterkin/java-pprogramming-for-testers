@@ -90,26 +90,26 @@ public class ContactHelper extends HelperBase {
   // реализуем кэширование списка контактов, определяем переменную для кэша
   private Contacts contactCash = null;
 
-// создаем список контактов по главной странице адресной книги
+  // создаем список контактов по главной странице адресной книги
   public Contacts all() {
     if (contactCash != null) { // проверяем, пустой ли кэш
       return new Contacts(contactCash); // возвращаем копию кэша если он не пустой
     }
     contactCash = new Contacts();
 
-    for (int i = 1; i <= count() ; i++){
-      String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[2]")).getText(); // находим фамилию по хпасс
-      String name = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[3]")).getText(); // находим имя по хпасс
-      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
-      String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[6]")).getText(); // все телефоны
-      String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[5]")).getText(); // все емейлы
-      String address = wd.findElement(By.xpath(".//tbody/tr[" + (i+1) + "]/td[4]")).getText(); // находим адрес по хпасс
+    for (int i = 1; i <= count(); i++) {
+      String secondName = wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[2]")).getText(); // находим фамилию по хпасс
+      String name = wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[3]")).getText(); // находим имя по хпасс
+      int id = Integer.parseInt(wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[1]/input")).getAttribute("id")); // находим id по хпасс
+      String allphones = wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[6]")).getText(); // все телефоны
+      String allemales = wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[5]")).getText(); // все емейлы
+      String address = wd.findElement(By.xpath(".//tbody/tr[" + (i + 1) + "]/td[4]")).getText(); // находим адрес по хпасс
       contactCash.add(new ContactData().withId(id).withFirstName(name).withSecondName(secondName).withAddress(address).withAllPhones(allphones).withAllEmales(allemales));
     }
     return new Contacts(contactCash);
   }
 
-// получение информации со страницы редактирования контакта
+  // получение информации со страницы редактирования контакта
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -130,10 +130,10 @@ public class ContactHelper extends HelperBase {
 
   // метод изменения контакта по Id контакта. Ищем кнопку Edit по Id рандомного контакта
   private void initContactModificationById(int id) {
-   wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
-// метод получения данных со страницы просмотра контакта
+  // метод получения данных со страницы просмотра контакта
   public ContactData infoFromViewForm(ContactData contact) {
     initContactViewById(contact.getId());
     String information = wd.findElement(By.id("content")).getText();
@@ -141,7 +141,7 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withInformation(information);
   }
 
-// открытие формы просмотра контакта
+  // открытие формы просмотра контакта
   private void initContactViewById(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }

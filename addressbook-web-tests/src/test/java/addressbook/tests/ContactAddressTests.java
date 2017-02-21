@@ -12,7 +12,7 @@ public class ContactAddressTests extends TestBase {
 
 
   @BeforeMethod   // проверка предусловий теста
-   public void ensurePreconditions () {
+  public void ensurePreconditions() {
     app.goTo().homePage();
 // проверка на наличие контакта и если нет, то создаем его
     if (app.contact().all().size() == 0) {
@@ -25,7 +25,7 @@ public class ContactAddressTests extends TestBase {
   }
 
   @Test // тест на проверку соответствия адреса на главной странице адресу на форме редактирования
-  public void testContactsAddress(){
+  public void testContactsAddress() {
     app.goTo().homePage();
     ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка инфы из страницы редактирования контакта
@@ -35,7 +35,7 @@ public class ContactAddressTests extends TestBase {
   }
 
   // убираем из адреса возможные пробелы (которых может быть больше одного) и переход строки
-  public String cleaned (String address){
+  public String cleaned(String address) {
     return address.replaceAll("\n", "").replaceAll(" ", "");
   }
 }

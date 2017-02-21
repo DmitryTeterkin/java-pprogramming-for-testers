@@ -42,10 +42,11 @@ public class GroupHelper extends HelperBase {
     click(By.name("delete"));
   }
 
-   // выбор группы по Id
+  // выбор группы по Id
   public void selectGroupById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click(); // выбираем по какому элементу (номеру элемента) нам нужно кликнуть
   }
+
   // нажатие кнопки редактирования группы
   public void initGroupModification() {
     click(By.name("edit"));
@@ -83,7 +84,7 @@ public class GroupHelper extends HelperBase {
     returnToGroupPage();
   }
 
-// метод который определяет, есть ли группа по чекбоксу
+  // метод который определяет, есть ли группа по чекбоксу
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -94,9 +95,9 @@ public class GroupHelper extends HelperBase {
   }
 
   // реализуем кэширование списка групп, определяем переменную для кэша
-  private Groups groupCash  = null;
+  private Groups groupCash = null;
 
- // метод, который возвращает множество
+  // метод, который возвращает множество
   public Groups all() {
     if (groupCash != null) { // проверяем, пустой ли кэш
       return new Groups(groupCash); // возвращаем копию кэша если он не пустой
@@ -107,7 +108,7 @@ public class GroupHelper extends HelperBase {
     for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
       String name = element.getText();     // из каждого элемента получаем текст - имя группы
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      groupCash.add (new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
+      groupCash.add(new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
     }
     return new Groups(groupCash); // возвращаем копию кэша
   }

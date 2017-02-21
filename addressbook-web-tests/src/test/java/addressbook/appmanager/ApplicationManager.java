@@ -19,7 +19,7 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private String browser;
 
-  public ApplicationManager (String browser){
+  public ApplicationManager(String browser) {
     this.browser = browser;
   }
 
@@ -27,9 +27,9 @@ public class ApplicationManager {
 
     if (Objects.equals(browser, BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
-    } else if (Objects.equals(browser, BrowserType.CHROME)){
+    } else if (Objects.equals(browser, BrowserType.CHROME)) {
       wd = new ChromeDriver();
-    } else if (Objects.equals(browser, BrowserType.IE)){
+    } else if (Objects.equals(browser, BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
 
@@ -41,7 +41,6 @@ public class ApplicationManager {
     sessionHelper = new SessionHelper(wd);
     sessionHelper.login("admin", "secret"); // логин
   }
-
 
 
   public void stop() {

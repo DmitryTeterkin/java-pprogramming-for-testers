@@ -2,6 +2,9 @@ package addressbook.generators;
 
 
 import addressbook.model.ContactData;
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -12,29 +15,46 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
-  public static void main (String[] args) throws IOException {
-    int count = Integer.parseInt(args[0]);
-    File file = new File(args[1]);
+  @Parameter(names = "-c", description = "Group count")
+  public int count;
 
-    List<ContactData> contacts = generateContacts(count);
-    save(contacts, file);
+  @Parameter(names = "-f", description = "Target file")
+  public String file;
+
+  public static void main(String[] args) throws IOException {
+    ContactDataGenerator generator = new ContactDataGenerator();
+    JCommander jCommander = new JCommander(generator);
+    try {
+      jCommander.parse(args);
+    } catch (ParameterException ex) {
+      jCommander.usage();
+      return;
+    }
+    generator.run();
+
   }
 
-  private static void save(List<ContactData> contacts, File file) throws IOException {
+  private void save(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
-    for (ContactData contact : contacts){
+    for (ContactData contact : contacts) {
       writer.write(String.format("%s;%s;%s;%s\n", contact.getFirstName(), contact.getSecondName(), contact.getGroup(), contact.getMobilePhone()));
     }
     writer.close();
   }
 
-  private static List<ContactData> generateContacts(int count) {
+  private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
-    for (int i = 0; i < count; i++){
+    for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withFirstName(String.format("Ivan%s", i))
               .withSecondName(String.format("Ivanov%s", i)).withGroup("[none]").withMobilePhone(String.format("+(375) 29 555-33-1%s", i)));
     }
     return contacts;
   }
+
+  private void run() throws IOException {
+    List<ContactData> contacts = generateContacts(count);
+    save(contacts, new File(file));
+  }
+
 }

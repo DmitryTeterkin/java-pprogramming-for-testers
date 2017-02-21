@@ -4,7 +4,7 @@ import java.io.File;
 
 public class ContactData {
 
-// пременные
+  // пременные
   private int id = Integer.MAX_VALUE;
   private String firstName;
   private String secondName;
