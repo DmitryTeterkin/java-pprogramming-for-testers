@@ -26,7 +26,8 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName());
     type(By.name("lastname"), contactData.getSecondName());
-    attach(By.name("photo"), contactData.getPhoto());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    //attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -71,7 +72,6 @@ public class ContactHelper extends HelperBase {
 
   // подтверждение создания контакта
   public void create(ContactData contact, boolean creation) {
-
     fillContactForm(contact, true);
     submitContactCreation();
     contactCash = null;
