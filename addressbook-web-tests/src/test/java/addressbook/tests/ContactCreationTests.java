@@ -3,9 +3,13 @@ package addressbook.tests;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,14 +17,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
 
+  @DataProvider
+  public Iterator<Object[]> validContacts() { // итератор массивов объектов
+    List<Object[]> list = new ArrayList<>();
+    File photo = new File("src/test/resources/photo.png");;
+    list.add(new Object[] {new ContactData().withFirstName("Ivan1").withSecondName("Ivanov1").withGroup("[none]").withMobilePhone("+(375) 29 555-33-10").withPhoto(photo)});
+    list.add(new Object[] {new ContactData().withFirstName("Ivan2").withSecondName("Ivanov2").withGroup("[none]").withMobilePhone("+(375) 29 555-33-11").withPhoto(photo)});
+    list.add(new Object[] {new ContactData().withFirstName("Ivan3").withSecondName("Ivanov3").withGroup("[none]").withMobilePhone("+(375) 29 555-33-12").withPhoto(photo)});
+    return list.iterator();
+  }
 
-  @Test //(enabled = false)
-  public void testContactCreation() {
+  @Test (dataProvider = "validContacts") //(enabled = false)
+  public void testContactCreation(ContactData contact) {
     Contacts before = app.contact().all();
     app.goTo().editorPage(); // переход на страницу редактирования контакта
-    File photo = new File("src/test/resources/photo.png");
-    ContactData contact = new ContactData().withFirstName("иван")
-            .withSecondName("иванов").withAddress("тестовый адрес").withEmail("test@test.com").withGroup("[none]").withPhoto(photo);
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
 
