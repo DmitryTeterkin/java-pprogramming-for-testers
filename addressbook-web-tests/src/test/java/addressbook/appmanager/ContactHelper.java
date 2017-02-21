@@ -2,17 +2,10 @@ package addressbook.appmanager;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
-import addressbook.tests.ContactPhoneTests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 
 public class ContactHelper extends HelperBase {
