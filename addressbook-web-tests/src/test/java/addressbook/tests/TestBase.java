@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeSuite;
 public class TestBase {
 
   // указываем, из какого браузера будут запускаться тесты
-  protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+  protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeSuite
   public void setUp() throws Exception {
