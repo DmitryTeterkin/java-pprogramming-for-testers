@@ -1,5 +1,7 @@
 package addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
 
 // пременные
@@ -18,9 +20,10 @@ public class ContactData {
   private String allPhones;
   private String allEmales;
   private String Information;
+  private File photo;
 
 
-// setters
+  // setters
   public ContactData withId(int id) {
     this.id = id;
     return this;
@@ -96,6 +99,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
+  }
+
 
   // getters
   public int getId() {
@@ -158,6 +166,9 @@ public class ContactData {
     return Information;
   }
 
+  public File getPhoto() {
+    return photo;
+  }
 
   @Override
   public String toString() {

@@ -6,6 +6,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 
@@ -32,6 +34,13 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
+    }
+  }
+
+  // метод attach для файлов
+  protected void attach (By locator, File file) {
+    if (file != null){
+        wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
   }
 
