@@ -1,11 +1,17 @@
 package addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.io.File;
 
+@XStreamAlias("contact")
 public class ContactData {
 
   // пременные
+  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
+
   private String firstName;
   private String secondName;
   private String nickName;

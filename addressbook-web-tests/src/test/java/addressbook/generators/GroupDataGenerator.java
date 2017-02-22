@@ -26,7 +26,6 @@ public class GroupDataGenerator {
   public String format;
 
   public static void main(String[] args) throws IOException {
-
     GroupDataGenerator generator = new GroupDataGenerator();
     JCommander jCommander = new JCommander(generator);
     try {
@@ -38,7 +37,6 @@ public class GroupDataGenerator {
     generator.run();
   }
 
-
   private void run() throws IOException {
     List<GroupData> groups = generateGroups(count);
     if (format.equals("csv")){
@@ -48,15 +46,6 @@ public class GroupDataGenerator {
     } else {
       System.out.println("Unrecognized format" + format);
     }
-  }
-
-  // заполняем список групп
-  private List<GroupData> generateGroups(int count) {
-    List<GroupData> groups = new ArrayList<GroupData>();
-    for (int i = 0; i < count; i++) {
-      groups.add(new GroupData().withName(String.format("test %s", i)).withHeader(String.format("header\n%s", i)).withFooter(String.format("footer\n%s", i)));
-    }
-    return groups;
   }
 
   // сохраняем данные в формате csv
@@ -78,4 +67,14 @@ public class GroupDataGenerator {
     writer.write(xml);
     writer.close();
   }
+
+  // заполняем список групп
+  private List<GroupData> generateGroups(int count) {
+    List<GroupData> groups = new ArrayList<GroupData>();
+    for (int i = 0; i < count; i++) {
+      groups.add(new GroupData().withName(String.format("test %s", i)).withHeader(String.format("header\n%s", i)).withFooter(String.format("footer\n%s", i)));
+    }
+    return groups;
+  }
+
 }
