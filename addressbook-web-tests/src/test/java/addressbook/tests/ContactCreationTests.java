@@ -56,7 +56,6 @@ public class ContactCreationTests extends TestBase {
   }
 
  // чтение данных из файла csv формата
-
  public Iterator<Object[]> validContactsFromCsv() throws IOException { // итератор массивов объектов
     List<Object[]> list = new ArrayList<>();
     try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")))) {
@@ -70,7 +69,6 @@ public class ContactCreationTests extends TestBase {
     }
  }
 
-
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().homePage(); // переход на список контактов (если тест выполняется не первым)
@@ -83,20 +81,5 @@ public class ContactCreationTests extends TestBase {
     Contacts after = app.contact().all();
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
   }
-
-
-/*
-  @Test
-
-  public void testCurrentDir () {
-
-    File currentDir = new File(".");
-    System.out.println(currentDir.getAbsolutePath());
-    File photo = new File("src/test/resources/photo.png");
-    System.out.println(photo.getAbsolutePath());
-    System.out.println(photo.exists());
-  }
-*/
-
 
 }

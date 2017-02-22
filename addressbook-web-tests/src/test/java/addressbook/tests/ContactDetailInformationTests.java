@@ -48,14 +48,14 @@ public class ContactDetailInformationTests extends TestBase {
 */
     for (int i = 0; i < Inf.length; i++) {
       if (Inf[i] != "") {
-        Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("W: ", "").replaceAll("M: ", "").replaceAll("H: ", "");
+        Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("W: ", "").replaceAll("M: ", "").replaceAll("H: ", "").replaceAll("[-()]", "").replaceAll(" ", "");
       }
     }
 
 // создаем правила для регулярных выражений.
-    Pattern fioAndAddress = Pattern.compile("^[a-zA-Zа-яА-Я0_9., -]+$"); // регулярное выражение для адреса и ФИО
-    Pattern emales = Pattern.compile("^(\\w*@\\w*.\\w*| |)+$");       // регулярное выражение для Email.
-    Pattern phones = Pattern.compile("^[0-9)( +-]+$");                // регулярное выражение для телефонов
+    Pattern fioAndAddress = Pattern.compile("^[a-zA-Zа-яА-Я0-9.,-]+$"); // регулярное выражение для адреса и ФИО
+    Pattern emales = Pattern.compile("^(\\w*@\\w*.\\w*)+$");       // регулярное выражение для Email.
+    Pattern phones = Pattern.compile("^[0-9+]+$");                // регулярное выражение для телефонов
 
 /*
 создаем цикл, в котором будем проверять информацию
@@ -73,6 +73,7 @@ public class ContactDetailInformationTests extends TestBase {
 */
       if (fioandAddress.matches()) {
         assertThat(Inf[i], equalTo(cleaned(mergeFioAddress(contactInfoFromEditForm))));
+        System.out.println("ФИО и адрес совпадают: " + Inf[i]);
       }
 /*
 проверяем, совпадает ли значение элемента массива с регулярным выражением для Email,
@@ -80,6 +81,7 @@ public class ContactDetailInformationTests extends TestBase {
 */
       if (emale.matches()) {
         assertThat(Inf[i], equalTo(cleaned(mergeEmails(contactInfoFromEditForm))));
+        System.out.println("Emails совпадают: " + Inf[i]);
       }
 /*
 проверяем, совпадает ли значение элемента массива с регулярным выражением для Email,
@@ -87,13 +89,14 @@ public class ContactDetailInformationTests extends TestBase {
 */
       if (phone.matches()) {
         assertThat(Inf[i], equalTo(cleaned(mergePhones(contactInfoFromEditForm))));
+        System.out.println("Телефоны совпадают: " + Inf[i]);
       }
     }
   }
 
   // замена переходов строки на пробел
   private String cleaned(String clean) {
-    return clean.replaceAll("\n", " ");
+    return clean.replaceAll("\n", "").replaceAll("[-()]", "").replaceAll(" ", "");
   }
 
   // функция обратного склеивания ФИО и адреса контакта
@@ -116,5 +119,4 @@ public class ContactDetailInformationTests extends TestBase {
             .stream().filter((s) -> !s.equals(""))
             .collect(Collectors.joining("\n"));
   }
-
 }
