@@ -18,6 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
 
+  // чтение тестовых данных из xml файла
   @DataProvider
   public Iterator<Object[]> validContacts() throws IOException { // итератор массивов объектов
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")));

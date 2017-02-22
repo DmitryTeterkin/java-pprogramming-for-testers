@@ -16,6 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
 
+  // чтение тестовых данных из xml файла
   @DataProvider
   public Iterator<Object[]> validGroups() throws IOException { // итератор массивов объектов
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
