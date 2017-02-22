@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="addressbook.tests.ContactCreationTests" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-02-22T11:15:39" hostname="prog7" time="103.839">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=2147483647, firstName='Ivan0', secondName='Ivanov0'})" classname="addressbook.tests.ContactCreationTests" time="18.821"/>
+  <testcase name="testContactCreation[1](ContactData{id=2147483647, firstName='Ivan1', secondName='Ivanov1'})" classname="addressbook.tests.ContactCreationTests" time="9.691"/>
+  <testcase name="testContactCreation[2](ContactData{id=2147483647, firstName='Ivan2', secondName='Ivanov2'})" classname="addressbook.tests.ContactCreationTests" time="8.353"/>
+  <testcase name="testContactCreation[3](ContactData{id=2147483647, firstName='Ivan3', secondName='Ivanov3'})" classname="addressbook.tests.ContactCreationTests" time="8.646"/>
+  <testcase name="testContactCreation[4](ContactData{id=2147483647, firstName='Ivan4', secondName='Ivanov4'})" classname="addressbook.tests.ContactCreationTests" time="9.328"/>
+  <testcase name="testContactCreation[5](ContactData{id=2147483647, firstName='Ivan5', secondName='Ivanov5'})" classname="addressbook.tests.ContactCreationTests" time="9.226"/>
+  <testcase name="testContactCreation[6](ContactData{id=2147483647, firstName='Ivan6', secondName='Ivanov6'})" classname="addressbook.tests.ContactCreationTests" time="9.248"/>
+  <testcase name="testContactCreation[7](ContactData{id=2147483647, firstName='Ivan7', secondName='Ivanov7'})" classname="addressbook.tests.ContactCreationTests" time="9.873"/>
+  <testcase name="testContactCreation[8](ContactData{id=2147483647, firstName='Ivan8', secondName='Ivanov8'})" classname="addressbook.tests.ContactCreationTests" time="10.23"/>
+  <testcase name="testContactCreation[9](ContactData{id=2147483647, firstName='Ivan9', secondName='Ivanov9'})" classname="addressbook.tests.ContactCreationTests" time="10.42"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -60,29 +60,29 @@ public class ContactDataGenerator {
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try(Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
-
 
   // сохраняем данные в формате csv
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
-    Writer writer = new FileWriter(file);
-    for (ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s\n", contact.getFirstName(), contact.getSecondName(), contact.getGroup(), contact.getMobilePhone()));
+    try (Writer writer = new FileWriter(file)) {
+      for (ContactData contact : contacts) {
+        writer.write(String.format("%s;%s;%s;%s\n", contact.getFirstName(), contact.getSecondName(), contact.getGroup(), contact.getMobilePhone()));
+      }
     }
-    writer.close();
   }
+
   // сохраняем данные в формате xml
   private void saveAsXml(List<ContactData> contacts, File file) throws IOException {
     XStream xstream = new XStream();
     xstream.processAnnotations(ContactData.class);
     String xml = xstream.toXML(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try(Writer writer = new FileWriter(file)) {
+      writer.write(xml);
+    }
   }
 
   // генерация данных для списка контактов, который запишется в файл
@@ -95,5 +95,4 @@ public class ContactDataGenerator {
     }
     return contacts;
   }
-
 }
