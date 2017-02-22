@@ -5,6 +5,8 @@ import addressbook.model.Groups;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -17,10 +19,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class GroupCreationTests extends TestBase {
-
   // чтение тестовых данных из json файла
   @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException { // итератор массивов объектов
+
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
     String json ="";
     String line = reader.readLine();
@@ -51,7 +53,7 @@ public class GroupCreationTests extends TestBase {
 
   // создание группы
   @Test (dataProvider = "validGroupsFromJson")
-  public void testGroupCreation(GroupData group) { // положительный тест, группа должна создаться.
+    public void testGroupCreation(GroupData group) { // положительный тест, группа должна создаться.
     app.goTo().groupPage(); // преход на страницу групп
     Groups before = app.group().all(); // построение списка групп до добавления новой группы
     app.group().create(group);
