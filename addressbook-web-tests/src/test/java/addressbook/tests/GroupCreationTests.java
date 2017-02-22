@@ -2,6 +2,8 @@ package addressbook.tests;
 
 import addressbook.model.GroupData;
 import addressbook.model.Groups;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,9 +18,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
 
+  // чтение тестовых данных из json файла
+  @DataProvider
+  public Iterator<Object[]> validGroupsFromJson() throws IOException { // итератор массивов объектов
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
+    String json ="";
+    String line = reader.readLine();
+    while (line != null){
+      json += line;
+      line = reader.readLine();
+    }
+    Gson gson = new Gson();
+    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
+    return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+  }
+
   // чтение тестовых данных из xml файла
   @DataProvider
-  public Iterator<Object[]> validGroups() throws IOException { // итератор массивов объектов
+  public Iterator<Object[]> validGroupsFromXml() throws IOException { // итератор массивов объектов
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
     String xml ="";
     String line = reader.readLine();
@@ -33,7 +50,7 @@ public class GroupCreationTests extends TestBase {
   }
 
   // создание группы
-  @Test (dataProvider = "validGroups")
+  @Test (dataProvider = "validGroupsFromJson")
   public void testGroupCreation(GroupData group) { // положительный тест, группа должна создаться.
     app.goTo().groupPage(); // преход на страницу групп
     Groups before = app.group().all(); // построение списка групп до добавления новой группы
@@ -44,6 +61,7 @@ public class GroupCreationTests extends TestBase {
     assertThat(after, equalTo(before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt())))); // сравнение списков групп
   }
 
+/*
   @Test (enabled = false)
   public void testBadGroupCreation() {       // отрицательный тест, группа с одинарным апострофом в названии не должна создаться.
     app.goTo().groupPage(); // преход на страницу групп
@@ -54,4 +72,5 @@ public class GroupCreationTests extends TestBase {
     Groups after = app.group().all(); // построение списка групп после добавления новой группы
     assertThat(after, equalTo(before));
   }
+  */
 }
