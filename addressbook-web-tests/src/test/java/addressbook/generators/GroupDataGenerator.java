@@ -14,8 +14,10 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+// Генератор тестовых данных для групп.
 public class GroupDataGenerator {
 
+// параметры создаваемого файла
   @Parameter(names = "-c", description = "Group count")
   public int count;
 
@@ -36,7 +38,7 @@ public class GroupDataGenerator {
     }
     generator.run();
   }
-
+  // создание файла с данными в зависимости от аргумента в настройке
   private void run() throws IOException {
     List<GroupData> groups = generateGroups(count);
     if (format.equals("csv")){
@@ -68,7 +70,7 @@ public class GroupDataGenerator {
     writer.close();
   }
 
-  // заполняем список групп
+  // заполняем список данных для групп
   private List<GroupData> generateGroups(int count) {
     List<GroupData> groups = new ArrayList<GroupData>();
     for (int i = 0; i < count; i++) {

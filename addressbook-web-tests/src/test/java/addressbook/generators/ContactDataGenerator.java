@@ -14,8 +14,11 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Генератор тестовых данных для контактов.
 public class ContactDataGenerator {
 
+// параметры создаваемого файла
   @Parameter(names = "-c", description = "Group count")
   public int count;
 
@@ -37,7 +40,7 @@ public class ContactDataGenerator {
     generator.run();
   }
 
-// запускаем создание файла в зависимости от аргумента в настройке
+// создание файла с данными в зависимости от аргумента в настройке
   private void run() throws IOException {
     List<ContactData> contacts = generateContacts(count);
     saveAsCsv(contacts, new File(file));
@@ -68,7 +71,7 @@ public class ContactDataGenerator {
     writer.close();
   }
 
-  // генерация списка контактов в файл
+  // генерация данных для списка контактов, который запишется в файл
   private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
