@@ -132,18 +132,15 @@ public class ContactHelper extends HelperBase {
   // получение информации со страницы редактирования контакта для сравнения информации
   public ContactData infoFromEditFormToCompare(ContactData contact) {
     initContactModificationById(contact.getId());
-    String homePhone = "";
-    String mobilePhone = "";
-    String workPhone = "";
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getText();
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
-    homePhone = wd.findElement(By.name("home")).getAttribute("value");
-    mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
-    workPhone = wd.findElement(By.name("work")).getAttribute("value");
+    String homePhone = wd.findElement(By.name("home")).getAttribute("value");
+    String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
+    String workPhone = wd.findElement(By.name("work")).getAttribute("value");
     if (!Objects.equals(homePhone, "")) { homePhone = "H:" + homePhone; }
     if (!Objects.equals(mobilePhone, "")) { mobilePhone = "M:" + mobilePhone; }
     if (!Objects.equals(workPhone, "")) { workPhone = "W:" + workPhone; }

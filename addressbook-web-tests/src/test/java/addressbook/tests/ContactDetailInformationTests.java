@@ -28,10 +28,10 @@ public class ContactDetailInformationTests extends TestBase {
   }
 
   @Test
-  /*
+/*
   проверка соответствия информации, отображаемой на странице просмотра контакта,
   с информацией, которая заносилась на странице редактирования контакта.
-  */
+*/
   public void testContactDetailInformation() {
     app.goTo().homePage();
     ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
