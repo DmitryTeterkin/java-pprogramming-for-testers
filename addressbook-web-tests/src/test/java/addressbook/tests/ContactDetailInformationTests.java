@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -47,7 +48,7 @@ public class ContactDetailInformationTests extends TestBase {
 из телефонов удаляем символы принадлежности (домашний, мобильный, рабочий).
 */
     for (int i = 0; i < Inf.length; i++) {
-      if (Inf[i] != "") {
+      if (!Objects.equals(Inf[i], "")) {
  //       Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("W: ", "").replaceAll("M: ", "").replaceAll("H: ", "").replaceAll("[-()]", "").replaceAll(" ", "");
         Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("[-()]", "").replaceAll(" ", "");
       }
