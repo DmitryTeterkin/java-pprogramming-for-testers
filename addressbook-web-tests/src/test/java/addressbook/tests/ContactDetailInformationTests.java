@@ -35,7 +35,7 @@ public class ContactDetailInformationTests extends TestBase {
   public void testContactDetailInformation() {
     app.goTo().homePage();
     ContactData contact = app.contact().all().iterator().next(); // выбор какого-то контакта
-    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact); // загрузка информации со страницы редактирования контакта
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditFormToCompare(contact); // загрузка информации со страницы редактирования контакта
     ContactData contactInfoFromViewForm = app.contact().infoFromViewForm(contact); // загрузка информации со страницы просмотра контакта
 /*
 данные из страницы инфомации переносим в массив.
@@ -48,14 +48,15 @@ public class ContactDetailInformationTests extends TestBase {
 */
     for (int i = 0; i < Inf.length; i++) {
       if (Inf[i] != "") {
-        Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("W: ", "").replaceAll("M: ", "").replaceAll("H: ", "").replaceAll("[-()]", "").replaceAll(" ", "");
+ //       Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("W: ", "").replaceAll("M: ", "").replaceAll("H: ", "").replaceAll("[-()]", "").replaceAll(" ", "");
+        Inf[i] = Inf[i].replaceAll("\n", " ").replaceAll("[-()]", "").replaceAll(" ", "");
       }
     }
 
 // создаем правила для регулярных выражений.
     Pattern fioAndAddress = Pattern.compile("^[a-zA-Zа-яА-Я0-9.,-]+$"); // регулярное выражение для адреса и ФИО
     Pattern emales = Pattern.compile("^(\\w*@\\w*.\\w*)+$");       // регулярное выражение для Email.
-    Pattern phones = Pattern.compile("^[0-9+]+$");                // регулярное выражение для телефонов
+    Pattern phones = Pattern.compile("^[WHM0-9:+]+$");                // регулярное выражение для телефонов
 
 /*
 создаем цикл, в котором будем проверять информацию
@@ -94,7 +95,7 @@ public class ContactDetailInformationTests extends TestBase {
     }
   }
 
-  // замена переходов строки на пробел
+  // замена переход`ов строки на пробел
   private String cleaned(String clean) {
     return clean.replaceAll("\n", "").replaceAll("[-()]", "").replaceAll(" ", "");
   }
