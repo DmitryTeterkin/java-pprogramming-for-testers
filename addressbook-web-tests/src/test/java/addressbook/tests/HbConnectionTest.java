@@ -1,6 +1,7 @@
 package addressbook.tests;
 
 
+import addressbook.model.ContactData;
 import addressbook.model.GroupData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,8 +35,8 @@ public class HbConnectionTest {
   }
 
 
-  @Test
-  public void testHBConnection(){
+  @Test (enabled = false)
+  public void testHBConnectionGroups(){
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery( "from GroupData" ).list();
@@ -45,4 +46,17 @@ public class HbConnectionTest {
     session.getTransaction().commit();
     session.close();
   }
+
+  @Test
+  public void testHBConnectionContacts(){
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<ContactData> result = session.createQuery( "from ContactData where deprecated = '0000-00-00'" ).list();
+    for ( ContactData contact : result ) {
+      System.out.println(contact);
+    }
+    session.getTransaction().commit();
+    session.close();
+  }
+
 }
