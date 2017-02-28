@@ -4,10 +4,19 @@ import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @XStreamAlias("group")
+@Entity
+@Table (name = "group_list")
 public class GroupData {
 
   @XStreamOmitField
+  @Id
+  @Column(name = "group_id")
   private int id = Integer.MAX_VALUE;
   @Expose
   private String name;
