@@ -21,7 +21,7 @@ import java.util.List;
 public class ContactDataGenerator {
 
 // параметры создаваемого файла
-  @Parameter(names = "-c", description = "Group count")
+  @Parameter(names = "-c", description = "Contact count")
   public int count;
 
   @Parameter(names = "-f", description = "Target file")

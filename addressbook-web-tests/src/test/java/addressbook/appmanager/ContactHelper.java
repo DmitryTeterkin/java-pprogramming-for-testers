@@ -28,7 +28,15 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName());
     type(By.name("lastname"), contactData.getSecondName());
+    type(By.name("nickname"), contactData.getNickName());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("home"), contactData.getHomePhone());
     type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
+    type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
+
     //attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
@@ -56,7 +64,7 @@ public class ContactHelper extends HelperBase {
   // подтверждение изменения контакта
   public void submitContactModification() {
     click(By.name("update"));
-    contactCash = null;
+//    contactCash = null;
   }
 
   // клик на редактировании выбранного контакта. Ищем элемент Edit в строке контакта с определенным ID

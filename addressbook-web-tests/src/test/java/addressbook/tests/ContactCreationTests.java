@@ -82,8 +82,6 @@ public class ContactCreationTests extends TestBase {
 
     assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
     Contacts after = app.db().contacts();
-    Assert.assertEquals(new HashSet<Object>(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))), new HashSet<Object>(after));
-    //assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
+    assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
   }
-
 }

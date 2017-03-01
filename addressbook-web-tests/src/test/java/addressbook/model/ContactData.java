@@ -32,7 +32,7 @@ public class ContactData {
 
   @Expose
   @Transient
-  private String group; // or transient before private
+  private String group = "[none]"; // or transient before private
 
   @Column(name = "address")
   @Type(type = "text")
@@ -74,7 +74,7 @@ public class ContactData {
 
   @Column(name = "photo")
   @Type(type = "text")
-  private String photo;
+  private String photo = null;
 
 
   // setters
