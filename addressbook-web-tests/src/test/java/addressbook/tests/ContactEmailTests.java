@@ -16,13 +16,12 @@ public class ContactEmailTests extends TestBase {
 
   @BeforeMethod   // проверка предусловий теста
   public void ensurePreconditions() {
-    app.goTo().homePage();
-// проверка на наличие контакта и если нет, то создаем его
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
+      app.goTo().homePage();
       app.goTo().editorPage();
-      app.contact().create(new ContactData().withFirstName("иван").withSecondName("иванов")
-              .withAddress("тестовый адрес")
-              .withEmail("test@test.com").withGroup("[none]"), true);
+      app.contact().create(new ContactData().withFirstName("Иван").withSecondName("иванов")
+              .withAddress("тестовый адрес").withEmail("test@test.com")
+              .withGroup("[none]"), true);
       app.goTo().homePage();
     }
   }

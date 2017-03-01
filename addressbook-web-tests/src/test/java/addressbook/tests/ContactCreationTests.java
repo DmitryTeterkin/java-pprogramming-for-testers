@@ -72,13 +72,13 @@ public class ContactCreationTests extends TestBase {
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().homePage(); // переход на список контактов (если тест выполняется не первым)
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.goTo().editorPage(); // переход на страницу редактирования контакта
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
 
     assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
   }
 
