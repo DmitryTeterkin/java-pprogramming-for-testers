@@ -6,11 +6,13 @@ import addressbook.model.Contacts;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,15 +73,17 @@ public class ContactCreationTests extends TestBase {
 
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
-    app.goTo().homePage(); // переход на список контактов (если тест выполняется не первым)
+     // переход на список контактов (если тест выполняется не первым)
     Contacts before = app.db().contacts();
+    app.goTo().homePage();
     app.goTo().editorPage(); // переход на страницу редактирования контакта
     app.contact().create(contact, true);
     app.goTo().homePage();         // возврат на список контактов
 
     assertThat(app.contact().count(), equalTo(before.size() + 1)); // сравниваем размеры списков до и после изменения
     Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
+    Assert.assertEquals(new HashSet<Object>(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))), new HashSet<Object>(after));
+    //assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));// сравнивание списков, преобразованных в неотсортированные множества
   }
 
 }

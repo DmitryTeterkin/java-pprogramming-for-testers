@@ -21,14 +21,14 @@ public class ContactData {
 
   @Expose
   @Column(name = "firstname")
-  private String firstName;
+  private String firstName = "";
 
   @Expose
   @Column(name = "lastname")
-  private String secondName;
+  private String secondName = "";
 
   @Transient
-  private String nickName;
+  private String nickName = "";
 
   @Expose
   @Transient
@@ -36,32 +36,32 @@ public class ContactData {
 
   @Column(name = "address")
   @Type(type = "text")
-  private String address;
+  private String address = "";
 
   @Column(name = "email")
   @Type(type = "text")
-  private String email;
+  private String email = "";
 
   @Column(name = "email2")
   @Type(type = "text")
-  private String email2;
+  private String email2 = "";
 
   @Column(name = "email3")
   @Type(type = "text")
-  private String email3;
+  private String email3 = "";
 
   @Column(name = "home")
   @Type(type = "text")
-  private String homePhone;
+  private String homePhone = "";
 
   @Expose
   @Column(name = "mobile")
   @Type(type = "text")
-  private String mobilePhone;
+  private String mobilePhone = "";
 
   @Column(name = "work")
   @Type(type = "text")
-  private String workPhone;
+  private String workPhone = "";
 
   @Transient
   private String allPhones;
@@ -231,7 +231,6 @@ public class ContactData {
             ", firstName='" + firstName + '\'' +
             ", secondName='" + secondName + '\'' +
             ", nickName='" + nickName + '\'' +
-            ", group='" + group + '\'' +
             ", address='" + address + '\'' +
             ", email='" + email + '\'' +
             ", email2='" + email2 + '\'' +
@@ -252,7 +251,6 @@ public class ContactData {
     if (id != that.id) return false;
     if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
     if (secondName != null ? !secondName.equals(that.secondName) : that.secondName != null) return false;
-    if (nickName != null ? !nickName.equals(that.nickName) : that.nickName != null) return false;
     if (group != null ? !group.equals(that.group) : that.group != null) return false;
     if (address != null ? !address.equals(that.address) : that.address != null) return false;
     if (email != null ? !email.equals(that.email) : that.email != null) return false;
@@ -268,7 +266,6 @@ public class ContactData {
     int result = id;
     result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
     result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
-    result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
     result = 31 * result + (group != null ? group.hashCode() : 0);
     result = 31 * result + (address != null ? address.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);

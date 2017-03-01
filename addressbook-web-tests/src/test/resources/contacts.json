@@ -4,23 +4,5 @@
     "secondName": "Ivanov0",
     "group": "[none]",
     "mobilePhone": "+(375) 29 555-33-10"
-  },
-  {
-    "firstName": "Ivan1",
-    "secondName": "Ivanov1",
-    "group": "[none]",
-    "mobilePhone": "+(375) 29 555-33-11"
-  },
-  {
-    "firstName": "Ivan2",
-    "secondName": "Ivanov2",
-    "group": "[none]",
-    "mobilePhone": "+(375) 29 555-33-12"
-  },
-  {
-    "firstName": "Ivan3",
-    "secondName": "Ivanov3",
-    "group": "[none]",
-    "mobilePhone": "+(375) 29 555-33-13"
   }
-]
+ ]
