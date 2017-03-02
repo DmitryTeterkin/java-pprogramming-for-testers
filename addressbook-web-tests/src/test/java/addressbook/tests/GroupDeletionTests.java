@@ -30,6 +30,8 @@ public class GroupDeletionTests extends TestBase {
     assertThat(app.group().count(), equalTo(before.size() - 1)); // сравнение количества групп до и после удаления группы хэшированием
     Groups after = app.db().groups(); // построение списка групп после добавления новой группы
     assertThat(after, equalTo(before.without(deletedGroup)));
+
+    VerifyGroupListInUI();
   }
 
 }

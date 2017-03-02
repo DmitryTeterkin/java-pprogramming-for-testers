@@ -61,6 +61,8 @@ public class GroupCreationTests extends TestBase {
     assertThat(app.group().count(), equalTo(before.size() + 1)); // сравнение количества групп до и после добавления новой группы
     Groups after = app.db().groups(); // построение списка групп после добавления новой группы
     assertThat(after, equalTo(before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt())))); // сравнение списков групп
+
+    VerifyGroupListInUI();
   }
 
 /*

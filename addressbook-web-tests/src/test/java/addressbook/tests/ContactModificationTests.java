@@ -39,7 +39,11 @@ public class ContactModificationTests extends TestBase {
     //  assertThat(app.contact().count(), equalTo(before.size())); // сравниваем размеры списков до и после изменения контакта
     Contacts after = app.db().contacts(); // создаем список контактов после изменения
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact))); // сравниваем списки контактов до и после
+
+    VerifyContactListInUI();
   }
+
+
 
   public static String cleaned(String phone) {
     return phone.replaceAll("\\s", "").replaceAll("[-()]", "");  // "\\s" - пробельный символ
