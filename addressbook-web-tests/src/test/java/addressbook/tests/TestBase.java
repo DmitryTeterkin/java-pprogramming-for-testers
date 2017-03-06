@@ -58,16 +58,18 @@ public class TestBase {
               .map((g) -> new GroupData().withId(g.getId()).withName(g.getName()))
               .collect(Collectors.toSet())));
     }
-
   }
+
   public void VerifyContactListInUI() {
     if (Boolean.getBoolean("verifyUI")) {
       Contacts dbContacts = app.db().contacts();
+
       Contacts uiContacts = app.contact().all();
       assertThat(uiContacts, equalTo(dbContacts.stream()
-              .map((c) -> new ContactData().withId(c.getId()).withFirstName(c.getFirstName()))
+              .map((c) -> new ContactData().withId(c.getId()).withFirstName(c.getFirstName()).withSecondName(c.getSecondName()).withAddress(c.getAddress()).withGroup(c.getGroup())
+                      .withAllEmales(Arrays.asList(c.getEmail(), c.getEmail2(), c.getEmail3()).stream().filter((s) -> !s.equals("")).collect(Collectors.joining("\n")))
+                      .withAllPhones(Arrays.asList(c.getHomePhone(), c.getMobilePhone(), c.getWorkPhone()).stream().filter((s) -> !s.equals("")).collect(Collectors.joining("\n"))))
               .collect(Collectors.toSet())));
     }
   }
-
 }

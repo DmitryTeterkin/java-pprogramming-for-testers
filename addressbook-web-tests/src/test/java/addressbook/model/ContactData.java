@@ -64,10 +64,10 @@ public class ContactData {
   private String workPhone = "";
 
   @Transient
-  private String allPhones;
+  private String allPhones = "";
 
   @Transient
-  private String allEmales;
+  private String allEmales = "";
 
   @Transient
   private String Information;
@@ -231,6 +231,7 @@ public class ContactData {
             ", firstName='" + firstName + '\'' +
             ", secondName='" + secondName + '\'' +
             ", nickName='" + nickName + '\'' +
+            ", group='" + group + '\'' +
             ", address='" + address + '\'' +
             ", email='" + email + '\'' +
             ", email2='" + email2 + '\'' +
@@ -238,6 +239,8 @@ public class ContactData {
             ", homePhone='" + homePhone + '\'' +
             ", mobilePhone='" + mobilePhone + '\'' +
             ", workPhone='" + workPhone + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", allEmales='" + allEmales + '\'' +
             '}';
   }
 
@@ -251,14 +254,15 @@ public class ContactData {
     if (id != that.id) return false;
     if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
     if (secondName != null ? !secondName.equals(that.secondName) : that.secondName != null) return false;
-    if (group != null ? !group.equals(that.group) : that.group != null) return false;
     if (address != null ? !address.equals(that.address) : that.address != null) return false;
     if (email != null ? !email.equals(that.email) : that.email != null) return false;
     if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
     if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
     if (homePhone != null ? !homePhone.equals(that.homePhone) : that.homePhone != null) return false;
     if (mobilePhone != null ? !mobilePhone.equals(that.mobilePhone) : that.mobilePhone != null) return false;
-    return workPhone != null ? workPhone.equals(that.workPhone) : that.workPhone == null;
+    if (workPhone != null ? !workPhone.equals(that.workPhone) : that.workPhone != null) return false;
+    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
+    return allEmales != null ? allEmales.equals(that.allEmales) : that.allEmales == null;
   }
 
   @Override
@@ -266,7 +270,6 @@ public class ContactData {
     int result = id;
     result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
     result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
-    result = 31 * result + (group != null ? group.hashCode() : 0);
     result = 31 * result + (address != null ? address.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);
     result = 31 * result + (email2 != null ? email2.hashCode() : 0);
@@ -274,6 +277,8 @@ public class ContactData {
     result = 31 * result + (homePhone != null ? homePhone.hashCode() : 0);
     result = 31 * result + (mobilePhone != null ? mobilePhone.hashCode() : 0);
     result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
+    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
+    result = 31 * result + (allEmales != null ? allEmales.hashCode() : 0);
     return result;
   }
 }

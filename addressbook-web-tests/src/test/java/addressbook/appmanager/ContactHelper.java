@@ -177,5 +177,4 @@ public class ContactHelper extends HelperBase {
   private void initContactViewById(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }
-
 }
