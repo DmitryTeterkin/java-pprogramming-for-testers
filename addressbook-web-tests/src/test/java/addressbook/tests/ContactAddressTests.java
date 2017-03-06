@@ -17,8 +17,7 @@ public class ContactAddressTests extends TestBase {
       app.goTo().homePage();
       app.goTo().editorPage();
       app.contact().create(new ContactData().withFirstName("Иван").withSecondName("иванов")
-              .withAddress("тестовый адрес").withEmail("test@test.com")
-              .withGroup("[none]"), true);
+              .withAddress("тестовый адрес").withEmail("test@test.com"), true);
       app.goTo().homePage();
     }
   }

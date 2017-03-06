@@ -3,6 +3,7 @@ package addressbook.tests;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
+import addressbook.model.Groups;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
@@ -73,6 +74,7 @@ public class ContactCreationTests extends TestBase {
 
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
+    Groups groups = app.db().groups();
      // переход на список контактов (если тест выполняется не первым)
     Contacts before = app.db().contacts();
     app.goTo().homePage();

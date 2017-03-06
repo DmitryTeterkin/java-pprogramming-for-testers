@@ -7,6 +7,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -30,9 +32,9 @@ public class ContactData {
   @Transient
   private String nickName = "";
 
-  @Expose
-  @Transient
-  private String group = "[none]"; // or transient before private
+  //@Expose
+  // @Transient
+  // private String group = "[none]"; // or transient before private
 
   @Column(name = "address")
   @Type(type = "text")
@@ -76,6 +78,11 @@ public class ContactData {
   @Type(type = "text")
   private String photo = null;
 
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
 
   // setters
   public ContactData withId(int id) {
@@ -98,10 +105,10 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
+//  public ContactData withGroup(String group) {
+//    this.group = group;
+//    return this;
+//  }
 
   public ContactData withAddress(String address) {
     this.address = address;
@@ -196,9 +203,9 @@ public class ContactData {
     return email3;
   }
 
-  public String getGroup() {
-    return group;
-  }
+  // public String getGroup() {
+  //   return group;
+  // }
 
   public String getHomePhone() {
     return homePhone;
@@ -224,6 +231,10 @@ public class ContactData {
     return new File(photo);
   }
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
@@ -231,7 +242,7 @@ public class ContactData {
             ", firstName='" + firstName + '\'' +
             ", secondName='" + secondName + '\'' +
             ", nickName='" + nickName + '\'' +
-            ", group='" + group + '\'' +
+         //   ", group='" + group + '\'' +
             ", address='" + address + '\'' +
             ", email='" + email + '\'' +
             ", email2='" + email2 + '\'' +
