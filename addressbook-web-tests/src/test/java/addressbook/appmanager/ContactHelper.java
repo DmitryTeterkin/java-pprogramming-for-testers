@@ -50,6 +50,10 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void addContactToGroup(ContactData modifiedContact) {
+
+  }
+
   // метод изменения контакта
   public void modify(ContactData contact) {
     selectContactById(contact.getId()); // выбор последнего контакта в списке дл редактирования

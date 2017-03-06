@@ -1,5 +1,6 @@
 package addressbook.appmanager;
 
+import addressbook.model.ContactData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -76,4 +77,5 @@ public class ApplicationManager {
   public DbHelper db (){
     return dbHelper;
   }
+
 }
