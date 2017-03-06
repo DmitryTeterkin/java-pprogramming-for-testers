@@ -70,7 +70,7 @@ public class ContactDataGenerator {
     System.out.println(new File(".").getAbsolutePath());
     try (Writer writer = new FileWriter(file)) {
       for (ContactData contact : contacts) {
-        writer.write(String.format("%s;%s;%s;%s\n", contact.getFirstName(), contact.getSecondName(), contact.getGroup(), contact.getMobilePhone()));
+        writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getSecondName(), contact.getMobilePhone()));
       }
     }
   }
@@ -90,8 +90,8 @@ public class ContactDataGenerator {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withFirstName(String.format("Ivan%s", i))
-              .withSecondName(String.format("Ivanov%s", i)).withGroup("[none]").
-                      withMobilePhone(String.format("+(375) 29 555-33-1%s", i)));
+              .withSecondName(String.format("Ivanov%s", i))
+              .withMobilePhone(String.format("+(375) 29 555-33-1%s", i)));
     }
     return contacts;
   }
