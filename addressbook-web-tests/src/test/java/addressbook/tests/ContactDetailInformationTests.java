@@ -23,7 +23,7 @@ public class ContactDetailInformationTests extends TestBase {
     if (app.contact().all().size() == 0) {
       app.goTo().editorPage();
       app.contact().create(new ContactData().withFirstName("Иван").withSecondName("Иванов")
-              .withAddress("Тестовый адрес").withEmail("test@test.com").withGroup("[none]"), true);
+              .withAddress("Тестовый адрес").withEmail("test@test.com"), true);
       app.goTo().homePage();
     }
   }

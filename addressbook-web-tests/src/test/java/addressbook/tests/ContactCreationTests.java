@@ -65,7 +65,7 @@ public class ContactCreationTests extends TestBase {
       String line = reader.readLine();
       while (line != null) {
         String[] split = line.split(";");
-        list.add(new Object[]{new ContactData().withFirstName(split[0]).withSecondName(split[1]).withGroup(split[2]).withMobilePhone(split[3])});
+        list.add(new Object[]{new ContactData().withFirstName(split[0]).withSecondName(split[1]).withMobilePhone(split[2])});
         line = reader.readLine();
       }
       return list.iterator();
