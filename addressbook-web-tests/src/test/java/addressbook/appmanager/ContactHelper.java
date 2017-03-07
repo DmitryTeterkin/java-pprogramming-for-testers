@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 
 public class ContactHelper extends HelperBase {
@@ -50,8 +52,17 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void addContactToGroup(ContactData modifiedContact) {
-
+  // метод добавления контакта в группу
+  public void addContactToGroup(ContactData contact) {
+    selectContactById(contact.getId()); // выбираем контакт
+    Select groups = new Select(wd.findElement(By.name("to_group"))); // находим подтабличный выпадающий список со списокм групп
+    List items = groups.getOptions(); // получаем множество значений из списка
+    Random r = new Random();
+    groups.selectByIndex(r.nextInt(items.size())); //выбираем из списка рандомное значение
+    wd.findElement(By.name("add")).click(); // подтверждаем добавление контакта в группу
+    wd.findElement(By.cssSelector(".msgbox>i>a")).click(); // подтверждаем переход на страницу группы
+    Select allGroups = new Select(wd.findElement(By.name("group"))); // находим надтабличный выпадающий список со списокм групп
+    allGroups.selectByVisibleText("[all]"); // выбираем в нем элемент [all] для перехода на общий список контактов
   }
 
   // метод изменения контакта
@@ -156,9 +167,15 @@ public class ContactHelper extends HelperBase {
     String homePhone = wd.findElement(By.name("home")).getAttribute("value");
     String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
     String workPhone = wd.findElement(By.name("work")).getAttribute("value");
-    if (!Objects.equals(homePhone, "")) { homePhone = "H:" + homePhone; }
-    if (!Objects.equals(mobilePhone, "")) { mobilePhone = "M:" + mobilePhone; }
-    if (!Objects.equals(workPhone, "")) { workPhone = "W:" + workPhone; }
+    if (!Objects.equals(homePhone, "")) {
+      homePhone = "H:" + homePhone;
+    }
+    if (!Objects.equals(mobilePhone, "")) {
+      mobilePhone = "M:" + mobilePhone;
+    }
+    if (!Objects.equals(workPhone, "")) {
+      workPhone = "W:" + workPhone;
+    }
     wd.navigate().back();
     return new ContactData().withId(contact.getId())
             .withFirstName(firstname).withSecondName(lastname).withAddress(address)

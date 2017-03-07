@@ -24,15 +24,16 @@ public class ContactAddToGroupsTests extends TestBase {
     }
   }
 
-  @Test
+  @Test // тест добавления контакта в произвольную группу
   public void testContactAddToGroup() {
 
     Contacts before = app.db().contacts(); // создаем список контактов до изменения
-    app.goTo().homePage();
-    ContactData modifiedContact = before.iterator().next();
-    app.contact().addContactToGroup(modifiedContact);
+    app.goTo().homePage(); // переходим на список контактов
+    ContactData modifiedContact = before.iterator().next(); // выбираем любой контакт
+    app.contact().addContactToGroup(modifiedContact); // добавляем контакт в группу
+    app.goTo().homePage(); // возвращаемся на страницу с контактами
 
+
+    // нужны проверки
   }
-
-
 }
