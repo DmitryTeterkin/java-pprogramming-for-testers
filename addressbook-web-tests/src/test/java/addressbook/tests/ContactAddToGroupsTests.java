@@ -4,8 +4,20 @@ package addressbook.tests;
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
 import addressbook.model.GroupData;
+import addressbook.model.Groups;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.security.acl.Group;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertTrue;
 
 public class ContactAddToGroupsTests extends TestBase {
 
@@ -26,14 +38,21 @@ public class ContactAddToGroupsTests extends TestBase {
 
   @Test // тест добавления контакта в произвольную группу
   public void testContactAddToGroup() {
-
-    Contacts before = app.db().contacts(); // создаем список контактов до изменения
+    Contacts contactsList = app.db().contacts();
+    Groups groupsList = app.db().groups();// создаем список контактов до изменения
+    ContactData modifiedContact = contactsList.iterator().next();// выбираем любой контакт
+    String groupName = groupsList.iterator().next().getName(); // берем name любой группы
     app.goTo().homePage(); // переходим на список контактов
-    ContactData modifiedContact = before.iterator().next(); // выбираем любой контакт
-    app.contact().addContactToGroup(modifiedContact); // добавляем контакт в группу
+    app.contact().addContactToGroup(modifiedContact, groupName); // добавляем контакт в группу
     app.goTo().homePage(); // возвращаемся на страницу с контактами
+    // попробовать передать список имен групп контакта в массив и в нем найти группу с именем groupName.
 
-
+    Assert.assertTrue(modifiedContact.getGroups().contains(groupsList.stream().filter((s) -> !s.equals(groupName)).collect(Collectors.toList())));
+//    assertTrue(modifiedContact.getGroups(), equalTo());// здесь проверка на наличие в базе контакта с этим id у которого есть эта группа.
     // нужны проверки
   }
+
+
+
+
 }
