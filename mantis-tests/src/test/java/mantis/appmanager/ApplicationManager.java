@@ -45,10 +45,15 @@ public class ApplicationManager {
     wd.quit();
   }
 
-public HttpSession newSession(){
+  public HttpSession newSession(){
     return new HttpSession(this);
   }
+
   public String getProperty(String key){
   return properties.getProperty(key);
+  }
+
+  public RegistrationHelper registration() {
+    return new RegistrationHelper(this);
   }
 }
