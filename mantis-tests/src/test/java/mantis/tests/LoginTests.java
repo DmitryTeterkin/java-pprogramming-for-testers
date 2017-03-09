@@ -7,9 +7,6 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
 
-/**
- * Created by Dmitry on 08.03.2017.
- */
 public class LoginTests extends TestBase {
 
   @Test
