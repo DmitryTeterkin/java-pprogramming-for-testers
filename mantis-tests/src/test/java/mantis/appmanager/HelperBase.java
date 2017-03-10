@@ -1,0 +1,73 @@
+package mantis.appmanager;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
+
+public class HelperBase {
+  protected WebDriver wd;
+  protected ApplicationManager app;
+
+    public HelperBase (ApplicationManager app) {
+    this.app = app;
+    this.wd = app.getDriver();
+  }
+
+  // метод click
+  protected void click(By locator) {
+    wd.findElement(locator).click();
+  }
+
+  // метод type
+  protected void type(By locator, String text) {
+    click(locator);
+    if (text != null) {
+// реализация проверки на одинаковость заполнения полей.
+      String existingText = wd.findElement(locator).getAttribute("value");
+      if (!text.equals(existingText)) {
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+      }
+    }
+  }
+
+  // метод attach для файлов
+  protected void attach(By locator, File file) {
+    if (file != null) {
+      wd.findElement(locator).sendKeys(file.getAbsolutePath());
+    }
+  }
+
+  // метод проверки наличия элемента
+  protected boolean isElementPresent(By locator) {
+    try {
+      wd.findElement(locator);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+  }
+
+  public boolean isAlertPresent() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  public void waitpresenceOf(String name) {
+
+    WebDriverWait wait = new WebDriverWait(wd, 2);
+    wait.until(presenceOfElementLocated(By.name(name)));
+  }
+
+}
