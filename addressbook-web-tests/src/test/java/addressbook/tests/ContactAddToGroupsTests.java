@@ -9,19 +9,10 @@ import addressbook.model.Groups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
+
 
 public class ContactAddToGroupsTests extends TestBase {
-  private Integer groupId;
-  private String groupName;
-
-  @Override
-  public String toString() {
-    return "ContactAddToGroupsTests{" +
-            "groupId=" + groupId +
-            ", groupName='" + groupName + '\'' +
-            '}';
-  }
-
 
   @BeforeMethod
   public void ensurePreconditions() { // проверка предусловий теста
@@ -40,26 +31,24 @@ public class ContactAddToGroupsTests extends TestBase {
 
   @Test // тест добавления контакта в произвольную группу
   public void testContactAddToGroup() {
-    Contacts contactsList = app.db().contacts();
-    Groups groupsList = app.db().groups();// создаем список
-    ContactData modifiedContact = contactsList.iterator().next();// выбираем
-    groupId = groupsList.iterator().next().getId();
-
     app.goTo().homePage(); // переходим на список контактов
-    app.contact().addContactToGroup(modifiedContact, groupId); // добавляем контакт в группу
+    Contacts contactsList = app.db().contacts();
+    ContactData modifiedContact = contactsList.iterator().next();
+    Integer groupId = app.db().groups().iterator().next().getId();
+    String groupValue = String.valueOf(groupId);
+    app.contact().addContactToGroup(modifiedContact, groupValue); // добавляем контакт в группу
     app.goTo().homePage(); // возвращаемся на страницу с контактами
-    // попробовать передать список имен групп контакта в массив и в нем найти группу с именем groupName.
 
- //   Assert.assertTrue(modifiedContact.getGroups().contains(groupsList.stream().filter((s) -> !s.equals(groupName)).collect(Collectors.toList())));
-//    assertTrue(modifiedContact.getGroups(), equalTo());// здесь проверка на наличие в базе контакта с этим id у которого есть эта группа.
-    // нужны проверки
-  }
-
-  private String findGroupName(Integer groupId) {
-    GroupData list = app.db().groups().stream().filter((g) -> g.equals(groupId)).findAny().get(); //withId(groupId));
-    groupName = list.getName();
-    return groupName;
+   assertTrue(checkContactAddToGroup(modifiedContact, groupId));
   }
 
 
+  private boolean checkContactAddToGroup(ContactData modifiedContact, Integer groupId) {
+    Groups contactGroups = modifiedContact.getGroups();
+    for (GroupData contactGroup : contactGroups){
+      if (contactGroup.getId() == groupId){
+        return true;
+      }
+    }return false;
+  }
 }

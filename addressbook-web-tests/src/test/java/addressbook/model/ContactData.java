@@ -105,11 +105,6 @@ public class ContactData {
     return this;
   }
 
-//  public ContactData withGroup(String group) {
-//    this.group = group;
-//    return this;
-//  }
-
   public ContactData withAddress(String address) {
     this.address = address;
     return this;

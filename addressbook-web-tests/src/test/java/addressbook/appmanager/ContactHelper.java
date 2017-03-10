@@ -2,6 +2,8 @@ package addressbook.appmanager;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
+import addressbook.model.GroupData;
+import addressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -52,10 +54,10 @@ public class ContactHelper extends HelperBase {
   }
 
   // метод добавления контакта в группу
-  public void addContactToGroup(ContactData contact, Integer group) {
+  public void addContactToGroup(ContactData contact, String groupValue) {
     selectContactById(contact.getId()); // выбираем контакт
     Select groups = new Select(wd.findElement(By.name("to_group"))); // находим подтабличный выпадающий список со списокм групп
-    groups.selectByVisibleText(group); //выбираем из списка рандомное значение
+    groups.selectByValue(groupValue); //выбираем из списка рандомное значение
     wd.findElement(By.name("add")).click(); // подтверждаем добавление контакта в группу
     wd.findElement(By.cssSelector(".msgbox>i>a")).click(); // подтверждаем переход на страницу группы
     Select allGroups = new Select(wd.findElement(By.name("group"))); // находим надтабличный выпадающий список со списокм групп
@@ -198,4 +200,5 @@ public class ContactHelper extends HelperBase {
   private void initContactViewById(int id) {
     wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
   }
+
 }
