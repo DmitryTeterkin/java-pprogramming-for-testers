@@ -52,7 +52,7 @@ public class ContactHelper extends HelperBase {
   }
 
   // метод добавления контакта в группу
-  public void addContactToGroup(ContactData contact, String group) {
+  public void addContactToGroup(ContactData contact, Integer group) {
     selectContactById(contact.getId()); // выбираем контакт
     Select groups = new Select(wd.findElement(By.name("to_group"))); // находим подтабличный выпадающий список со списокм групп
     groups.selectByVisibleText(group); //выбираем из списка рандомное значение
