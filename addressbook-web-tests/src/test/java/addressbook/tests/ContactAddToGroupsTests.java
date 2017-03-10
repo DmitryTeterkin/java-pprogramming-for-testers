@@ -13,6 +13,8 @@ import static org.testng.Assert.assertTrue;
 
 
 public class ContactAddToGroupsTests extends TestBase {
+  Integer groupId = null;
+  private String groupValue = "";
 
   @BeforeMethod
   public void ensurePreconditions() { // проверка предусловий теста
@@ -31,20 +33,19 @@ public class ContactAddToGroupsTests extends TestBase {
 
   @Test // тест добавления контакта в произвольную группу
   public void testContactAddToGroup() {
-    app.goTo().homePage(); // переходим на список контактов
-    Contacts contactsList = app.db().contacts();
-    ContactData modifiedContact = contactsList.iterator().next();
-    Integer groupId = app.db().groups().iterator().next().getId();
-    String groupValue = String.valueOf(groupId);
-    app.contact().addContactToGroup(modifiedContact, groupValue); // добавляем контакт в группу
-    app.goTo().homePage(); // возвращаемся на страницу с контактами
+    app.goTo().homePage();
+    Contacts contacts = app.db().contacts();
+    ContactData contactToGroup = contacts.iterator().next();
+    groupId = app.db().groups().iterator().next().getId();
+    groupValue = String.valueOf(groupId);
+    app.contact().addContactToGroup(contactToGroup, groupValue);
+    app.goTo().homePage();
 
-   assertTrue(checkContactAddToGroup(modifiedContact, groupId));
+   assertTrue(checkContactAddToGroup(contactToGroup, groupId));
   }
 
-
-  private boolean checkContactAddToGroup(ContactData modifiedContact, Integer groupId) {
-    Groups contactGroups = modifiedContact.getGroups();
+  private boolean checkContactAddToGroup(ContactData contactToGroup, Integer groupId) {
+    Groups contactGroups = contactToGroup.getGroups();
     for (GroupData contactGroup : contactGroups){
       if (contactGroup.getId() == groupId){
         return true;

@@ -64,6 +64,16 @@ public class ContactHelper extends HelperBase {
     allGroups.selectByVisibleText("[all]"); // выбираем в нем элемент [all] для перехода на общий список контактов
   }
 
+  // метод удаления контакта из группы
+  public void deleteContactFromGroup(ContactData contact) {
+    selectContactById(contact.getId());
+    submitDeleteContactFromGroup();
+  }
+
+  public void submitDeleteContactFromGroup() {
+    click(By.name("remove"));
+  }
+
   // метод изменения контакта
   public void modify(ContactData contact) {
     selectContactById(contact.getId()); // выбор последнего контакта в списке дл редактирования
