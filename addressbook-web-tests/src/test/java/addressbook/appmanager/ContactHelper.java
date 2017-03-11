@@ -57,7 +57,7 @@ public class ContactHelper extends HelperBase {
   public void addContactToGroup(ContactData contact, String groupValue) {
     selectContactById(contact.getId()); // выбираем контакт
     Select groups = new Select(wd.findElement(By.name("to_group"))); // находим подтабличный выпадающий список со списокм групп
-    groups.selectByValue(groupValue); //выбираем из списка рандомное значение
+    groups.selectByValue(groupValue); //выбираем из списка значение группы
     wd.findElement(By.name("add")).click(); // подтверждаем добавление контакта в группу
     wd.findElement(By.cssSelector(".msgbox>i>a")).click(); // подтверждаем переход на страницу группы
     Select allGroups = new Select(wd.findElement(By.name("group"))); // находим надтабличный выпадающий список со списокм групп
