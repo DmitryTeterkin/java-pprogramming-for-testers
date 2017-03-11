@@ -8,9 +8,6 @@ import addressbook.model.Groups;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertTrue;
 
 
@@ -18,6 +15,7 @@ public class ContactAddToGroupsTests extends TestBase {
   Integer groupId = null;
   private String groupValue = "";
   ContactData contactToGroup = null;
+  Integer contactId = null;
 
   @BeforeMethod
   public void ensurePreconditions() { // проверка предусловий теста
@@ -39,17 +37,23 @@ public class ContactAddToGroupsTests extends TestBase {
     app.goTo().homePage();
     Contacts contactsBefore = app.db().contacts();
     contactToGroup = contactsBefore.iterator().next();
-    ContactData contact = new ContactData().withId(contactToGroup.getId())
-            .withFirstName(contactToGroup.getFirstName()).withSecondName(contactToGroup.getSecondName())
-            .withAddress(contactToGroup.getAddress()).withEmail(contactToGroup.getEmail())
-            .withEmail2(contactToGroup.getEmail2()).withEmail3(contactToGroup.getEmail3())
-            .withHomePhone(contactToGroup.getHomePhone()).withMobilePhone(contactToGroup.getMobilePhone())
-            .withWorkPhone(contactToGroup.getWorkPhone());
+    contactId = contactToGroup.getId();
     groupId = app.db().groups().iterator().next().getId();
     groupValue = String.valueOf(groupId);
     app.contact().addContactToGroup(contactToGroup, groupValue);
-    Contacts contactsAfter = app.db().contacts();
-    assertThat(contactsAfter, equalTo(contactsBefore.without(contactToGroup).withAdded(contact)));
-
+    assertTrue(checkContactAddToGroup(contactId, groupId));
+  }
+  private boolean checkContactAddToGroup(Integer contactId, Integer groupId) {
+    Groups groupsList = app.db().groups();
+    boolean contactInGroup = false;
+    for (GroupData group : groupsList) {
+      GroupData g1 = new GroupData().withId(group.getId()).withContacts(group.getContacts());
+      if (g1.getId() == groupId) {
+        if (g1.getContacts().stream().mapToInt((c) -> c.getId()).equals(contactId)) {
+          contactInGroup = true;
+        }
+      }
+    }
+    return contactInGroup;
   }
 }

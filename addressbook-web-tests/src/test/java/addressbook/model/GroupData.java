@@ -78,6 +78,10 @@ public class GroupData {
     return this;
   }
 
+  public GroupData withContacts(Set<ContactData> contacts) {
+    this.contacts = contacts;
+    return this;
+  }
 
   @Override
   public String toString() {

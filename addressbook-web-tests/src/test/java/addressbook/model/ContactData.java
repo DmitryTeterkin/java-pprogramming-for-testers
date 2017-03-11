@@ -100,11 +100,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withNickName(String nickName) {
-    this.nickName = nickName;
-    return this;
-  }
-
   public ContactData withAddress(String address) {
     this.address = address;
     return this;
@@ -160,6 +155,10 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withGroups(Set<GroupData> groups) {
+    this.groups = groups;
+    return this;
+  }
 
   // getters
   public int getId() {
@@ -197,10 +196,6 @@ public class ContactData {
   public String getEmail3() {
     return email3;
   }
-
-  // public String getGroup() {
-  //   return group;
-  // }
 
   public String getHomePhone() {
     return homePhone;
