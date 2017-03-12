@@ -89,6 +89,7 @@ public class GroupHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
+
   // метод, который считает количество групп по количеству чекбоксов
   public int count() {
     return wd.findElements(By.name("selected[]")).size();
@@ -105,11 +106,12 @@ public class GroupHelper extends HelperBase {
 
     groupCash = new Groups();                              // кэшируем список групп
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));        // заполняем его по цсс
-    for (WebElement element : elements) {                                             // создаем цикл прохода по всем элементам
+    for (WebElement element : elements) {   // создаем цикл прохода по всем элементам
       String name = element.getText();     // из каждого элемента получаем текст - имя группы
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       groupCash.add(new GroupData().withId(id).withName(name));  // создаем объект типа групдата добавляем созданный объект в список
     }
     return new Groups(groupCash); // возвращаем копию кэша
   }
+
 }

@@ -5,13 +5,8 @@ import addressbook.model.ContactData;
 import addressbook.model.Contacts;
 import addressbook.model.GroupData;
 import addressbook.model.Groups;
-import org.hibernate.SessionFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import javax.persistence.Id;
-import java.util.List;
-import java.util.function.Predicate;
 
 import static org.testng.Assert.assertTrue;
 

@@ -2,8 +2,6 @@ package addressbook.appmanager;
 
 import addressbook.model.ContactData;
 import addressbook.model.Contacts;
-import addressbook.model.GroupData;
-import addressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -65,9 +63,17 @@ public class ContactHelper extends HelperBase {
   }
 
   // метод удаления контакта из группы
-  public void deleteContactFromGroup(ContactData contact) {
-    selectContactById(contact.getId());
+  public ContactData deleteContactFromGroup(Contacts contactFromGroup, String groupValue) {
+    ContactData deletedContact = null;
+    Select groupDel = new Select(wd.findElement(By.name("group"))); // находим надтабличный выпадающий список со списокм групп
+    groupDel.selectByValue(groupValue);
+    deletedContact = contactFromGroup.iterator().next();
+    selectContactById(deletedContact.getId());
     submitDeleteContactFromGroup();
+    wd.findElement(By.cssSelector(".msgbox>i>a")).click();
+    Select allGroups = new Select(wd.findElement(By.name("group"))); // находим надтабличный выпадающий список со списокм групп
+    allGroups.selectByVisibleText("[all]"); // выбираем в нем элемент [all] для перехода на общий список контактов
+    return deletedContact;
   }
 
   public void submitDeleteContactFromGroup() {

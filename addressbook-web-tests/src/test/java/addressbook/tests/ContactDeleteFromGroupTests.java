@@ -8,13 +8,13 @@ import addressbook.model.Groups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertTrue;
 
 public class ContactDeleteFromGroupTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() { // проверка предусловий теста
+    // предусловие - создание контакта, если контактов нет.
     if (app.db().contacts().size() == 0) {
       app.goTo().homePage();
       app.goTo().editorPage();
@@ -22,46 +22,50 @@ public class ContactDeleteFromGroupTests extends TestBase {
               .withAddress("тестовый адрес").withEmail("test@test.com"), true);
       app.goTo().homePage();
     }
-    if (app.db().groups().size() == 0) {         //
-      app.goTo().groupPage();            // переход на страницу со списокм групп
-      app.group().create(new GroupData().withName("test1")); // заполняем новую группу
+    // предусловие - создание группы, если групп нет.
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("test1"));
     }
+    // предусловие - наличие хотябы одного контакта в любой группе.
+    app.goTo().homePage();
+    app.contact().addContactToGroup(app.db().contacts().iterator().next(), String.valueOf(app.db().groups().iterator().next().getId()));
   }
 
   @Test
-  public void testContactDeleteFromGroup(){
+  public void testContactDeleteFromGroup() {
+    Integer groupId = 0;
+    Groups groupsList = app.db().groups();
+    ContactData deletedContact = null;
+    for (GroupData group : groupsList) {
+      if (group.getContacts() != null) {
+        Contacts contactsListInGroup = group.getContacts();
+        groupId = group.getId();
+        String groupValue = String.valueOf(groupId);
+        app.goTo().homePage();
+        deletedContact = app.contact().deleteContactFromGroup(contactsListInGroup, groupValue);
+        System.out.println(group);
+        System.out.println(deletedContact);
+        break;
+      }
+    }
+    Groups newGroupsList = app.db().groups();
 
-/*
-    Groups groupsBefore = app.db().groups();
-    for ()
-
-
-    app.goTo().homePage();
-/*    Groups groupsBefore =
-
-      Contacts contactsBefore = app.db().contacts();
-      contactToGroup = contactsBefore.iterator().next();
-      ContactData contact = new ContactData().withId(contactToGroup.getId())
-              .withFirstName(contactToGroup.getFirstName()).withSecondName(contactToGroup.getSecondName())
-              .withAddress(contactToGroup.getAddress()).withEmail(contactToGroup.getEmail())
-              .withEmail2(contactToGroup.getEmail2()).withEmail3(contactToGroup.getEmail3())
-              .withHomePhone(contactToGroup.getHomePhone()).withMobilePhone(contactToGroup.getMobilePhone())
-              .withWorkPhone(contactToGroup.getWorkPhone());
-      groupId = app.db().groups().iterator().next().getId();
-      groupValue = String.valueOf(groupId);
-      app.contact().addContactToGroup(contactToGroup, groupValue);
-      Contacts contactsAfter = app.db().contacts();
-      assertThat(contactsAfter, equalTo(contactsBefore.without(contactToGroup).withAdded(contact)));
-
-    } // выбираем любую группу, проверяем, есть ли у нее контакты. если есть, удаляем любой, если нет, сначала добавляем в нее контакт, потом удаляем его
-
-*/
-
-
-
-
+    assertTrue(checkContactDeletedFromGroup(newGroupsList, deletedContact, groupId));
   }
 
-
-
+  private boolean checkContactDeletedFromGroup(Groups newGroupsList, ContactData deletedContact, Integer groupId) {
+    for (GroupData group : newGroupsList){
+      if (group.getId() == groupId){
+        Contacts contactsListInGroup = group.getContacts();
+        for (ContactData contact : contactsListInGroup){
+          if (contact == deletedContact){
+            return false;
+          }
+        }
+       break;
+      }
+    }
+    return true;
+  }
 }
