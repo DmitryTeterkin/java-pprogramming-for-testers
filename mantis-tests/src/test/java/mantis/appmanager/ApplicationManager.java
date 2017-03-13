@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
   private final Properties properties;
-  private WebDriver wd;
+  WebDriver wd;
 
   private String browser;
   private RegistrationHelper registrationHelper;
@@ -25,6 +25,8 @@ public class ApplicationManager {
   private MailHelper MailHelper;
   private UserHelper UserHelper;
   private DbHelper dbHelper;
+  private NavigationHelper navigationHelper;
+  private HttpSession HttpSession;
 
 
   public ApplicationManager(String browser) {
@@ -78,6 +80,10 @@ public class ApplicationManager {
       UserHelper = new UserHelper(this);
     }
     return UserHelper;
+  }
+
+  public NavigationHelper goTo() {
+    return navigationHelper;
   }
 
   public DbHelper db (){

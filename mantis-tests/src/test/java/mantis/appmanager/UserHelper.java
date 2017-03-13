@@ -9,16 +9,4 @@ public class UserHelper extends HelperBase {
     super(app);
   }
 
-
-  public void login(String username, String password) {
-
-  }
-
-  public void gotoUsersManagmentPage() {
-
-  }
-
-  public void resetUserPassword(int id) {
-
-  }
 }

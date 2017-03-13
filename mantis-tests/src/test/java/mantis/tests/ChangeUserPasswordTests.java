@@ -27,19 +27,18 @@ public class ChangeUserPasswordTests extends TestBase {
       String newpassword = "newpassword";
       String username = app.getProperty("web.adminLogin");
       String password = app.getProperty("web.adminPassword");
-      app.user().login(username, password);
-      app.user().gotoUsersManagmentPage();
+      app.goTo().loginPage(username, password);
+      app.goTo().UsersManagmentPage();
       Users users = app.db().users();
       UsersData user = users.iterator().next();
-      app.user().resetUserPassword(user.getId());
+      app.goTo().resetUserPassword(user.getUserName());
       List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
-      String resetLink = findResetLink(mailMessages);
-      app.registration().finish(user.getRealName(), resetLink, newpassword);
-      assertTrue(app.newSession().login(user.getUserName(), newpassword));
-
+      String LFCP = linkForCleanPassword(mailMessages);
+      boolean newLogin = app.newSession().loginByLink(LFCP, user.getUserName(), newpassword);
+      assertTrue(newLogin);
     }
 
-    private String findResetLink(List<MailMessage> mailMessages) {
+    private String linkForCleanPassword(List<MailMessage> mailMessages) {
       MailMessage mailMessage = mailMessages.stream().findFirst().get();
       VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
       return regex.getText(mailMessage.text);
