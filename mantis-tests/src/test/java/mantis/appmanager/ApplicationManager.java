@@ -13,6 +13,8 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import static mantis.tests.TestBase.app;
+
 
 public class ApplicationManager {
 
@@ -25,7 +27,7 @@ public class ApplicationManager {
   private MailHelper MailHelper;
   private UserHelper UserHelper;
   private DbHelper dbHelper;
-  private NavigationHelper navigationHelper;
+  private mantis.appmanager.navigationHelper navigationHelper;
   private HttpSession HttpSession;
 
 
@@ -47,7 +49,7 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     dbHelper = new DbHelper();
-    navigationHelper = new NavigationHelper(wd);
+    navigationHelper = new navigationHelper(app);
 
   }
 
@@ -92,7 +94,10 @@ public class ApplicationManager {
     return UserHelper;
   }
 
-  public NavigationHelper goTo() {
+  public navigationHelper goTo() {
+    if (navigationHelper == null)
+    {
+      navigationHelper = new navigationHelper(this);}
     return navigationHelper;
   }
 

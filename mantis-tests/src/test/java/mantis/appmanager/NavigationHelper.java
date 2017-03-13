@@ -4,15 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class NavigationHelper extends HelperBase {
+public class navigationHelper extends HelperBase {
 
-
-  public NavigationHelper(WebDriver wd) {
-    super(wd);
+  public navigationHelper(ApplicationManager app) {
+    super(app);
   }
 
   public void loginPage(String username, String password) {
-    wd.get(app.getProperty("web.baseUrl") + "/login_page.php");
+    String loginlink = app.getProperty("web.baseUrl") + "/login_page.php";
+    System.out.println(loginlink);
+    wd.get(loginlink);
     type(By.name("username"), username);
     type(By.name("password"), password);
     click(By.xpath(".//*[@id='loginPage-form']/fieldset/input[2]"));

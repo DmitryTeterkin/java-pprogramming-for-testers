@@ -28,9 +28,9 @@ public class ChangeUserPasswordTests extends TestBase {
       String username = app.getProperty("web.adminLogin");
       String password = app.getProperty("web.adminPassword");
       Users users = app.db().users();
+      UsersData user = users.iterator().next();
       app.goTo().loginPage(username, password);
       app.goTo().UsersManagmentPage();
-      UsersData user = users.iterator().next();
       app.goTo().resetUserPassword(user.getUserName());
       List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
       String LFCP = linkForCleanPassword(mailMessages);
@@ -48,5 +48,4 @@ public class ChangeUserPasswordTests extends TestBase {
     public void stopMailServer() {
       app.mail().stop();
     }
-
 }
