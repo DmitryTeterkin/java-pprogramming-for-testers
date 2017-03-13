@@ -17,10 +17,10 @@ import static org.testng.Assert.assertTrue;
 
 public class ChangeUserPasswordTests extends TestBase {
 
-    @BeforeMethod
-    public void startMailServer() {
-      app.mail().start();
-    }
+  @BeforeMethod
+  public void startMailServer(){
+    app.mail().start();
+  }
 
     @Test
     public void testResetPassword() throws IOException, MessagingException {
