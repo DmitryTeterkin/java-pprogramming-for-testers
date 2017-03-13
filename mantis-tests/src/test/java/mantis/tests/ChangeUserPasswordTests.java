@@ -30,7 +30,6 @@ public class ChangeUserPasswordTests extends TestBase {
       Users users = app.db().users();
       app.goTo().loginPage(username, password);
       app.goTo().UsersManagmentPage();
-      //Users users = app.db().users();
       UsersData user = users.iterator().next();
       app.goTo().resetUserPassword(user.getUserName());
       List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);

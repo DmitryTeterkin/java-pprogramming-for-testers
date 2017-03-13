@@ -36,9 +36,19 @@ public class ApplicationManager {
 
   public void init() throws IOException {
 
+    if (Objects.equals(browser, BrowserType.FIREFOX)) {
+      wd = new FirefoxDriver();
+    } else if (Objects.equals(browser, BrowserType.CHROME)) {
+      wd = new ChromeDriver();
+    } else if (Objects.equals(browser, BrowserType.IE)) {
+      wd = new InternetExplorerDriver();
+    }
+
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     dbHelper = new DbHelper();
+    navigationHelper = new NavigationHelper(wd);
+
   }
 
   public void stop() {
