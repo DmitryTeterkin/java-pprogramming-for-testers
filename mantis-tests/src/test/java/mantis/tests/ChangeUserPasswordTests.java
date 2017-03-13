@@ -27,9 +27,10 @@ public class ChangeUserPasswordTests extends TestBase {
       String newpassword = "newpassword";
       String username = app.getProperty("web.adminLogin");
       String password = app.getProperty("web.adminPassword");
+      Users users = app.db().users();
       app.goTo().loginPage(username, password);
       app.goTo().UsersManagmentPage();
-      Users users = app.db().users();
+      //Users users = app.db().users();
       UsersData user = users.iterator().next();
       app.goTo().resetUserPassword(user.getUserName());
       List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);

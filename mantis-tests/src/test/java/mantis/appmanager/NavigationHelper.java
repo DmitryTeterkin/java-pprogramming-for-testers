@@ -10,6 +10,7 @@ public class NavigationHelper extends HelperBase {
   public NavigationHelper(WebDriver wd) {
     super(wd);
   }
+
   public void loginPage(String username, String password) {
     wd.get(app.getProperty("web.baseUrl") + "/login_page.php");
     type(By.name("username"), username);

@@ -19,17 +19,14 @@ public class UsersData {
 
   @Expose
   @Column(name = "username")
-  @Type(type = "text")
-  private String userName;
+   private String userName;
 
   @Expose
   @Column(name = "realname")
-  @Type(type = "text")
   private String realName;
 
   @Expose
   @Column(name = "email")
-  @Type(type = "text")
   private String email;
 
 //  setters

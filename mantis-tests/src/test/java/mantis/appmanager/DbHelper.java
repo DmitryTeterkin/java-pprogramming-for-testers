@@ -9,6 +9,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+
 import java.util.List;
 
 public class DbHelper {
@@ -28,7 +29,7 @@ public class DbHelper {
   public Users users () {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<UsersData> result = session.createQuery("from mantis_user_table where access_level = '25'").list();
+    List<UsersData> result = session.createQuery("from UsersData where access_level = '25'").list();
     session.getTransaction().commit();
     session.close();
     return new Users (result);
