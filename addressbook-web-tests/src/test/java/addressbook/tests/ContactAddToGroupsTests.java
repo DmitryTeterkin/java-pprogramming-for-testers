@@ -57,8 +57,9 @@ public class ContactAddToGroupsTests extends TestBase {
             contactInGroup = true;
           }
         }
+       break;
       }
-    }
+     }
     return contactInGroup;
   }
 }
