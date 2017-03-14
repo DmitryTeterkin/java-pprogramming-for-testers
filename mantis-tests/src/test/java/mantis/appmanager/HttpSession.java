@@ -54,16 +54,4 @@ public class HttpSession {
     return body.contains(String.format("<span class=\"label hidden-xs label-default arrowed\">%s</span>", username));
   }
 
-  public boolean loginByLink(String link, String username, String password) throws IOException {
-    HttpPost post = new HttpPost("link");
-    List<NameValuePair> params = new ArrayList<NameValuePair>();
-    params.add(new BasicNameValuePair("username", username));
-    params.add(new BasicNameValuePair("password", password));
-    params.add(new BasicNameValuePair("secure_session", "on"));
-    params.add(new BasicNameValuePair("return", "index.php"));
-    post.setEntity(new UrlEncodedFormEntity(params));
-    CloseableHttpResponse response = httpclient.execute(post);
-    String body = getTextFrom(response);
-    return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
-  }
 }

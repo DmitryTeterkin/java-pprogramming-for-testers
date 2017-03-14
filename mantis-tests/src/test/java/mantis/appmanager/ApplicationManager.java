@@ -60,7 +60,10 @@ public class ApplicationManager {
   }
 
   public HttpSession newSession(){
-    return new HttpSession(this);
+    if (HttpSession == null) {
+      return new HttpSession(this);
+    }
+    return HttpSession;
   }
 
   public String getProperty(String key){
