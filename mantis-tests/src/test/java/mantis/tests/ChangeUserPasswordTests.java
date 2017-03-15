@@ -30,11 +30,15 @@ public class ChangeUserPasswordTests extends TestBase {
       Users users = app.db().users();
       UsersData user = users.iterator().next();
       String username = user.getUserName();
+      // логин под администратором и сброс пароля юзера
       app.goTo().resetUserPassword(adminname, password, username);
+     // получение письма, и выделение ссылки для перехода и подтверждения нового пароля
       List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
       String LFCP = linkForCleanPassword(mailMessages);
+      // логин юзера по ссылке с новым паролем
       app.goTo().loginWithNewPassword(LFCP, user.getUserName(), newpassword);
-      boolean newLogin = app.newSession().login(user.getUserName(), newpassword);
+      // проверка логина юзера через http
+      boolean newLogin = app.newSession().userLogin(user.getUserName(), newpassword);
       assertTrue(newLogin);
     }
 
