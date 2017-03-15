@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class navigationHelper extends HelperBase {
+public class NavigationHelper extends HelperBase {
 
-  public navigationHelper(ApplicationManager app) {
+  public NavigationHelper(ApplicationManager app) {
     super(app);
   }
 

@@ -27,8 +27,9 @@ public class ApplicationManager {
   private MailHelper MailHelper;
   private UserHelper UserHelper;
   private DbHelper dbHelper;
-  private mantis.appmanager.navigationHelper navigationHelper;
+  private NavigationHelper NavigationHelper;
   private HttpSession HttpSession;
+  private JamesHelper jamesHelper;
 
 
   public ApplicationManager(String browser) {
@@ -49,7 +50,7 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     dbHelper = new DbHelper();
-    navigationHelper = new navigationHelper(app);
+    NavigationHelper = new NavigationHelper(app);
 
   }
 
@@ -97,11 +98,12 @@ public class ApplicationManager {
     return UserHelper;
   }
 
-  public navigationHelper goTo() {
-    if (navigationHelper == null)
+  public NavigationHelper goTo() {
+    if (NavigationHelper == null)
     {
-      navigationHelper = new navigationHelper(this);}
-    return navigationHelper;
+      NavigationHelper = new NavigationHelper(this);
+    }
+    return NavigationHelper;
   }
 
   public DbHelper db (){
@@ -121,6 +123,13 @@ public class ApplicationManager {
       wd.get(properties.getProperty("web.baseUrl"));
     }
     return wd;
+  }
+
+  public JamesHelper james() {
+    if (jamesHelper == null){
+      jamesHelper = new JamesHelper(this);
+    }
+    return jamesHelper;
   }
 
 }
