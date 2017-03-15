@@ -28,7 +28,7 @@ public class ApplicationManager {
   private UserHelper UserHelper;
   private DbHelper dbHelper;
   private NavigationHelper NavigationHelper;
-  private HttpSession HttpSession;
+  private HttpSession httpSession;
   private JamesHelper jamesHelper;
   private SoapHelper soapHelper;
 
@@ -62,10 +62,10 @@ public class ApplicationManager {
   }
 
   public HttpSession newSession(){
-    if (HttpSession == null) {
+    if (httpSession == null) {
       return new HttpSession(this);
     }
-    return HttpSession;
+    return httpSession;
   }
 
   public String getProperty(String key){

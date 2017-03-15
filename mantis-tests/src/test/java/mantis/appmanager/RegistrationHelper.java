@@ -19,7 +19,7 @@ public class RegistrationHelper extends HelperBase {
 
   }
 
-  public void finish(String confirmationLink, String username, String password) {
+  public void finish(String username, String confirmationLink, String password) {
     wd.get(confirmationLink);
     type(By.name("realname"), username);
     type(By.name("password"), password);
