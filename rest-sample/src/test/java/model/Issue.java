@@ -7,6 +7,7 @@ public class Issue {
   private String subject;
   private String description;
 
+
 // setters
   public Issue withId(int id) {
     this.id = id;
@@ -35,4 +36,24 @@ public class Issue {
     return description;
   }
 
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Issue issue = (Issue) o;
+
+    if (id != issue.id) return false;
+    if (subject != null ? !subject.equals(issue.subject) : issue.subject != null) return false;
+    return description != null ? description.equals(issue.description) : issue.description == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id;
+    result = 31 * result + (subject != null ? subject.hashCode() : 0);
+    result = 31 * result + (description != null ? description.hashCode() : 0);
+    return result;
+  }
 }
