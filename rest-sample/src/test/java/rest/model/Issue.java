@@ -1,4 +1,4 @@
-package rest.tests.model;
+package rest.model;
 
 
 public class Issue {
