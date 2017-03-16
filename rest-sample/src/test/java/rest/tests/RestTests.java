@@ -1,7 +1,9 @@
 package rest.tests;
 
 
+import org.apache.http.client.fluent.Executor;
 import org.testng.annotations.Test;
+import rest.appmanager.RestHelper;
 import rest.model.Issue;
 
 import java.io.IOException;
