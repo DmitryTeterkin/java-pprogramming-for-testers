@@ -1,4 +1,4 @@
-package appmanager;
+package rest.tests.appmanager;
 
 
 
