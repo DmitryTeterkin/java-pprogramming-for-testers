@@ -8,6 +8,7 @@ import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.message.BasicNameValuePair;
 import org.testng.SkipException;
+import rest.appmanager.ApplicationManager;
 import rest.model.Issue;
 
 import java.io.IOException;
@@ -16,6 +17,8 @@ import java.rmi.RemoteException;
 import java.util.Set;
 
 public class TestBase {
+
+  protected static final ApplicationManager app = new ApplicationManager();
   String status = "";
 
 
@@ -43,6 +46,7 @@ public class TestBase {
     return Executor.newInstance().auth("LSGjeU4yP1X493ud1hNniA==", "");
   }
 
+
   public int createIssue(Issue newIssue) throws IOException {
 
     String json = getExecutor().execute(Request.Post("http://demo.bugify.com/api/issues.json")
@@ -51,8 +55,8 @@ public class TestBase {
             .returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
     return  parsed.getAsJsonObject().get("issue_id").getAsInt();
-
   }
+
 
   public Set<Issue> getIssues() throws IOException {
     String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues.json")).returnContent().asString();
@@ -78,5 +82,16 @@ public class TestBase {
     JsonElement parsed = new JsonParser().parse(json);
     return  parsed.getAsJsonObject().get("issue_id").getAsInt();
   }
+
+
+  public int createIssueWithRestAssured1testdlaAppmanager(Issue newIssue) throws IOException {
+    String json =  RestAssured.given()
+            .parameter("subject", newIssue.getSubject())
+            .parameter("description", newIssue.getDescription())
+            .post(System.getProperty("Path")).asString();
+    JsonElement parsed = new JsonParser().parse(json);
+    return  parsed.getAsJsonObject().get("issue_id").getAsInt();
+  }
+
 
 }

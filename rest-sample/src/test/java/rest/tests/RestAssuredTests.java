@@ -15,12 +15,11 @@ public class RestAssuredTests extends TestBase {
 
   @BeforeClass
   public void init() {
-   RestAssured.authentication = RestAssured.basic("LSGjeU4yP1X493ud1hNniA==", "");
+   RestAssured.authentication = RestAssured.basic(System.getProperty("RestAssuredUsername"), System.getProperty("RestAssuredPassword"));
   }
 
 
   @Test
-
   public void testCreateIssue() throws IOException {
     skipIfNotFixed(1);
     Set<Issue> oldIssues = getIssuesWithRestAssured();
