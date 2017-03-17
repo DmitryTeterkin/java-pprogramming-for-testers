@@ -8,7 +8,6 @@ import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.message.BasicNameValuePair;
 import org.testng.SkipException;
-import rest.appmanager.ApplicationManager;
 import rest.model.Issue;
 
 import java.io.IOException;
@@ -18,11 +17,8 @@ import java.util.Set;
 
 public class TestBase {
 
-  protected static final ApplicationManager app = new ApplicationManager();
-  String status = "";
-
-
   boolean isIssueOpen(int issueId) throws RemoteException, MalformedURLException{
+    String status = "";
     String json = RestAssured.get("http://demo.bugify.com/api/issues/" + issueId + ".json").getBody().asString();
     JsonObject parsed = new JsonParser().parse(json).getAsJsonObject();
     JsonArray issues = parsed.getAsJsonArray("issues");
@@ -82,16 +78,5 @@ public class TestBase {
     JsonElement parsed = new JsonParser().parse(json);
     return  parsed.getAsJsonObject().get("issue_id").getAsInt();
   }
-
-
-  public int createIssueWithRestAssured1testdlaAppmanager(Issue newIssue) throws IOException {
-    String json =  RestAssured.given()
-            .parameter("subject", newIssue.getSubject())
-            .parameter("description", newIssue.getDescription())
-            .post(System.getProperty("Path")).asString();
-    JsonElement parsed = new JsonParser().parse(json);
-    return  parsed.getAsJsonObject().get("issue_id").getAsInt();
-  }
-
 
 }

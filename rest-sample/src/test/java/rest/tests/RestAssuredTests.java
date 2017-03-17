@@ -2,9 +2,9 @@ package rest.tests;
 
 
 import com.jayway.restassured.RestAssured;
-import rest.model.Issue;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import rest.model.Issue;
 
 import java.io.IOException;
 import java.util.Set;
@@ -15,7 +15,7 @@ public class RestAssuredTests extends TestBase {
 
   @BeforeClass
   public void init() {
-   RestAssured.authentication = RestAssured.basic(System.getProperty("RestAssuredUsername"), System.getProperty("RestAssuredPassword"));
+   RestAssured.authentication = RestAssured.basic("LSGjeU4yP1X493ud1hNniA==", "");
   }
 
 

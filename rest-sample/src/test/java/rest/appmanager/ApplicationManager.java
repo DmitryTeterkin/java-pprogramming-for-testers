@@ -4,7 +4,6 @@ package rest.appmanager;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -23,7 +22,4 @@ public class ApplicationManager {
   public String getProperty(String key){
     return properties.getProperty(key);
   }
-
-
-
 }
