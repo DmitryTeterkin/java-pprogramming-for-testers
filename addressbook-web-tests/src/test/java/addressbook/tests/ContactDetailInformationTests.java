@@ -53,7 +53,7 @@ public class ContactDetailInformationTests extends TestBase {
     }
 
 // создаем правила для регулярных выражений.
-    Pattern fioAndAddress = Pattern.compile("^[a-zA-Zа-яА-Я0-9.,-]+$"); // регулярное выражение для адреса и ФИО
+    Pattern fioAndAddress = Pattern.compile("^[a-zA-Z0-9.,-]+$"); // регулярное выражение для адреса и ФИО
     Pattern emales = Pattern.compile("^(\\w*@\\w*.\\w*)+$");       // регулярное выражение для Email.
     Pattern phones = Pattern.compile("^[WHM0-9:+]+$");                // регулярное выражение для телефонов
 
