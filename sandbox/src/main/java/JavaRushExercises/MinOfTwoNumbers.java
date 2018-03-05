@@ -1,4 +1,4 @@
-package workbook;
+package JavaRushExercises;
 
 import java.util.Scanner;
 

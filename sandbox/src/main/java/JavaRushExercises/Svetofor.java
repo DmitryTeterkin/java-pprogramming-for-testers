@@ -1,4 +1,4 @@
-package workbook;
+package JavaRushExercises;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

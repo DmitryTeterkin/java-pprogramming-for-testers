@@ -1,4 +1,4 @@
-package workbook;
+package JavaRushExercises;
 
 public class SumOfThreeNums {
   public static void main(String[] args){
