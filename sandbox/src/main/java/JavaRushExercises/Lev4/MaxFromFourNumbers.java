@@ -1,4 +1,4 @@
-package JavaRushExercises;
+package JavaRushExercises.Lev4;
 
 /*
 Максимум четырех чисел

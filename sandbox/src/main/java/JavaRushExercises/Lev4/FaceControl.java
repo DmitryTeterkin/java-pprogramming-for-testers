@@ -1,4 +1,4 @@
-package JavaRushExercises;
+package JavaRushExercises.Lev4;
 
 import java.util.Scanner;
 

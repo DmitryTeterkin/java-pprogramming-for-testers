@@ -1,4 +1,4 @@
-package JavaRushExercises;
+package JavaRushExercises.Lev4;
 /*
 Настя или Настя?
 Ввести с клавиатуры два имени, и если имена одинаковые вывести сообщение "Имена идентичны".

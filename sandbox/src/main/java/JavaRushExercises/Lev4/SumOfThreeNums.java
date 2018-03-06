@@ -1,4 +1,4 @@
-package JavaRushExercises;
+package JavaRushExercises.Lev4;
 
 public class SumOfThreeNums {
   public static void main(String[] args){
