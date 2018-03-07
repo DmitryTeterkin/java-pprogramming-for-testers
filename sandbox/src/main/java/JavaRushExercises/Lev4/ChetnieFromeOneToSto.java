@@ -12,4 +12,10 @@ package JavaRushExercises.Lev4;
 4. В программе должен использоваться цикл for.
  */
 public class ChetnieFromeOneToSto {
+  public static void main(String[] args) {
+    int i;
+    for (i = 1; i < 101; i++) {
+      if (i%2 == 0) System.out.println(i);
+    }
+  }
 }
