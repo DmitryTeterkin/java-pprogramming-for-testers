@@ -12,4 +12,11 @@ package JavaRushExercises.Lev4;
 5. В программе должен использоваться цикл while.
  */
 public class FromOneToTen {
+  public static void main(String[] args) {
+    int i = 1;
+    while (i < 11){
+      System.out.println(i);
+    i++;
+    }
+  }
 }
