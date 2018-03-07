@@ -24,5 +24,12 @@ SSSSSSSSSS
 4. В программе должен использоваться цикл while.
  */
 public class StrokaTenRaz {
+  public static void main(String[] args) {
+    int i = 1;
+    while(i<= 10){
+      System.out.println("SSSSSSSSSS");
+      i++;
+    }
+  }
 
 }
