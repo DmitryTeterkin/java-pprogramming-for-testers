@@ -23,5 +23,11 @@ package JavaRushExercises.Lev4;
 4. В программе должен использоваться цикл for.
  */
 public class TiangleFromEight {
-
+  public static void main(String[] args) {
+    String S = "";
+    for (int i = 0; i<10; i++){
+      S = S + "8";
+      System.out.println(S);
+    }
+  }
 }
