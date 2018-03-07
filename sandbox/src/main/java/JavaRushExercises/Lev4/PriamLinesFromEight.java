@@ -14,4 +14,12 @@ package JavaRushExercises.Lev4;
 5. В программе должен использоваться цикл for.
  */
 public class PriamLinesFromEight {
+  public static void main(String[] args) {
+    for (int i = 0; i < 9; i++){
+      System.out.print("8 ");
+    }
+    for (int j = 0; j < 10; j++){
+      System.out.println("8");
+    }
+  }
 }
