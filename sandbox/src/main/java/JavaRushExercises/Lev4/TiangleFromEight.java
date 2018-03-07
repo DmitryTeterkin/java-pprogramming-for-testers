@@ -23,4 +23,5 @@ package JavaRushExercises.Lev4;
 4. В программе должен использоваться цикл for.
  */
 public class TiangleFromEight {
+
 }
