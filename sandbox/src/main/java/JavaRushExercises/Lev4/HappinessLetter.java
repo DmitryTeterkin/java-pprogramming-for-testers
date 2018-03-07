@@ -1,4 +1,7 @@
 package JavaRushExercises.Lev4;
+
+import java.util.Scanner;
+
 /*
 Письмо счастья
 Ввести с клавиатуры имя и используя цикл for 10 раз вывести: "*имя* любит меня."
@@ -23,4 +26,11 @@ package JavaRushExercises.Lev4;
 4. В программе должен использоваться цикл for.
  */
 public class HappinessLetter {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    String name1 = scanner.next();
+    for (int i = 0; i < 10; i++){
+      System.out.println(name1 + " любит меня.");
+    }
+  }
 }
