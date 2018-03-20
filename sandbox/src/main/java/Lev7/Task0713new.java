@@ -1,4 +1,7 @@
 package Lev7;
+
+import java.util.List;
+
 /*
 1. Введи с клавиатуры 20 чисел, сохрани их в список и рассортируй по трём другим спискам:
 Число нацело делится на 3 (x%3==0), нацело делится на 2 (x%2==0) и все остальные.
@@ -16,5 +19,13 @@ package Lev7;
 6. Метод printList должен выводить на экран все элементы переданного списка, каждый с новой строки.
 7. Программа должна вывести три дополнительных списка, используя метод printList.
  */
-public class Jol1 {
+
+public class Task0713new {
+  public static void main(String[] args) throws Exception {
+    //напишите тут ваш код
+  }
+
+  public static void printList(List<Integer> list) {
+    //напишите тут ваш код
+  }
 }
