@@ -16,7 +16,7 @@ import java.util.ArrayList;
 4. Выведи элементы на экран, каждый с новой строки.
 5. Порядок вывода должен быть обратный.
  */
-public class Task0714 {
+public class Task0714done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     ArrayList<String> list = new ArrayList<String>();

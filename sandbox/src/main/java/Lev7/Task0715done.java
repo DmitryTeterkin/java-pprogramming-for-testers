@@ -16,7 +16,7 @@ import java.util.ArrayList;
 4. После каждого слова добавь в список строку, содержащую слово «именно».
 5. Выведи элементы списка на экран, каждый с новой строки.
  */
-public class Task0715 {
+public class Task0715done {
   public static void main(String[] args) {
     ArrayList<String> List = new ArrayList<String>();
     List.add(0,"мама");

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 4. Если список не упорядочен по возрастанию длины строки, то нужно вывести на экран индекс
 первого элемента, нарушающего такую упорядоченность.
  */
-public class Task0718 {
+public class Task0718done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     ArrayList<String> list = new ArrayList<String>();
