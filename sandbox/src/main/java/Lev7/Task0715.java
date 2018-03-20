@@ -1,4 +1,7 @@
 package Lev7;
+
+import java.util.ArrayList;
+
 /*
 Продолжаем мыть раму
 1. Создай список из слов "мама", "мыла", "раму".
@@ -14,5 +17,17 @@ package Lev7;
 5. Выведи элементы списка на экран, каждый с новой строки.
  */
 public class Task0715 {
-
+  public static void main(String[] args) {
+    ArrayList<String> List = new ArrayList<String>();
+    List.add(0,"мама");
+    List.add(1,"мыла");
+    List.add(2,"раму");
+    for (int i = 0; i < List.size(); i++) {
+      if (List.get(i) != "именно"){
+        List.add(i+1, "именно");}
+    }
+    for (int i =0; i< List.size(); i++){
+    System.out.println(List.get(i));
+    }
+  }
 }
