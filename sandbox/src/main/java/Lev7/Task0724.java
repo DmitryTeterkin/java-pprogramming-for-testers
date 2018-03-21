@@ -23,11 +23,38 @@ package Lev7;
  */
 public class Task0724 {
   public static void main(String[] args) {
-    //напишите тут ваш код
+   Human Alex0 = new Human("Alex0", true, 21);
+   Human Alex1 = new Human("Alex1", true, 22);
+   Human Alexa2 = new Human("Alexa2", false, 23);
+   Human Alexa3 = new Human("Alexa3", false, 24);
+   Human Ira = new Human("Ira", false, 24, Alex0,Alexa2);
+    Human Ira1 = new Human("Ira1", false, 24, Alex1,Ira);
+    Human Ira2 = new Human("Ira3", false, 24, Alex0,Alexa3);
+    System.out.println(Alex0);
+    System.out.println(Alex1);
+    System.out.println(Alexa2);
+    System.out.println(Alexa3);
   }
 
   public static class Human {
-    //напишите тут ваш код
+    String name;
+    Human father, mother;
+    boolean sex;
+    int age;
+
+    public Human(String name, boolean sex, int age) {
+      this.name = name;
+      this.sex = sex;
+      this.age = age;
+    }
+
+    public Human(String name, boolean sex, int age, Human father, Human mother) {
+      this.name = name;
+      this.father = father;
+      this.mother = mother;
+      this.sex = sex;
+      this.age = age;
+    }
 
     public String toString() {
       String text = "";
@@ -44,4 +71,5 @@ public class Task0724 {
       return text;
     }
   }
+
 }

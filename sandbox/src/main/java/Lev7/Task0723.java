@@ -22,10 +22,10 @@ Thread.sleep(100); //задержка на одну десятую секунд�
 4. Программа должна использовать метод "Thread.sleep(100);" 31 раз.
  */
 public class Task0723 {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     for (int i = 30; i >= 0; i--) {
       System.out.println(i);
-
+      Thread.sleep(100);
       //напишите тут ваш код
     }
 

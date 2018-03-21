@@ -34,10 +34,10 @@ public class Task0726 {
       String name = reader.readLine();
 
       if (name.isEmpty()) break;
-
+/*
       Cat cat = new Cat(name);
       CATS.add(cat);
-    }
+ */   }
 
     printList();
   }
