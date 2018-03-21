@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 4. Метод main должен вызывать метод sort.
 5. Метод sort должен сортировать переданный массив по убыванию.
  */
-public class Task0728 {
+public class Task0728done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int[] array = new int[20];
@@ -31,6 +31,15 @@ public class Task0728 {
   }
 
   public static void sort(int[] array) {
-    //напишите тут ваш код
+    for (int j = 0; j < array.length-1; j++) {
+      for (int i = 0; i < array.length-1; i++) {
+        if (array[i] < array[i + 1]) {
+          int min = array[i];
+          array[i] = array[i+1];
+          array[i+1] = min;
+        }
+      }
+    }
+//напишите тут ваш код
   }
 }

@@ -21,7 +21,7 @@ Thread.sleep(100); //задержка на одну десятую секунд�
 3. Программа должна выводить "Бум!" после отсчета.
 4. Программа должна использовать метод "Thread.sleep(100);" 31 раз.
  */
-public class Task0723 {
+public class Task0723done {
   public static void main(String[] args) throws InterruptedException {
     for (int i = 30; i >= 0; i--) {
       System.out.println(i);

@@ -25,7 +25,7 @@ import java.util.List;
 7. Программа должна вывести три дополнительных списка, используя метод printList.
  */
 
-public class Task0713new {
+public class Task0713done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     // инициализируем списки

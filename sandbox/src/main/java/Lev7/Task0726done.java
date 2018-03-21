@@ -24,22 +24,25 @@ Cat name is Murka, age is 8, weight is 7, tail = 20
 5. Если пользователь ввел: Barsik, 6, 5, 22, Murka, 8, 7 и 20 (каждое значение с новой строки), то программа должна вывести две строки:
  "Cat name is Barsik, age is 6, weight is 5, tail = 22" и "Cat name is Murka, age is 8, weight is 7, tail = 20".
  */
-public class Task0726 {
+public class Task0726done {
   public final static ArrayList<Cat> CATS = new ArrayList<Cat>();
 
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+
     while (true) {
       String name = reader.readLine();
-
-      if (name.isEmpty()) break;
-/*
-      Cat cat = new Cat(name);
+      if (name.isEmpty())
+        break;
+      String age = reader.readLine();
+      String weight = reader.readLine();
+      String tailLength = reader.readLine();
+      Cat cat = new Cat(name, Integer.parseInt(age), Integer.parseInt(weight), Integer.parseInt(tailLength));
       CATS.add(cat);
- */   }
+    }
 
-    printList();
+  printList();
   }
 
   public static void printList() {

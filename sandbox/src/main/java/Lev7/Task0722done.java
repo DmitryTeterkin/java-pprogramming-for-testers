@@ -20,7 +20,7 @@ import java.util.ArrayList;
 4. Выведи список на экран, каждое значение с новой строки.
 5. Используй цикл for.
  */
-public class Task0722 {
+public class Task0722done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     ArrayList<String> list = new ArrayList<String>();

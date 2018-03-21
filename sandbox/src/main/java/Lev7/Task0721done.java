@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 3. Найди и выведи через пробел максимальное и минимальное числа.
 4. Используй цикл for.
  */
-public class Task0721 {
+public class Task0721done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int[] mas = new int[20];
