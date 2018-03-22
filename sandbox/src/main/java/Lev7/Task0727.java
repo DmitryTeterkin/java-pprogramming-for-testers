@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 /*
  Меняем функциональность
-Задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter). Потом она конвертирует строки в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
+Задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter). Потом она конвертирует строки
+ в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
 
 Новая задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
 Потом программа строит новый список. Если в строке чётное число букв, строка удваивается, если нечётное - утраивается.
@@ -38,10 +39,28 @@ public class Task0727 {
     ArrayList<String> list = new ArrayList<String>();
     while (true) {
       String s = reader.readLine();
-      if (s.isEmpty()) break;
+      if (s.equals("")) {
+        break;
+      } else{
       list.add(s);
+
+      }
     }
 
+    for (int i = 0; i < list.size(); i++) {
+      String s = list.get(i);
+      if (s.length() % 2 == 0){
+
+        list.set(i, (s + " " + s));
+      } else{
+
+        list.set(i, (s + " " + s + " " + s));
+      }
+    }
+    for (int i = 0; i < list.size(); i++) {
+      System.out.println(list.get(i));
+    }
+/*
     ArrayList<String> listUpperCase = new ArrayList<String>();
     for (int i = 0; i < list.size(); i++) {
       String s = list.get(i);
@@ -51,5 +70,8 @@ public class Task0727 {
     for (int i = 0; i < listUpperCase.size(); i++) {
       System.out.println(listUpperCase.get(i));
     }
+
+*/
+
   }
 }
