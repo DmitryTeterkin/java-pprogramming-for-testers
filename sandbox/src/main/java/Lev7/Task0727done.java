@@ -32,7 +32,7 @@ import java.util.ArrayList;
 4. Если в строке было нечетное число букв, то необходимо утроить строку (как в примере).
 5. Программа должна прекращать считывать данные с клавиатуры как только пользователь введет пустую строку и нажмет Enter.
  */
-public class Task0727 {
+public class Task0727done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
