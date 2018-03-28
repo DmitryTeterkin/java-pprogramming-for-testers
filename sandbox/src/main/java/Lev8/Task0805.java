@@ -1,6 +1,7 @@
 package Lev8;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /*
@@ -33,6 +34,12 @@ public class Task0805 {
   }
 
   public static void printValues(Map<String, String> map) {
-    //напишите тут ваш код
+    Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+    while (iterator.hasNext()){
+      Map.Entry<String, String> pair = iterator.next();
+      String value = pair.getValue();
+      System.out.println(value);
+    }
   }
+
 }

@@ -20,7 +20,6 @@ import java.util.Map;
 public class Task0803 {
   public static void main(String[] args) throws Exception {
     String[] cats = new String[]{"васька", "мурка", "дымка", "рыжик", "серый", "снежок", "босс", "борис", "визя", "гарфи"};
-
     HashMap<String, Cat> map = addCatsToMap(cats);
 
     for (Map.Entry<String, Cat> pair : map.entrySet()) {
@@ -30,9 +29,13 @@ public class Task0803 {
 
 
   public static HashMap<String, Cat> addCatsToMap(String[] cats) {
-    //напишите тут ваш код
+    HashMap<String, Cat> map1 = new HashMap<>();
+    for (int i = 0; i < cats.length; i++) {
+      Cat cat = new Cat(cats[i]);
+    map1.put(cats[i], cat);
+    }
 
-    return null;
+    return map1;
   }
 
 

@@ -1,6 +1,8 @@
 package Lev8;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /*
 Коллекция HashMap из Object
@@ -31,7 +33,13 @@ public class Task0806 {
     map.put("Hugs", 111111111111L);
     map.put("Comp", (double) 123);
 
-    //напишите тут ваш код
+    Iterator<Map.Entry<String, Object>> iterator = map.entrySet().iterator();
+    while (iterator.hasNext()){
+      Map.Entry<String, Object> pair = iterator.next();
+      String s = pair.getKey();
+      Object o = pair.getValue();
+      System.out.println(s + " - "+ o);
+    }
 
   }
 }

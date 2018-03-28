@@ -1,4 +1,9 @@
 package Lev8;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 /*
 HashMap из 10 пар
 Создать коллекцию HashMap<String, String>, занести туда 10 пар строк:
@@ -25,5 +30,26 @@ HashMap из 10 пар
 4. Программа должна выводить содержимое коллекции на экран, каждую пару через дефис и с новой строки.
  */
 public class Task0802 {
+  public static void main(String[] args) {
+    HashMap<String, String> map = new HashMap<>();
+    map.put("арбуз", "ягода");
+    map.put("банан", "трава");
+    map.put("вишня", "ягода");
+    map.put("груша", "фрукт");
+    map.put("дыня", "овощ");
+    map.put("ежевика", "куст");
+    map.put("жень-шень", "корень");
+    map.put("земляника", "ягода");
+    map.put("ирис", "цветок");
+    map.put("картофель", "клубень");
+    Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+
+    while (iterator.hasNext()){
+    Map.Entry<String, String> pair = iterator.next();
+      String key = pair.getKey();
+    String value = pair.getValue();
+      System.out.println(key + " - " + value);
+    }
+  }
 
 }
