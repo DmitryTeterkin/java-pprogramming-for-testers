@@ -17,7 +17,7 @@ HashSet из растений
 3. Программа должна добавлять в коллекцию 10 строк, согласно условию.
 4. Программа должна выводить 10 строк из коллекции на экран, каждую с новой строки.
  */
-public class Task0801 {
+public class Task0801done {
   public static void main(String[] args) {
     HashSet<String> set = new HashSet<String>();
     set.add("арбуз");

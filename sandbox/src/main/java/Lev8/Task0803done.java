@@ -17,7 +17,7 @@ import java.util.Map;
 3. Метод addCatsToMap()должен добавлять в коллекцию котов из массива String[] cats, согласно условию.
 4. Программа должна выводить содержимое коллекции на экран, каждую пару через дефис и с новой строки.
  */
-public class Task0803 {
+public class Task0803done {
   public static void main(String[] args) throws Exception {
     String[] cats = new String[]{"васька", "мурка", "дымка", "рыжик", "серый", "снежок", "босс", "борис", "визя", "гарфи"};
     HashMap<String, Cat> map = addCatsToMap(cats);

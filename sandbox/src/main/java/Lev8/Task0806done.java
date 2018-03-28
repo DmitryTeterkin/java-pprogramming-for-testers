@@ -19,7 +19,7 @@ Sim - 5
 3. Программа должна добавлять в коллекцию 10 различных объектов, согласно условию.
 4. Программа должна выводить на экран список значений коллекции, каждый элемент с новой строки.
  */
-public class Task0806 {
+public class Task0806done {
   public static void main(String[] args) throws Exception {
     HashMap<String, Object> map = new HashMap<String, Object>();
     map.put("Sim", 5);

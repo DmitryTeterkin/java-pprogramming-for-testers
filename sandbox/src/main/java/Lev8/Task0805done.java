@@ -5,18 +5,18 @@ import java.util.Iterator;
 import java.util.Map;
 
 /*
-Вывести на экран список ключей
+На экране — значения!
 Есть коллекция HashMap<String, String>, туда занесли 10 различных строк.
-Вывести на экран список ключей, каждый элемент с новой строки.
+Вывести на экран список значений, каждый элемент с новой строки.
 
 
 Требования:
 1. Программа должна создавать переменную коллекции HashMap с типом элементов String, String. Переменная должна быть сразу проинициализирована.
 2. Программа не должна считывать значения с клавиатуры.
 3. Программа должна добавлять в коллекцию 10 различных строк, согласно условию.
-4. Метод printKeys() должен выводить на экран список ключей коллекции, каждый элемент с новой строки.
+4. Метод printValues() должен выводить на экран список значений коллекции, каждый элемент с новой строки.
  */
-public class Task0804 {
+public class Task0805done {
   public static void main(String[] args) throws Exception {
     HashMap<String, String> map = new HashMap<String, String>();
     map.put("Sim", "Sim");
@@ -30,15 +30,16 @@ public class Task0804 {
     map.put("Gevey", "Gevey");
     map.put("Hugs", "Hugs");
 
-    printKeys(map);
+    printValues(map);
   }
 
-  public static void printKeys(Map<String, String> map) {
+  public static void printValues(Map<String, String> map) {
     Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
     while (iterator.hasNext()){
       Map.Entry<String, String> pair = iterator.next();
-      String key = pair.getKey();
-      System.out.println(key);
+      String value = pair.getValue();
+      System.out.println(value);
     }
   }
+
 }

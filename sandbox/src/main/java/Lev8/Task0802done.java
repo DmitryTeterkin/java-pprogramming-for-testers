@@ -29,7 +29,7 @@ HashMap из 10 пар
 3. Программа должна добавлять в коллекцию 10 пар строк, согласно условию.
 4. Программа должна выводить содержимое коллекции на экран, каждую пару через дефис и с новой строки.
  */
-public class Task0802 {
+public class Task0802done {
   public static void main(String[] args) {
     HashMap<String, String> map = new HashMap<>();
     map.put("арбуз", "ягода");
