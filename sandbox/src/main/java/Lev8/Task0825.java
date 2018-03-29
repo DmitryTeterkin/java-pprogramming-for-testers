@@ -14,7 +14,7 @@ package Lev8;
  */
 
 public class Task0825 {
-  public int A = 5;
+ /* public int A = 5;
   public static int B = 2;
 
   public int C = A * B;
@@ -30,4 +30,5 @@ public class Task0825 {
   public int getValue2() {
     return C;
   }
+  */
 }

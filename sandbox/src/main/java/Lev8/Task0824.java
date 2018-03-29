@@ -14,7 +14,7 @@ package Lev8;
 детей и выводить все объекты Human на экран.
  */
 public class Task0824 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     //напишите тут ваш код
   }
 
@@ -39,4 +39,5 @@ public class Task0824 {
       return text;
     }
   }
+  */
 }

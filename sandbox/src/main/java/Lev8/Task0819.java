@@ -1,7 +1,5 @@
 package Lev8;
 
-import java.util.Set;
-
 /*
 1. Внутри класса Solution создать public static класс кот - Cat.
 2. Реализовать метод createCats, он должен создавать множество (Set) котов и добавлять в него 3 кота.
@@ -20,7 +18,7 @@ import java.util.Set;
 7. Метод main() должен удалять одного кота из множества котов.
  */
 public class Task0819 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     Set<Cat> cats = createCats();
 
     //напишите тут ваш код. step 3 - пункт 3
@@ -38,4 +36,5 @@ public class Task0819 {
   }
 
   // step 1 - пункт 1
+*/
 }

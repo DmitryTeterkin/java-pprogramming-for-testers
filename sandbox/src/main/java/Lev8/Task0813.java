@@ -1,5 +1,6 @@
 package Lev8;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /*
@@ -15,11 +16,32 @@ import java.util.Set;
  */
 public class Task0813 {
   public static Set<String> createSet() {
-    //напишите тут ваш код
-
+   HashSet<String> set = new HashSet<>();
+    set.add("л1");
+    set.add("л2");
+    set.add("л3");
+    set.add("л4");
+    set.add("л5");
+    set.add("л6");
+    set.add("л7");
+    set.add("л8");
+    set.add("л9");
+    set.add("л10");
+    set.add("л11");
+    set.add("л12");
+    set.add("л13");
+    set.add("л14");
+    set.add("л15");
+    set.add("л16");
+    set.add("л17");
+    set.add("л18");
+    set.add("л19");
+    set.add("л20");
+   return set;
   }
 
   public static void main(String[] args) {
-
+   Set<String> set = createSet();
+    System.out.println(set);
   }
 }

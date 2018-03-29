@@ -1,8 +1,5 @@
 package Lev8;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /*
 1. Внутри класса Solution создать public static классы Cat, Dog.
 2. Реализовать метод createCats, который должен возвращать множество с 4 котами.
@@ -23,7 +20,7 @@ import java.util.Set;
 7. Метод printPets() должен выводить на экран всех животных, которые в нем есть. Каждое животное с новой строки.
  */
 public class Task0820 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     Set<Cat> cats = createCats();
     Set<Dog> dogs = createDogs();
 
@@ -61,4 +58,5 @@ public class Task0820 {
   }
 
   //напишите тут ваш код
+  */
 }
