@@ -1,5 +1,8 @@
 package Lev8;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 Создать словарь (Map<String, String>) занести в него десять записей по принципу "фамилия" - "имя".
 Удалить людей, имеющих одинаковые имена.
@@ -14,13 +17,24 @@ package Lev8;
 6. Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().
  */
 public class Task0817 {
-  /*public static HashMap<String, String> createMap() {
-    //напишите тут ваш код
-
+  public static HashMap<String, String> createMap() {
+    HashMap<String, String> map = new HashMap<String, String>();
+    map.put("иванов","иван");
+    map.put("петров","петр");
+    map.put("степанов","ивар");
+    map.put("новиков","ивас");
+    map.put("сидоров","иран");
+    map.put("кузькин","ичан");
+    map.put("васнецов","иван");
+    map.put("петрович","изан");
+    map.put("иванович","ищан");
+    map.put("ивановский","иван");
+   // System.out.println(map);
+    return map;
   }
 
   public static void removeTheFirstNameDuplicates(HashMap<String, String> map) {
-    //напишите тут ваш код
+  removeItemFromMapByValue(map, "иван");
 
   }
 
@@ -33,7 +47,9 @@ public class Task0817 {
   }
 
   public static void main(String[] args) {
-
+    HashMap<String, String> map = createMap();
+    removeTheFirstNameDuplicates(map);
+  // System.out.println(map);
   }
-  */
+
 }

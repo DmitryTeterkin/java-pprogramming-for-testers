@@ -1,5 +1,9 @@
 package Lev8;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 /*
 1. Внутри класса Solution создать public static классы Cat, Dog.
 2. Реализовать метод createCats, который должен возвращать множество с 4 котами.
@@ -20,7 +24,7 @@ package Lev8;
 7. Метод printPets() должен выводить на экран всех животных, которые в нем есть. Каждое животное с новой строки.
  */
 public class Task0820 {
- /* public static void main(String[] args) {
+  public static void main(String[] args) {
     Set<Cat> cats = createCats();
     Set<Dog> dogs = createDogs();
 
@@ -33,30 +37,49 @@ public class Task0820 {
 
   public static Set<Cat> createCats() {
     HashSet<Cat> result = new HashSet<Cat>();
-
-    //напишите тут ваш код
-
+     result.add(new Cat());
+     result.add(new Cat());
+     result.add(new Cat());
+     result.add(new Cat());
     return result;
   }
 
   public static Set<Dog> createDogs() {
-    //напишите тут ваш код
-    return null;
+    HashSet<Dog> result = new HashSet<Dog>();
+    result.add(new Dog());
+    result.add(new Dog());
+    result.add(new Dog());
+    return result;
   }
 
   public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
-    //напишите тут ваш код
-    return null;
+    Set<Object> result = new HashSet<>();
+    result.addAll(cats);
+    result.addAll(dogs);
+    return result;
   }
 
   public static void removeCats(Set<Object> pets, Set<Cat> cats) {
-    //напишите тут ваш код
+    Set<Object> result = pets;
+    result.removeAll(cats);
   }
 
   public static void printPets(Set<Object> pets) {
-    //напишите тут ваш код
+  Iterator<Object> iterator = pets.iterator();
+   while (iterator.hasNext()){
+     Object s = iterator.next();
+     System.out.println(s);
+   }
   }
 
-  //напишите тут ваш код
-  */
+  public static class Cat{
+    public Cat() {
+    }
+  }
+
+  public static class Dog{
+    public Dog() {
+    }
+  }
+
 }

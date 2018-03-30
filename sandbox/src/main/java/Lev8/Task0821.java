@@ -1,5 +1,6 @@
 package Lev8;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /*
@@ -12,10 +13,12 @@ import java.util.Map;
 Требования:
 1. Программа должна выводить текст на экран.
 2. Класс Solution должен содержать только три метода.
-3. Метод createPeopleList() должен создавать и возвращать словарь Map с типом элементов String, String. Кроме того, добавлять в словарь 10 человек.
+3. Метод createPeopleList() должен создавать и возвращать словарь Map с типом элементов String, String.
+Кроме того, добавлять в словарь 10 человек.
 4. В методе createPeopleList() должны добавляться люди с одинаковыми фамилиями.
 5. В методе createPeopleList() должны добавляться люди с одинаковыми именами.
-6. Метод printPeopleList() должен выводить на экран всех людей из словаря Map. Каждое значение вывести с новой строки. Фамилия и имя разделены пробелом.
+6. Метод printPeopleList() должен выводить на экран всех людей из словаря Map. Каждое значение вывести с новой строки.
+Фамилия и имя разделены пробелом.
 7. Метод main() должен вызывать метод createPeopleList().
 8. Метод main() должен вызывать метод printPeopleList().
  */
@@ -26,9 +29,19 @@ public class Task0821 {
   }
 
   public static Map<String, String> createPeopleList() {
-    //напишите тут ваш код
+    Map<String, String> map = new HashMap<>();
 
-    return null;
+    map.put("Bdfyjd","Bdfy");
+    map.put("Bdfyjd","Bdfy");
+    map.put("B2dfyjd","Bdfy");
+    map.put("Bd1fyjd","Bdfy");
+    map.put("Bdfyjd","Bdfy");
+    map.put("Bdfy2jd","Bdfy");
+    map.put("Bd2fyjd","Bdfy");
+    map.put("Bdfyjd","Bdfy");
+    map.put("Bdfy2jd","Bdfy");
+    map.put("Bdfyjd","Bdfy");
+    return map;
   }
 
   public static void printPeopleList(Map<String, String> map) {

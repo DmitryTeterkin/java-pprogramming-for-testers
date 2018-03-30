@@ -1,5 +1,9 @@
 package Lev8;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 /*
 1. Внутри класса Solution создать public static класс кот - Cat.
 2. Реализовать метод createCats, он должен создавать множество (Set) котов и добавлять в него 3 кота.
@@ -18,23 +22,43 @@ package Lev8;
 7. Метод main() должен удалять одного кота из множества котов.
  */
 public class Task0819 {
- /* public static void main(String[] args) {
+ public static void main(String[] args) {
     Set<Cat> cats = createCats();
+  // Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+   Iterator<Cat> iterator = cats.iterator();
+   Cat s = null;
+   if (iterator.hasNext()){
+     {s = iterator.next();// break;
+     }
+   }
+   cats.remove(s);
 
-    //напишите тут ваш код. step 3 - пункт 3
-
-    printCats(cats);
+   printCats(cats);
   }
 
   public static Set<Cat> createCats() {
-    //напишите тут ваш код. step 2 - пункт 2
-    return null;
+    Set<Cat> set = new HashSet<Cat>();
+    set.add(new Cat());
+    set.add(new Cat());
+    set.add(new Cat());
+    System.out.println(set);
+    return set;
+
   }
 
   public static void printCats(Set<Cat> cats) {
-    // step 4 - пункт 4
+    Iterator<Cat> iterator = cats.iterator();
+     while (iterator.hasNext()){
+      {Cat t = iterator.next();// break;
+        System.out.println(t);
+      }
+    }
   }
 
-  // step 1 - пункт 1
-*/
+  public static class Cat{
+    public Cat() {
+
+    }
+  }
+
 }
