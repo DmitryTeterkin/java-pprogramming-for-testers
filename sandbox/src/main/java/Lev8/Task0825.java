@@ -14,7 +14,7 @@ package Lev8;
  */
 
 public class Task0825 {
- /* public int A = 5;
+  public static int A = 5;
   public static int B = 2;
 
   public int C = A * B;
@@ -23,12 +23,12 @@ public class Task0825 {
   public static void main(String[] args) {
   }
 
-  public static int getValue() {
+  public int getValue() {
     return D;
   }
 
   public int getValue2() {
     return C;
   }
-  */
+
 }

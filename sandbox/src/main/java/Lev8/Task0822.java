@@ -1,6 +1,9 @@
 package Lev8;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -26,12 +29,24 @@ public class Task0822 {
   }
 
   public static int getMinimum(List<Integer> array) {
-    // find minimum here — найти минимум тут
-    return 0;
+    int min = Integer.MAX_VALUE;// find minimum here — найти минимум тут
+    for (int i = 0; i < array.size(); i++) {
+      if (array.get(i) < min){
+        min = array.get(i);
+      }
+    }
+    return min;
   }
 
   public static List<Integer> getIntegerList() throws IOException {
-    //create and initialize a list here - создать и заполнить список тут
-    return null;
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    List<Integer> list = new ArrayList<Integer>();
+    int count = Integer.parseInt(reader.readLine());
+    if (count>0){
+      for (int i = 0; i < count; i++) {
+        list.add(i, Integer.parseInt(reader.readLine()));
+      }
+    }
+   return list;
   }
 }

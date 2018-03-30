@@ -36,7 +36,7 @@ public class Task0826 {
   }
 
   public static void sort(int[] array) {
-    //напишите тут ваш код
+
   }
 
 }
