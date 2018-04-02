@@ -16,6 +16,8 @@ import java.util.Map;
 HashMap с типом элементов String, String состоящих из 10 записей по принципу «Фамилия» - «Имя».
 4. Метод getCountTheSameFirstName() должен возвращать число людей у которых совпадает имя.
 5. Метод getCountTheSameLastName() должен возвращать число людей у которых совпадает фамилия.
+
+ сделано!!!!
  */
 public class Task0815 {
   public static HashMap<String, String> createMap() {

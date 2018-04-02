@@ -21,6 +21,10 @@ import java.util.List;
 5. Метод getMinimum() должен вернуть минимальное число среди элементов списка.
 6. Метод main() должен вызывать метод getIntegerList().
 7. Метод main() должен вызывать метод getMinimum().
+
+
+ Сделано!!!!
+
  */
 public class Task0822 {
   public static void main(String[] args) throws Exception {

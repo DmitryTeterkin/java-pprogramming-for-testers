@@ -15,6 +15,9 @@ import java.util.Map;
 4. Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, String состоящих из 10 записей.
 5. Метод removeTheFirstNameDuplicates() должен удалять из словаря всех людей, имеющие одинаковые имена.
 6. Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().
+
+ сделано!!!!
+
  */
 public class Task0817 {
   public static HashMap<String, String> createMap() {

@@ -21,6 +21,9 @@ import java.util.Map;
 Фамилия и имя разделены пробелом.
 7. Метод main() должен вызывать метод createPeopleList().
 8. Метод main() должен вызывать метод printPeopleList().
+
+Сделано!!!!
+
  */
 public class Task0821 {
   public static void main(String[] args) {

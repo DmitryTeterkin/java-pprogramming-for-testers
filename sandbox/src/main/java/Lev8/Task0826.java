@@ -17,6 +17,9 @@ import java.io.InputStreamReader;
 4. Метод sort() должен сортировать массив чисел от большего к меньшему.
 5. Метод main() должен вызывать метод sort().
 6. Программа должна выводить пять наибольших чисел массива. Каждое значение с новой строки.
+
+Сделано!!!!
+
  */
 public class Task0826 {
   public static void main(String[] args) throws Exception {
@@ -36,7 +39,15 @@ public class Task0826 {
   }
 
   public static void sort(int[] array) {
-
+    for (int j = 0; j < 19; j++) {
+      for (int i = 0; i < 19; i++) {
+        if (array[i] < array[i + 1]) {
+          int max = array[i + 1];
+          array[i+1] = array[i];
+          array[i] = max;
+        }
+      }
+    }
   }
 
 }

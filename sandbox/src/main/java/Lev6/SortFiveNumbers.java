@@ -3,7 +3,6 @@ package Lev6;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class SortFiveNumbers {
   /* Задача: Написать программу, которая вводит с клавиатуры 5 чисел и выводит их в возрастающем порядке.
@@ -28,6 +27,8 @@ public class SortFiveNumbers {
  2. Программа должна выводить 5 чисел, каждое с новой строки.
            3. Выведенные числа должны быть отсортированы по возрастанию.
  4. Вывод должен содержать те же числа, что и были введены (порядок не важен).
+
+          сделано!!
            */
   public static void main(String[] args) throws IOException {
     int[] mas = new int[5];

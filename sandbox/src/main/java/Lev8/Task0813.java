@@ -13,6 +13,8 @@ import java.util.Set;
 3. Класс Solution должен содержать только два метода.
 4. Метод createSet() должен создавать и возвращать множество (реализация HashSet).
 5. Множество из метода createSet() должно содержать 20 слов на букву «Л».
+
+ сделано!!!
  */
 public class Task0813 {
   public static Set<String> createSet() {

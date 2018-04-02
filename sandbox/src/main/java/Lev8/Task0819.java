@@ -20,6 +20,8 @@ import java.util.Set;
 5. Метод main() должен один раз вызывать метод createCats().
 6. Метод main() должен вызывать метод printCats().
 7. Метод main() должен удалять одного кота из множества котов.
+
+ Сделано!!!
  */
 public class Task0819 {
  public static void main(String[] args) {

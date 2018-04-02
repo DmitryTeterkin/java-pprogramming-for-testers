@@ -14,6 +14,9 @@ import java.util.Iterator;
 3. Класс Solution должен содержать только три метода.
 4. Метод createSet() должен создавать и возвращать множество HashSet состоящих из 20 различных чисел.
 5. Метод removeAllNumbersMoreThan10() должен удалять из множества все числа больше 10.
+
+ сделано!!!
+
  */
 public class Task0814 {
  public static HashSet<Integer> createSet() { // наполняем сет элементами

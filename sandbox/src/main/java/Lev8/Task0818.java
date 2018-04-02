@@ -15,6 +15,9 @@ import java.util.Map;
 4. Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, Integer
 состоящих из 10 записей по принципу «фамилия» - «зарплата».
 5. Метод removeItemFromMap() должен удалять из словаря всех людей, у которых зарплата ниже 500.
+
+ Сделано!!!!
+
  */
 public class Task0818 {
  public static HashMap<String, Integer> createMap() {

@@ -1,4 +1,7 @@
 package Lev8;
+
+import java.util.ArrayList;
+
 /*
 1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
 2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
@@ -12,13 +15,51 @@ package Lev8;
 4. Класс Solution должен содержать один метод.
 5. Программа должна создавать объекты и заполнять их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое
 детей и выводить все объекты Human на экран.
+
+Сделано!!!!
+
  */
 public class Task0824 {
- /* public static void main(String[] args) {
-    //напишите тут ваш код
-  }
+ public static void main(String[] args) {
+   ArrayList<Human> child = new ArrayList<>();
+   Human Son1 = new Human("Son1", true, 5, child);
+   Human Son2 = new Human("Son2", true, 7, child);
+   Human Douter1 = new Human("Douter1", false, 8, child);
+   ArrayList<Human> childrens = new ArrayList<>();
+   childrens.add(Son1);childrens.add(Son2);childrens.add(Douter1);
+   Human Father = new Human("Father", true, 38, childrens);
+   Human Mather = new Human("Mather", false, 35, childrens);
+   ArrayList<Human> mother = new ArrayList<>(); mother.add(Mather);
+   ArrayList<Human> father = new ArrayList<>(); father.add(Father);
+   Human grDad1 = new Human("GrandDad1", true, 80, mother);
+   Human grDad2 = new Human("GrandDad2", true, 85, father);
+   Human grMam1 = new Human("GrandMam1", false, 79, mother);
+   Human grMam2 = new Human("GrandMam2", false, 75, father);
+   System.out.println(grDad1);
+   System.out.println(grDad2);
+   System.out.println(grMam1);
+   System.out.println(grMam2);
+   System.out.println(Father);
+   System.out.println(Mather);
+   System.out.println(Son1);
+   System.out.println(Son2);
+   System.out.println(Douter1);
+ }
 
   public static class Human {
+    public Human(String name, boolean sex, int age, ArrayList<Human> children) {
+      this.name = name;
+      this.sex = sex;
+      this.age = age;
+      this.children = children;
+    }
+
+    private String name;
+    private boolean sex;
+    private int age;
+    private ArrayList<Human> children;
+
+
     //напишите тут ваш код
 
     public String toString() {
@@ -39,5 +80,5 @@ public class Task0824 {
       return text;
     }
   }
-  */
+
 }
