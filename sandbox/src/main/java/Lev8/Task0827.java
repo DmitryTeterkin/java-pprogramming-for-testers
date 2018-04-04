@@ -1,6 +1,8 @@
 package Lev8;
+
 /*
-1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true, если количество дней с начала года - нечетное число, иначе false
+1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true, если количество дней с начала года
+- нечетное число, иначе false
 2. String date передается в формате FEBRUARY 1 2013
 Не забудьте учесть первый день года.
 
@@ -21,6 +23,9 @@ public class Task0827 {
   }
 
   public static boolean isDateOdd(String date) {
+    // Date date1 = date.;
+    // if ()
+
     return true;
   }
 }

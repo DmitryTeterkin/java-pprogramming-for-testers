@@ -3,6 +3,8 @@ package Lev8;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /*
 Создать словарь (Map<String, Date>) и занести в него десять записей по принципу: "фамилия" - "дата рождения".
@@ -15,8 +17,8 @@ import java.util.HashMap;
 3. Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, Date состоящий из 10 записей.
 4. Метод removeAllSummerPeople() должен удалять из словаря всех людей, родившихся летом.
  */
-public class Task0816 {
-  public class Solution {
+public class Task0816ready {
+
     public static HashMap<String, Date> createMap() {
       HashMap<String, Date> map = new HashMap<String, Date>();
       map.put("Stallone", new Date("January 1 1980"));
@@ -30,13 +32,13 @@ public class Task0816 {
       map.put("Yussy", new Date("September 1 1980"));
       map.put("Uups", new Date("October 1 1980"));
 
-      //напишите тут ваш код
+
       return map;
     }
 
     public static void removeAllSummerPeople(HashMap<String, Date> map) {
-      //напишите тут ваш код
-      Iterator <Map.Entry<String, Date>> iterator = map.entrySet().iterator();
+
+      Iterator<Map.Entry<String, Date>> iterator = map.entrySet().iterator();
       int month;
       Map.Entry<String, Date> pair;
       while (iterator.hasNext()){
@@ -49,5 +51,9 @@ public class Task0816 {
     }
 
     public static void main(String[] args) {
+      HashMap<String, Date> map = createMap();
+      removeAllSummerPeople(map);
+
     }
 }
+
