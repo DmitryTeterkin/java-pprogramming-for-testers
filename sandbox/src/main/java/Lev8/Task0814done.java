@@ -18,7 +18,7 @@ import java.util.Iterator;
  сделано!!!
 
  */
-public class Task0814 {
+public class Task0814done {
  public static HashSet<Integer> createSet() { // наполняем сет элементами
     HashSet<Integer> setInt = new HashSet<>();
    for (int i = 0; i < 20; i++) {

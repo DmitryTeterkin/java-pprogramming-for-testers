@@ -25,7 +25,7 @@ import java.util.Map;
 Сделано!!!!
 
  */
-public class Task0821 {
+public class Task0821done {
   public static void main(String[] args) {
     Map<String, String> map = createPeopleList();
     printPeopleList(map);

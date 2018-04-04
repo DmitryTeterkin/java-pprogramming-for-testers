@@ -23,7 +23,7 @@ import java.util.Set;
 
  Сделано!!!
  */
-public class Task0819 {
+public class Task0819done {
  public static void main(String[] args) {
     Set<Cat> cats = createCats();
   // Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();

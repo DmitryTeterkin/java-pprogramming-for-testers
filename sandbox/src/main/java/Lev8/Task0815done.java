@@ -19,7 +19,7 @@ HashMap с типом элементов String, String состоящих из 
 
  сделано!!!!
  */
-public class Task0815 {
+public class Task0815done {
   public static HashMap<String, String> createMap() {
    HashMap<String, String> map = new HashMap<String, String>();
     map.put("Иванов","иван");
@@ -47,7 +47,7 @@ public class Task0815 {
         countSameName = countSameName + 1;
       }
     }
-    System.out.println(countSameName);
+   // System.out.println(countSameName);
     return countSameName;
   }
 
@@ -62,7 +62,7 @@ public class Task0815 {
         countSameName = countSameName + 1;
       }
     }
-    System.out.println(countSameName);
+  //  System.out.println(countSameName);
     return countSameName;
   }
 

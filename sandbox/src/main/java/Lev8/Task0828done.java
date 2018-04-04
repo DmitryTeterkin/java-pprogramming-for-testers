@@ -18,7 +18,7 @@ import java.util.HashMap;
 
  сделано!!!!!!!!
  */
-public class Task0828 {
+public class Task0828done {
   public static void main(String[] args) throws IOException {
     HashMap<String, Integer> monthes = new HashMap<String, Integer>();
     monthes.put("January", 1);

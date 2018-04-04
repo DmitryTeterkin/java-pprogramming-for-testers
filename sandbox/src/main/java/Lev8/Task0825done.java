@@ -16,7 +16,7 @@ package Lev8;
 
  */
 
-public class Task0825 {
+public class Task0825done {
   public static int A = 5;
   public static int B = 2;
 

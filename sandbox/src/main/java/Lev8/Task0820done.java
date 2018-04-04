@@ -26,7 +26,7 @@ import java.util.Set;
 Сделано!!!!
 
  */
-public class Task0820 {
+public class Task0820done {
   public static void main(String[] args) {
     Set<Cat> cats = createCats();
     Set<Dog> dogs = createDogs();

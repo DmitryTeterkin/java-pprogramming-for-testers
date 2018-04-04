@@ -19,7 +19,7 @@ import java.util.Map;
  Сделано!!!!
 
  */
-public class Task0818 {
+public class Task0818done {
  public static HashMap<String, Integer> createMap() {
    HashMap<String, Integer> map = new HashMap<String, Integer>();
    map.put("иванов",100);

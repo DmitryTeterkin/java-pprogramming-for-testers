@@ -19,7 +19,7 @@ import java.util.ArrayList;
 Сделано!!!!
 
  */
-public class Task0824 {
+public class Task0824done {
  public static void main(String[] args) {
    ArrayList<Human> child = new ArrayList<>();
    Human Son1 = new Human("Son1", true, 5, child);
@@ -54,10 +54,10 @@ public class Task0824 {
       this.children = children;
     }
 
-    private String name;
-    private boolean sex;
-    private int age;
-    private ArrayList<Human> children;
+    public String name;
+    public boolean sex;
+    public int age;
+    public ArrayList<Human> children;
 
 
     //напишите тут ваш код

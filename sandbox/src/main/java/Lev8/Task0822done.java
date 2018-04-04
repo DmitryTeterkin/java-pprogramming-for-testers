@@ -26,7 +26,7 @@ import java.util.List;
  Сделано!!!!
 
  */
-public class Task0822 {
+public class Task0822done {
   public static void main(String[] args) throws Exception {
     List<Integer> integerList = getIntegerList();
     System.out.println(getMinimum(integerList));

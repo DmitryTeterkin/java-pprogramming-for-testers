@@ -16,7 +16,7 @@ import java.util.Set;
 
  сделано!!!
  */
-public class Task0813 {
+public class Task0813done {
   public static Set<String> createSet() {
    HashSet<String> set = new HashSet<>();
     set.add("л1");
@@ -44,6 +44,6 @@ public class Task0813 {
 
   public static void main(String[] args) {
    Set<String> set = createSet();
-    System.out.println(set);
+   // System.out.println(set);
   }
 }
