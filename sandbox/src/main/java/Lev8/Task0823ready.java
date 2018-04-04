@@ -21,6 +21,9 @@ import java.io.InputStreamReader;
 2. Программа должна считывать строку с клавиатуры.
 3. Класс Solution должен содержать один метод.
 4. Программа должна заменять в тексте первые буквы всех слов на заглавные.
+
+заебало!!!! нужен 1 метод, нужно учитывать несколько пробелов между словами.
+
  */
 public class Task0823ready {
   public static void main(String[] args) throws IOException {

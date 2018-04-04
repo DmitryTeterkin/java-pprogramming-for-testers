@@ -59,5 +59,19 @@ public class Task0817 {
     removeTheFirstNameDuplicates(map);
   System.out.println(map);
   }
+/*
+        HashMap<String, String> copy = new HashMap<String, String>(map);
 
+        Iterator<HashMap.Entry<String, String>> iterator = copy.entrySet().iterator();
+
+        while (iterator.hasNext())
+        {
+            //получение «пары» элементов
+            HashMap.Entry<String, String> pair = iterator.next();
+            String value = pair.getValue();        //значение
+            iterator.remove();
+            if (copy.containsValue(value)) removeItemFromMapByValue(map, value);
+        }
+    }
+ */
 }
