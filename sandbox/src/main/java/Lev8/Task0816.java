@@ -16,29 +16,38 @@ import java.util.HashMap;
 4. Метод removeAllSummerPeople() должен удалять из словаря всех людей, родившихся летом.
  */
 public class Task0816 {
- public static HashMap<String, Date> createMap() {
-   HashMap<String, Date> map = new HashMap<String, Date>();
-   map.put("Stallone", new Date("MAY 1 1980"));
-   map.put("S", new Date("NOVEMBER 1 1980"));
-   map.put("St", new Date("JUNE 1 1980"));
-   map.put("Sta", new Date("JUNE 1 1980"));
-   map.put("Stal", new Date("JUNE 1 1980"));
-   map.put("Stall", new Date("JUNE 1 1980"));
-   map.put("Stallo", new Date("JUNE 1 1980"));
-   map.put("Stallon", new Date("JUNE 1 1980"));
-   map.put("Putin", new Date("JUNE 1 1980"));
-   map.put("Putinka", new Date("JUNE 1 1980"));
-   return map;
- }
+  public class Solution {
+    public static HashMap<String, Date> createMap() {
+      HashMap<String, Date> map = new HashMap<String, Date>();
+      map.put("Stallone", new Date("January 1 1980"));
+      map.put("Stella", new Date("February 1 1980"));
+      map.put("Suzana", new Date("March 1 1980"));
+      map.put("Denchik", new Date("April 1 1980"));
+      map.put("Russy", new Date("May 5 1980"));
+      map.put("Pups", new Date("June 1 1980"));
+      map.put("Euzana", new Date("July 1 1980"));
+      map.put("Tenchik", new Date("August 1 1980"));
+      map.put("Yussy", new Date("September 1 1980"));
+      map.put("Uups", new Date("October 1 1980"));
 
-  public static void removeAllSummerPeople(HashMap<String, Date> map) {
+      //напишите тут ваш код
+      return map;
+    }
 
+    public static void removeAllSummerPeople(HashMap<String, Date> map) {
+      //напишите тут ваш код
+      Iterator <Map.Entry<String, Date>> iterator = map.entrySet().iterator();
+      int month;
+      Map.Entry<String, Date> pair;
+      while (iterator.hasNext()){
+        pair = iterator.next();
+        month = pair.getValue().getMonth();
+        if (month > 4 && month < 8){
+          iterator.remove();
+        }
+      }
+    }
 
-  }
-
-  public static void main(String[] args) {
-  HashMap<String, Date> map = createMap();
-  removeAllSummerPeople(map);
-  }
-
+    public static void main(String[] args) {
+    }
 }
