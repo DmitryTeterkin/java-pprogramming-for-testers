@@ -23,8 +23,7 @@ public class Task0827 {
   }
 
   public static boolean isDateOdd(String date) {
-    // Date date1 = date.;
-    // if ()
+    
 
     return true;
   }

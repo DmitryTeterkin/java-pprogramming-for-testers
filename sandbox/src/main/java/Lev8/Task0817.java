@@ -1,7 +1,7 @@
 package Lev8;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 
 /*
 Создать словарь (Map<String, String>) занести в него десять записей по принципу "фамилия" - "имя".
@@ -18,6 +18,8 @@ import java.util.Map;
 
  надо переделать, имена должны быть одинаковые а не заданы!
 
+  все имена, которые есть в списке проверяем на совпадение. если смя совпадает с другим - добавляем его в новый список.
+  после этого запускаем еще одну проверку - если имя совпадает с новым списком - удаляем запись.
  */
 public class Task0817 {
   public static HashMap<String, String> createMap() {
@@ -37,21 +39,22 @@ public class Task0817 {
   }
 
   public static void removeTheFirstNameDuplicates(HashMap<String, String> map) {
-   
-    for (Map.Entry<String, String> pair : map.entrySet()) {
-        String s = pair.getValue();
-         removeItemFromMapByValue(map, s);
-      }
+    HashMap<String, String> copy = map;
 
+    Iterator<HashMap.Entry<String, String>> iterator = copy.entrySet().iterator();
+
+    while (iterator.hasNext())
+    {
+      //получение «пары» элементов
+      HashMap.Entry<String, String> pair = iterator.next();
+      String value = pair.getValue();        //значение
+      iterator.remove();
+      if (copy.containsValue(value)) removeItemFromMapByValue(map, value);
+    }
   }
 
   public static void removeItemFromMapByValue(HashMap<String, String> map, String value) {
-    HashMap<String, String> copy = new HashMap<String, String>(map);
 
-    for (Map.Entry<String, String> pair : copy.entrySet()) {
-      if (pair.getValue().equals(value))
-        map.remove(pair.getKey());
-    }
   }
 
   public static void main(String[] args) {
@@ -59,19 +62,5 @@ public class Task0817 {
     removeTheFirstNameDuplicates(map);
   System.out.println(map);
   }
-/*
-        HashMap<String, String> copy = new HashMap<String, String>(map);
 
-        Iterator<HashMap.Entry<String, String>> iterator = copy.entrySet().iterator();
-
-        while (iterator.hasNext())
-        {
-            //получение «пары» элементов
-            HashMap.Entry<String, String> pair = iterator.next();
-            String value = pair.getValue();        //значение
-            iterator.remove();
-            if (copy.containsValue(value)) removeItemFromMapByValue(map, value);
-        }
-    }
- */
 }
