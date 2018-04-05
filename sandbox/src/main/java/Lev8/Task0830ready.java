@@ -16,14 +16,14 @@ import java.util.Arrays;
 5. Метод sort() должен вызывать метод isGreaterThan().
 6. Выведенные слова должны быть отсортированы в алфавитном порядке.
  */
-public class Task0830 {
+public class Task0830ready {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String[] array = new String[20];
     for (int i = 0; i < array.length; i++) {
       array[i] = reader.readLine();
     }
-    Arrays.sort(array);
+
     boolean z = isGreaterThan("a", "b");
     sort(array);
 
@@ -33,16 +33,8 @@ public class Task0830 {
   }
 
   public static void sort(String[] array) {
+    Arrays.sort(array);
 
-    for (int i = 0; i < (array.length-1); i++) {
-      for (int j = 0; j < (array.length - 1); j++) {
-        if (isGreaterThan(array[i+1],array[i])) {
-          String max = array[i];
-          array[i] = array[i+1];
-          array[i+1] = max;
-        }
-      }
-    }
   }
 
   //Метод для сравнения строк: 'а' больше чем 'b'
