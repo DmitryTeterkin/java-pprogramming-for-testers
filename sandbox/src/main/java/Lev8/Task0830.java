@@ -2,6 +2,7 @@ package Lev8;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /*
 Задача: Введи с клавиатуры 20 слов и выведи их в алфавитном порядке. Каждое слово - с новой строки.
@@ -22,7 +23,8 @@ public class Task0830 {
     for (int i = 0; i < array.length; i++) {
       array[i] = reader.readLine();
     }
-
+    Arrays.sort(array);
+    boolean z = isGreaterThan("a", "b");
     sort(array);
 
     for (String x : array) {

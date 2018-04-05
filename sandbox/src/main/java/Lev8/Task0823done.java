@@ -27,7 +27,7 @@ import java.util.*;
  поправил
 
  */
-public class Task0823ready {
+public class Task0823done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String s = reader.readLine(); // считываем строку
