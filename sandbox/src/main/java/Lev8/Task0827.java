@@ -1,5 +1,9 @@
 package Lev8;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
 1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true, если количество дней с начала года
 - нечетное число, иначе false
@@ -17,14 +21,25 @@ JANUARY 2 2020 = false
 3. Метод isDateOdd() должен возвращать true, если количество дней с начала года - нечетное число, иначе false.
 4. Метод main() должен вызывать метод isDateOdd().
  */
+
 public class Task0827 {
-  public static void main(String[] args) {
-    System.out.println(isDateOdd("MAY 1 2013"));
+  public static void main(String[] args) throws ParseException {
+    System.out.println(isDateOdd("JANUARY 31 2000"));
+
+
   }
 
-  public static boolean isDateOdd(String date) {
-    
+  public static boolean isDateOdd(String date) throws ParseException {
 
-    return true;
+    Date date1 = new Date(date);
+    SimpleDateFormat df = new SimpleDateFormat("D");
+    int day = Integer.parseInt(df.format(date1));
+    System.out.println(day);
+    if (day % 2 != 0){
+      return true;
+    } else {
+      return false;
+    }
   }
+
 }
