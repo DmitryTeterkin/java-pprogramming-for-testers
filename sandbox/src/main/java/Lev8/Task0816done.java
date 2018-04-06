@@ -17,7 +17,7 @@ import java.util.Map;
 3. Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, Date состоящий из 10 записей.
 4. Метод removeAllSummerPeople() должен удалять из словаря всех людей, родившихся летом.
  */
-public class Task0816ready {
+public class Task0816done {
 
     public static HashMap<String, Date> createMap() {
       HashMap<String, Date> map = new HashMap<String, Date>();

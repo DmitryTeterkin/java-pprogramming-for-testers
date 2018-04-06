@@ -22,7 +22,7 @@ JANUARY 2 2020 = false
 4. Метод main() должен вызывать метод isDateOdd().
  */
 
-public class Task0827ready {
+public class Task0827done {
   public static void main(String[] args) throws ParseException {
     System.out.println(isDateOdd("JANUARY 31 2000"));
 

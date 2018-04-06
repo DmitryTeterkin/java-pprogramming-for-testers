@@ -16,7 +16,7 @@ import java.util.Arrays;
 5. Метод sort() должен вызывать метод isGreaterThan().
 6. Выведенные слова должны быть отсортированы в алфавитном порядке.
  */
-public class Task0830ready {
+public class Task0830done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String[] array = new String[20];

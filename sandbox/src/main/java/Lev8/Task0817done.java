@@ -20,7 +20,7 @@ import java.util.*;
   все имена, которые есть в списке проверяем на совпадение. если смя совпадает с другим - добавляем его в новый список.
   после этого запускаем еще одну проверку - если имя совпадает с новым списком - удаляем запись.
  */
-public class Task0817ready {
+public class Task0817done {
   public static HashMap<String, String> createMap() {
     HashMap<String, String> map = new HashMap<String, String>();
     map.put("иванов", "иван");

@@ -30,7 +30,7 @@ import java.util.List;
 3. Класс Solution должен содержать один метод.
 4. Программа должна вывести фамилию семьи по введенному городу.
  */
-public class Task0829 {
+public class Task0829done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -44,12 +44,11 @@ public class Task0829 {
     }
 
     //read home number
-    int houseNumber = Integer.parseInt(reader.readLine());
+    String city = reader.readLine();
 
-    if (0 <= houseNumber && houseNumber < addresses.size()) {
-      String familySecondName = addresses.get(houseNumber);
-      System.out.println(familySecondName);
-    }
+    if (addresses.contains(city))
+      System.out.println(addresses.get(addresses.indexOf(city) + 1));
+
   }
 
 }
