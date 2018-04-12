@@ -34,6 +34,7 @@ public class Task0906 {
   }
 
   public static void log(String s) {
-    //напишите тут ваш код
+    System.out.println(Thread.currentThread().getStackTrace()[2].getClassName() +": " + Thread.currentThread()
+            .getStackTrace()[2].getMethodName() + ": "+ s);
   }
 }

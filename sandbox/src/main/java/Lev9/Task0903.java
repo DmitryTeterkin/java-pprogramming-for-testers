@@ -18,25 +18,36 @@ public class Task0903 {
 
   public static int method1() {
     method2();
-    return  /*напишите тут ваш код*/ 0;
+    StackTraceElement[] element = Thread.currentThread().getStackTrace();;
+    int i = element[2].getLineNumber();
+   // System.out.println(i);
+    return  i;
   }
 
   public static int method2() {
     method3();
-    return  /*напишите тут ваш код*/ 0;
+    StackTraceElement[] element = Thread.currentThread().getStackTrace();;
+    int i = element[2].getLineNumber();
+    return  i;
   }
 
   public static int method3() {
     method4();
-    return  /*напишите тут ваш код*/ 0;
+    StackTraceElement[] element = Thread.currentThread().getStackTrace();;
+    int i = element[2].getLineNumber();
+    return  i;
   }
 
   public static int method4() {
     method5();
-    return  /*напишите тут ваш код*/ 0;
+    StackTraceElement[] element = Thread.currentThread().getStackTrace();;
+    int i = element[2].getLineNumber();
+    return  i;
   }
 
   public static int method5() {
-    return  /*напишите тут ваш код*/ 0;
+    StackTraceElement[] element = Thread.currentThread().getStackTrace();;
+    int i = element[2].getLineNumber();
+    return  i;
   }
 }

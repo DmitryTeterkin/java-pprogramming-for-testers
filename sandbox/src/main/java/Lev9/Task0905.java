@@ -17,6 +17,9 @@ public class Task0905 {
   }
 
   public static int getStackTraceDeep() {
-    //напишите тут ваш код
+
+    int lenght = Thread.currentThread().getStackTrace().length;
+    System.out.println(lenght);
+    return lenght;
   }
 }
