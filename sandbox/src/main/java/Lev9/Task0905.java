@@ -14,9 +14,14 @@ package Lev9;
 public class Task0905 {
   public static void main(String[] args) throws Exception {
     int deep = getStackTraceDeep();
+    System.out.println(deep);
   }
 
   public static int getStackTraceDeep() {
-    //напишите тут ваш код
+    StackTraceElement[] a = Thread.currentThread().getStackTrace();
+   int lengh = a.length;
+    return lengh;
   }
+
+
 }

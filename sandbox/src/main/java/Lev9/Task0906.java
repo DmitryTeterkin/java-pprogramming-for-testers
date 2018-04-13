@@ -15,7 +15,9 @@ com.javarush.task.task09.task0906.Solution: main: In main method
 4. Выведенное сообщение должно содержать переданное сообщение.
 5. Вывод должен соответствовать примеру из задания.
 
-Класс Thread = хранит  всю информацию обо всех потоках, его метод  currentThread() - возвращает текущий поток, вызывая Thread.currentThread().getStackTrace() - получаем массив (стэк) (историю) вызовов, где каждый элемент имеет тип StackTraceElement в котором хранится его имя - имя метода.
+Класс Thread = хранит  всю информацию обо всех потоках, его метод  currentThread()
+- возвращает текущий поток, вызывая Thread.currentThread().getStackTrace() - получаем массив (стэк) (историю) вызовов,
+где каждый элемент имеет тип StackTraceElement в котором хранится его имя - имя метода.
 
 Thread.currentThread().getStackTrace() [0] - самый последний положенный в стек элемент.
 
@@ -34,6 +36,6 @@ public class Task0906 {
   }
 
   public static void log(String s) {
-    //напишите тут ваш код
+    System.out.println(Thread.currentThread().getStackTrace()[1].getClassName()+": "+ Thread.currentThread().getStackTrace()[2].getMethodName() + ": " + s);
   }
 }

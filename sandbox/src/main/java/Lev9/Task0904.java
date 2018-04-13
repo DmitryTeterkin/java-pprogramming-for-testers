@@ -10,8 +10,10 @@ package Lev9;
 4. Используй метод Thread.currentThread().getStackTrace().
  */
 public class Task0904 {
+
   public static void main(String[] args) throws Exception {
     int stackTraceLength = method1().length - method10().length + 1;
+    //System.out.println(stackTraceLength);
   }
 
   public static StackTraceElement[] method1() {
@@ -19,31 +21,31 @@ public class Task0904 {
   }
 
   public static StackTraceElement[] method2() {
-    //напишите тут ваш код
+   return method3(); //напишите тут ваш код
   }
 
   public static StackTraceElement[] method3() {
-    //напишите тут ваш код
+    return method4();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method4() {
-    //напишите тут ваш код
+    return method5();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method5() {
-    //напишите тут ваш код
+    return method6();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method6() {
-    //напишите тут ваш код
+    return method7();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method7() {
-    //напишите тут ваш код
+    return method8();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method8() {
-    //напишите тут ваш код
+    return method9();//напишите тут ваш код
   }
 
   public static StackTraceElement[] method9() {
@@ -53,4 +55,5 @@ public class Task0904 {
   public static StackTraceElement[] method10() {
     return Thread.currentThread().getStackTrace();
   }
+
 }
