@@ -1,11 +1,8 @@
 package Lev9;
-
-import java.util.ArrayList;
-
 /*
-Перехватить исключение (и вывести его на экран, указав его тип), возникающее при выполнении кода:
-ArrayList<String> list = new ArrayList<String>();
-String s = list.get(18);
+Перехватить исключение, возникающее при выполнении кода:
+int a = 42 / 0;
+Вывести на экран тип перехваченного исключения.
 
 
 Требования:
@@ -15,15 +12,16 @@ String s = list.get(18);
 4. Выведенное сообщение должно содержать тип возникшего исключения.
 5. Имеющийся код в методе main не удалять.
  */
-public class Task0910 {
+public class Task0907done {
   public static void main(String[] args) throws Exception {
     //напишите тут ваш код
-   try {
-     ArrayList<String> list = new ArrayList<String>();
-     String s = list.get(18);
-   } catch (IndexOutOfBoundsException e){
-     System.out.println(e);
-   }
-    //напишите тут ваш код
+    try {
+      System.out.println("Before method1 calling");
+      int a = 42 / 0;
+
+    } catch (ArithmeticException e) {
+
+      System.out.println(e);
+    }
   }
 }

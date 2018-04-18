@@ -11,7 +11,7 @@ package Lev9;
 4. Для получения имени вызвавшего метода, используй метод getMethodName.
 
  */
-public class Task0902 {
+public class Task0902done {
   public static void main(String[] args) throws Exception {
     method1();
     StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();

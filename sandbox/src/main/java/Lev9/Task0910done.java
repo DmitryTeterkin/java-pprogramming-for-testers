@@ -1,8 +1,11 @@
 package Lev9;
+
+import java.util.ArrayList;
+
 /*
-Перехватить исключение (и вывести его на экран), указав его тип, возникающее при выполнении кода:
-int[] m = new int[2];
-m[8] = 5;
+Перехватить исключение (и вывести его на экран, указав его тип), возникающее при выполнении кода:
+ArrayList<String> list = new ArrayList<String>();
+String s = list.get(18);
 
 
 Требования:
@@ -12,15 +15,15 @@ m[8] = 5;
 4. Выведенное сообщение должно содержать тип возникшего исключения.
 5. Имеющийся код в методе main не удалять.
  */
-public class Task0909 {
+public class Task0910done {
   public static void main(String[] args) throws Exception {
     //напишите тут ваш код
-    try {
-      int[] m = new int[2];
-      m[8] = 5;
-    } catch (ArrayIndexOutOfBoundsException e){
-      System.out.println(e);
-    }
+   try {
+     ArrayList<String> list = new ArrayList<String>();
+     String s = list.get(18);
+   } catch (IndexOutOfBoundsException e){
+     System.out.println(e);
+   }
     //напишите тут ваш код
   }
 }

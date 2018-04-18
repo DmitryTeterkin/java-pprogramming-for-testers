@@ -5,7 +5,7 @@ package Lev9;
 Имя класса, имя метода и сообщение разделить двоеточием с пробелом.
 
 Пример вывода:
-com.javarush.task.task09.task0906.Solution: main: In main method
+com.javarush.task.task09.task0906.Task0925: main: In main method
 
 
 Требования:
@@ -30,7 +30,7 @@ Thread.currentThread().getStackTrace() [0] - самый последний по�
 Т.О в конце каждого метода пишем   return Thread.currentThread().getStackTrace()[2].getMethodName();  и задача решена.
 
  */
-public class Task0906 {
+public class Task0906done {
   public static void main(String[] args) {
     log("In main method");
   }

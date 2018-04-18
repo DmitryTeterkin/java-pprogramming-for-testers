@@ -13,7 +13,7 @@ String m = s.toLowerCase();
 4. Выведенное сообщение должно содержать тип возникшего исключения.
 5. Имеющийся код в методе main не удалять.
  */
-public class Task0908 {
+public class Task0908done {
   public static void main(String[] args) throws Exception {
     //напишите тут ваш код
     try {

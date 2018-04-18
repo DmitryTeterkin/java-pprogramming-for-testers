@@ -10,7 +10,7 @@ package Lev9;
 3. Каждый метод должен возвращать свой StackTrace.
 4. Для получения StackTrace воспользуйся Thread.currentThread().getStackTrace().
  */
-public class Task0901 {
+public class Task0901done {
   public static void main(String[] args) throws Exception {
     method1();
    Thread.currentThread().getStackTrace();

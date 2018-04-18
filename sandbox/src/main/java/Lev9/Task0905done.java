@@ -11,7 +11,7 @@ package Lev9;
 3. Воспользуйся методом Thread.currentThread().getStackTrace().
 4. Метод main должен вызывать метод getStackTraceDeep.
  */
-public class Task0905 {
+public class Task0905done {
   public static void main(String[] args) throws Exception {
     int deep = getStackTraceDeep();
     System.out.println(deep);

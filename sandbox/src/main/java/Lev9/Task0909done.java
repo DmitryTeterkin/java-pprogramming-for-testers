@@ -1,12 +1,8 @@
 package Lev9;
-
-import java.util.HashMap;
-
 /*
 Перехватить исключение (и вывести его на экран), указав его тип, возникающее при выполнении кода:
-HashMap<String, String> map = new HashMap<String, String>(null);
-map.put(null, null);
-map.remove(null);
+int[] m = new int[2];
+m[8] = 5;
 
 
 Требования:
@@ -16,16 +12,15 @@ map.remove(null);
 4. Выведенное сообщение должно содержать тип возникшего исключения.
 5. Имеющийся код в методе main не удалять.
  */
-public class Task0911 {
+public class Task0909done {
   public static void main(String[] args) throws Exception {
     //напишите тут ваш код
-   try {
-     HashMap<String, String> map = new HashMap<String, String>(null);
-     map.put(null, null);
-     map.remove(null);
-   } catch (NullPointerException e){
-     System.out.println(e);
-   }
+    try {
+      int[] m = new int[2];
+      m[8] = 5;
+    } catch (ArrayIndexOutOfBoundsException e){
+      System.out.println(e);
+    }
     //напишите тут ваш код
   }
 }

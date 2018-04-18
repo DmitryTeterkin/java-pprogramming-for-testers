@@ -11,7 +11,7 @@ package Lev9;
 3. Каждый метод должен возвращать номер строки кода, из которого вызвали этот метод.
 4. Для получения номера строки, используй метод getLineNumber класса StackTraceElement.
  */
-public class Task0903 {
+public class Task0903done {
   public static void main(String[] args) throws Exception {
     method1();
   }

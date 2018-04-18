@@ -9,7 +9,7 @@ package Lev9;
 3. Каждый метод должен вызывать другой метод.
 4. Используй метод Thread.currentThread().getStackTrace().
  */
-public class Task0904 {
+public class Task0904done {
 
   public static void main(String[] args) throws Exception {
     int stackTraceLength = method1().length - method10().length + 1;

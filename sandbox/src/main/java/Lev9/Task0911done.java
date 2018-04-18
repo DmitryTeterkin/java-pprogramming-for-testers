@@ -1,8 +1,12 @@
 package Lev9;
+
+import java.util.HashMap;
+
 /*
-Перехватить исключение, возникающее при выполнении кода:
-int a = 42 / 0;
-Вывести на экран тип перехваченного исключения.
+Перехватить исключение (и вывести его на экран), указав его тип, возникающее при выполнении кода:
+HashMap<String, String> map = new HashMap<String, String>(null);
+map.put(null, null);
+map.remove(null);
 
 
 Требования:
@@ -12,16 +16,16 @@ int a = 42 / 0;
 4. Выведенное сообщение должно содержать тип возникшего исключения.
 5. Имеющийся код в методе main не удалять.
  */
-public class Task0907 {
+public class Task0911done {
   public static void main(String[] args) throws Exception {
     //напишите тут ваш код
-    try {
-      System.out.println("Before method1 calling");
-      int a = 42 / 0;
-
-    } catch (ArithmeticException e) {
-
-      System.out.println(e);
-    }
+   try {
+     HashMap<String, String> map = new HashMap<String, String>(null);
+     map.put(null, null);
+     map.remove(null);
+   } catch (NullPointerException e){
+     System.out.println(e);
+   }
+    //напишите тут ваш код
   }
 }
