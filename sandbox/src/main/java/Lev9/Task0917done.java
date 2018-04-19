@@ -13,15 +13,19 @@ package Lev9;
 5. Метод processExceptions должен отлавливать все unchecked исключения и выводить стек-трейс каждого из них, используя метод printStack.
 6. Программа должна выводить на экран текст.
  */
-public class Task0917 {
+public class Task0917done {
   public static void main(String[] args) {
-    processExceptions(new Task0917());
+    processExceptions(new Task0917done());
   }
 
-  public static void processExceptions(Task0917 obj) {
-    obj.method1();
-    obj.method2();
-    obj.method3();
+  public static void processExceptions(Task0917done obj) {
+    try {
+      obj.method1();
+      obj.method2();
+      obj.method3();
+    } catch (Error | RuntimeException e) {
+      printStack(e);
+    }
   }
 
   public static void printStack(Throwable throwable) {

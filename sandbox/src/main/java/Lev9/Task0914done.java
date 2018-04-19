@@ -16,13 +16,15 @@ public static void method1() throws Exception1, Exception2, Exception3
 4. Метод main должен перехватывать исключение Exception3.
 5. Метод method1 не изменять.
  */
-public class Task0914 {
+public class Task0914done {
   public static void main(String[] args) throws Exception {
-    //напишите тут ваш код
+    try {
 
-    method1();
+      method1();
 
-    //напишите тут ваш код
+    } catch (Exception1 e){
+      System.out.println(e);
+    }
 
   }
 

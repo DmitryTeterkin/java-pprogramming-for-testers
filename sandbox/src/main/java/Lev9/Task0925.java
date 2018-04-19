@@ -12,7 +12,7 @@ package Lev9;
 6. В классе должно быть 3 статических поля.
  */
 public class Task0925 {
-  public int A = 5;
+/*  public int A = 5;
   public int B = 2 * A;
   public int C = A * B;
   public int D = A * B;
@@ -27,4 +27,4 @@ public class Task0925 {
   public int getA() {
     return A;
   }
-}
+*/}

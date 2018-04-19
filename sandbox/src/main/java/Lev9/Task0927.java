@@ -18,7 +18,7 @@ import java.util.Set;
 6. Программа должна вывести всех котов из множества на экран.
  */
 public class Task0927 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     Map<String, Cat> map = createMap();
     Set<Cat> set = convertMapToSet(map);
     printCatSet(set);
@@ -50,5 +50,5 @@ public class Task0927 {
     }
   }
 
-
+*/
 }

@@ -11,12 +11,13 @@ package Lev9;
 4. Метод main должен содержать блок try..catch.
 5. Метод main не должен кидать исключений.
  */
-public class Task0920 {
+public class Task0920done {
   public static void main(String[] args) {
     for (int i = 10; i >= 0; i--) {
       System.out.println(i);
-
-      //напишите тут ваш код
+      try{
+        Thread.sleep(100);
+      }catch (Exception e){}
     }
   }
 }

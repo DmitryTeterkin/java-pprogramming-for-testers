@@ -17,16 +17,20 @@ import java.rmi.RemoteException;
 5. Метод processExceptions должен отлавливать и выводить на экран все возникающие checked исключения.
 6. Программа должна выводить на экран текст.
  */
-public class Task0916 {
- /* public static void main(String[] args) {
-    processExceptions(new Task0916());
+public class Task0916done {
+ public static void main(String[] args) {
+    processExceptions(new Task0916done());
 
   }
 
-  public static void processExceptions(Task0916 obj) {
-    obj.method1();
-    obj.method2();
-    obj.method3();
+  public static void processExceptions(Task0916done obj) {
+    try {
+      obj.method1();
+      obj.method2();
+      obj.method3();
+    } catch (Exception e){
+      System.out.println(e);
+    }
   }
 
   public void method1() throws IOException {
@@ -40,5 +44,5 @@ public class Task0916 {
   public void method3() throws RemoteException {
     throw new RemoteException();
   }
-  */
+
 }

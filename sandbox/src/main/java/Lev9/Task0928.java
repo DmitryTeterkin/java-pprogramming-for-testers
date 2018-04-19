@@ -16,7 +16,7 @@ import java.io.*;
 7. Метод getOutputStream изменять нельзя.
  */
 public class Task0928 {
-  public static void main(String[] args) throws IOException {
+/*  public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     String sourceFileName = reader.readLine();
@@ -46,4 +46,5 @@ public class Task0928 {
   public static OutputStream getOutputStream(String fileName) throws IOException {
     return new FileOutputStream(fileName);
   }
+*/
 }

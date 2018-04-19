@@ -20,12 +20,17 @@ ArithmeticException и URISyntaxException.
 5. Метод main не должен перехватывать исключение URISyntaxException.
 6. Метод method1 не изменять.
  */
-public class Task0913 {
+public class Task0913done {
   public static void main(String[] args) throws Exception {
-    //напишите тут ваш код
+    try {
 
-    method1();
-
+      method1();
+    } catch (NullPointerException e){
+      System.out.println(e);
+    }
+    catch (FileNotFoundException a){
+      System.out.println(a);
+    }
     //напишите тут ваш код
   }
 

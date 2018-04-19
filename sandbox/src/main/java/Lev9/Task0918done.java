@@ -1,4 +1,7 @@
 package Lev9;
+
+import java.io.IOException;
+
 /*
 Есть четыре класса MyException, MyException2, MyException3, MyException4.
 Унаследуй классы так, чтобы у тебя появилось любые два checked исключения и любые два unchecked исключения.
@@ -13,19 +16,19 @@ package Lev9;
 3. Два класса из четырех должны быть checked исключениями.
 4. Два класса из четырех должны быть unchecked исключениями.
  */
-public class Task0918 {
-  public static void main(String[] args) {
+public class Task0918done {
+  public static void main(String[] args){
   }
 
-  static class MyException {
+  static class MyException extends Error {
   }
 
-  static class MyException2 {
+  static class MyException2 extends  RuntimeException {
   }
 
-  static class MyException3 {
+  static class MyException3 extends IOException {
   }
 
-  static class MyException4 {
+  static class MyException4 extends Exception {
   }
 }
