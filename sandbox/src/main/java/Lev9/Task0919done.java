@@ -13,7 +13,7 @@ package Lev9;
 5. Метод main должен отлавливать любые исключения метода divisionByZero.
 6. Программа должна выводить стек-трейс пойманого исключения.
  */
-public class Task0919ready {
+public class Task0919done {
   public static void main(String[] args) {
     try {
       divisionByZero();

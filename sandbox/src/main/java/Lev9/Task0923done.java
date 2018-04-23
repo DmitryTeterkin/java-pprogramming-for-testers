@@ -25,7 +25,7 @@ import java.util.ArrayList;
 4.  Вторая строка должна содержать только согласные и знаки препинания из введенной строки, разделенные пробелом.
 5. Каждая строка должна заканчиваться пробелом.
  */
-public class Task0923ready {
+public class Task0923done {
   public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
   public static void main(String[] args) throws Exception {

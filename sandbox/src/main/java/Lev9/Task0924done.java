@@ -18,7 +18,7 @@ PS: пирожки никто не ел. Их только несли. Волк 
 4. Волк чуток поел.
 5. А потом волка убили.
  */
-public class Task0924 {
+public class Task0924done {
   public static LittleRedRidingHood hood = new LittleRedRidingHood();
   public static Grandmother grandmother = new Grandmother();
   public static Patty patty = new Patty();
@@ -26,7 +26,9 @@ public class Task0924 {
   public static Wolf wolf = new Wolf();
 
   public static void main(String[] args) {
-    // напишите тут ваш код
+    wolf.ate.add(grandmother);
+    wolf.ate.add(hood);
+    woodman.killed.add(wolf);// напишите тут ваш код
   }
 
   //красная шапочка

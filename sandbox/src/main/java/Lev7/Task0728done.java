@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 Требования:
 1. Программа должна считывать 20 целых чисел с клавиатуры.
 2. Программа должна выводить 20 чисел.
-3. В классе Task0925ready должен быть метод public static void sort(int[] array).
+3. В классе Task0925done должен быть метод public static void sort(int[] array).
 4. Метод main должен вызывать метод sort.
 5. Метод sort должен сортировать переданный массив по убыванию.
  */

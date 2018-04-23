@@ -21,7 +21,7 @@ import java.util.ArrayList;
 4. Метод readData должен содержать блок try..catch.
 5. Если пользователь ввел текст, а не число, программа должна вывести все ранее введенные числа.
  */
-public class Task0921ready {
+public class Task0921done {
   public static void main(String[] args) {
     readData();
   }
