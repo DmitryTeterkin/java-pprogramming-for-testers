@@ -47,6 +47,7 @@ public class Task0924 {
 
   //волк
   public static class Wolf extends StoryItem {
+
   }
 
   public static abstract class StoryItem {

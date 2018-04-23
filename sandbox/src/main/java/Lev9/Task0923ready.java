@@ -1,4 +1,9 @@
 package Lev9;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 /*
 Написать программу, которая вводит с клавиатуры строку текста.
 Программа должна вывести на экран две строки:
@@ -16,15 +21,35 @@ package Lev9;
 Требования:
 1. Программа должна считывать данные с клавиатуры.
 2. Программа должна выводить две строки.
-3. Первая строка должна содержать только гласные буквы из введенной строки, разделенные пробелом.
-4. Вторая строка должна содержать только согласные и знаки препинания из введенной строки, разделенные пробелом.
+3. Первая строка должна содержать только гласные буквы из введенной строки, разделенные пробелом.
+4.  Вторая строка должна содержать только согласные и знаки препинания из введенной строки, разделенные пробелом.
 5. Каждая строка должна заканчиваться пробелом.
  */
-public class Task0923 {
+public class Task0923ready {
   public static char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
 
   public static void main(String[] args) throws Exception {
-    //напишите тут ваш код
+    ArrayList<Character> vowel = new ArrayList<Character>();
+    ArrayList<Character> novowel = new ArrayList<Character>();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //напишите тут ваш код
+    String s = reader.readLine();
+    char[] stroka = s.toCharArray();
+    for (int i = 0; i < stroka.length; i++) {
+      String l = String.valueOf(stroka[i]);
+      if (isVowel(stroka[i])) {
+        vowel.add(stroka[i]);
+      } else { if (!l.equals(" ")) {
+        novowel.add(stroka[i]);
+      }
+      }
+    }
+    for (int i = 0; i < vowel.size(); i++) {
+      System.out.print(vowel.get(i) + " ");
+    }
+    System.out.println();
+    for (int i = 0; i < novowel.size(); i++) {
+      System.out.print(novowel.get(i) + " ");
+    }
   }
 
   // метод проверяет, гласная ли буква

@@ -1,4 +1,5 @@
 package Lev9;
+
 /*
 Создай метод public static void divisionByZero, в котором подели любое число на ноль и выведи на экран результат деления.
 Оберни вызов метода divisionByZero в try..catch. Выведи стек-трейс исключения используя метод exception.printStackTrace()
@@ -13,8 +14,23 @@ package Lev9;
 6. Программа должна выводить стек-трейс пойманого исключения.
  */
 public class Task0919 {
- /* public static void main(String[] args) {
-    divisionByZero();
+  public static void main(String[] args) {
+    try {
+      divisionByZero();
+      Thread.currentThread().getStackTrace();
+    } catch (Exception exception) {
+      System.out.println(exception);
+      System.out.println(exception.getLocalizedMessage());
+      exception.printStackTrace();
+    }
+
   }
-  */
+
+  public static void divisionByZero() {
+    int i = (int) ((Math.random()*100000)%2);
+
+    System.out.println(i/0);
+
+  }
+
 }
