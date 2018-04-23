@@ -5,7 +5,7 @@ package Lev9;
 Имя класса, имя метода и сообщение разделить двоеточием с пробелом.
 
 Пример вывода:
-com.javarush.task.task09.task0906.Task0925: main: In main method
+com.javarush.task.task09.task0906.Task0925ready: main: In main method
 
 
 Требования:

@@ -11,20 +11,20 @@ package Lev9;
 5. Метод getA не изменять.
 6. В классе должно быть 3 статических поля.
  */
-public class Task0925 {
-/*  public int A = 5;
-  public int B = 2 * A;
+public class Task0925ready {
+  public static int A = 5;
+  public static int B = 2 * A;
   public int C = A * B;
-  public int D = A * B;
+  public static int D = A * B;
 
   public static void main(String[] args) {
-    Task0925 room = new Task0925();
+    Task0925ready room = new Task0925ready();
     room.A = 5;
 
-    Task0925.D = 5;
+    Task0925ready.D = 5;
   }
 
   public int getA() {
     return A;
   }
-*/}
+}

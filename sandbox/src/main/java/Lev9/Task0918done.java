@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 Требования:
-1. В классе Task0925 должно быть 4 вложенных класса: MyException, MyException2, MyException3 и MyException4.
+1. В классе Task0925ready должно быть 4 вложенных класса: MyException, MyException2, MyException3 и MyException4.
 2. Все вложенные классы должны быть унаследованы от классов исключений.
 3. Два класса из четырех должны быть checked исключениями.
 4. Два класса из четырех должны быть unchecked исключениями.

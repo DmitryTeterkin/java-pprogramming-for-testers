@@ -115,7 +115,7 @@ public class Cat{
 
 
 
-  public class Task0925 {
+  public class Task0925ready {
     public static void main(String[] args) {
       Cat cat1 = new Cat();
       //напишите тут ваш код
