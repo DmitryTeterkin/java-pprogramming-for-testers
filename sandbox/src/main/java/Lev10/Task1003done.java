@@ -16,11 +16,11 @@ int b = (int)(i + f);
 6. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 7. Программа должна выводить число 0.
  */
-public class Task1003 {
+public class Task1003done {
   public static void main(String[] args) {
     float f = (float) 128.50;
     int i = (int) f;
-    int b = (int) (i + f);
+    int b = (int) (i + (byte) f);
     System.out.println(b);
   }
 }

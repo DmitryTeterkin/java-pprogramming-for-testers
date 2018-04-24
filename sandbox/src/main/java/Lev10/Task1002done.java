@@ -18,11 +18,11 @@ double d = a * 1e-3 + c;
 7. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 8. Программа должна выводить число 3.765.
  */
-public class Task1002 {
+public class Task1002done {
   public static void main(String[] args) {
     int a = 15;
     int b = 4;
-    float c = a / b;
+    float c = (float) a / (float) b;
     double d = a * 1e-3 + c;
 
     System.out.println(d);

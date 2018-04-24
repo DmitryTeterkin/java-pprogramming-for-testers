@@ -16,11 +16,11 @@ int nine = (zero + number);
 6. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 7. Программа должна выводить число 9.
  */
-public class Task1004 {
+public class Task1004done {
   public static void main(String[] args) {
     short number = 9;
     char zero = '0';
     int nine = (zero + number);
-    System.out.println(nine);
+    System.out.println((char) nine);
   }
 }

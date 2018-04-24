@@ -17,11 +17,11 @@ short c = (byte)(b - a);
 7. Программа должна выводить число 256.
  */
 
-public class Task1005 {
+public class Task1005done {
   public static void main(String[] args) {
     int a = (byte) 44;
-    int b = (byte) 300;
-    short c = (byte) (b - a);
+    int b = (int) 300;
+    short c =  (short) (b - a);
     System.out.println(c);
   }
 }
