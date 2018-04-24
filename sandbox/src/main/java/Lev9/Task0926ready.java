@@ -16,15 +16,32 @@ import java.util.ArrayList;
 5. Каждый элемент в списке должен быть массивом чисел. Длина первого должна быть 5 элементов, второго - 2, следующих - 4, 7, 0 соответственно.
 6. Программа должна выводить на экран элементы всех массивов из списка. Каждый элемент с новой строки.
  */
-public class Task0926 {
+public class Task0926ready {
   public static void main(String[] args) {
     ArrayList<int[]> list = createList();
     printList(list);
   }
 
   public static ArrayList<int[]> createList() {
-    //напишите тут ваш код
-    return null; //!!!!!!!!!!!!!!!!!
+    ArrayList<int[]> newList = new ArrayList<int[]>();
+    int[] a = new int[5];
+    int[] b = new int[2];
+    int[] c = new int[4];
+    int[] d = new int[7];
+    int[] e = new int[0];
+    newList.add(0, a);
+    newList.add(1, b);
+    newList.add(2, c);
+    newList.add(3, d);
+    newList.add(4, e);
+    for (int i = 0; i < newList.size(); i++) {
+     int[] f = newList.get(i);
+      for (int j = 0; j < f.length; j++) {
+        f[j] = (int)(100*Math.random()+1);
+      }
+      newList.set(i, f);
+    }
+    return newList;
   }
 
   public static void printList(ArrayList<int[]> list) {

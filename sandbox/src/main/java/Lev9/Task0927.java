@@ -1,8 +1,5 @@
 package Lev9;
 
-import java.util.Map;
-import java.util.Set;
-
 /*
 Есть класс кот - Cat, с полем "имя" (String).
 Создать словарь Map<String, Cat> и добавить туда 10 котов в виде "Имя"-"Кот".
@@ -18,7 +15,7 @@ import java.util.Set;
 6. Программа должна вывести всех котов из множества на экран.
  */
 public class Task0927 {
- /* public static void main(String[] args) {
+ /*public static void main(String[] args) {
     Map<String, Cat> map = createMap();
     Set<Cat> set = convertMapToSet(map);
     printCatSet(set);
