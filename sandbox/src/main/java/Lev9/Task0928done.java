@@ -15,18 +15,18 @@ import java.io.*;
 6. В методе main должен вызывать метод getOutputStream.
 7. Метод getOutputStream изменять нельзя.
  */
-public class Task0928 {
-/*  public static void main(String[] args) throws IOException {
+public class Task0928done {
+ public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     String sourceFileName = reader.readLine();
     String destinationFileName = reader.readLine();
 
-    InputStream fileInputStream = getOutputStream(destinationFileName);
-    InputStream fileOutputStream = getOutputStream(destinationFileName);
-
+    InputStream fileInputStream = getInputStream(sourceFileName);
+    OutputStream fileOutputStream = getOutputStream(destinationFileName);
+   //System.out.println(fileInputStream.available());
     int count = 0;
-    while (fileInputStream.available() > 0) ;
+    while (fileInputStream.available() > 0)
     {
       int data = fileInputStream.read();
       fileOutputStream.write(data);
@@ -46,5 +46,5 @@ public class Task0928 {
   public static OutputStream getOutputStream(String fileName) throws IOException {
     return new FileOutputStream(fileName);
   }
-*/
+
 }

@@ -1,5 +1,10 @@
 package Lev9;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 /*
 Есть класс кот - Cat, с полем "имя" (String).
 Создать словарь Map<String, Cat> и добавить туда 10 котов в виде "Имя"-"Кот".
@@ -14,19 +19,33 @@ package Lev9;
 5. Метод convertMapToSet должен создать и вернуть множество котов, полученных из переданного словаря.
 6. Программа должна вывести всех котов из множества на экран.
  */
-public class Task0927 {
- /*public static void main(String[] args) {
+public class Task0927done {
+ public static void main(String[] args) {
     Map<String, Cat> map = createMap();
     Set<Cat> set = convertMapToSet(map);
     printCatSet(set);
   }
 
   public static Map<String, Cat> createMap() {
-    //напишите тут ваш код
+    HashMap<String, Cat> cats = new HashMap<String, Cat>();
+   //HashMap cats = new HashMap(); //вот здесь именно так, иначе не пройдет
+    cats.put("Tima", new Cat("Tima"));
+    cats.put("Anti", new Cat("Anti"));
+    cats.put("Dimi", new Cat("Dimi"));
+    cats.put("Timie", new Cat("Timie"));
+    cats.put("Lo", new Cat("Lo"));
+    cats.put("Andi", new Cat("Andi"));
+    cats.put("Lahi", new Cat("Lahi"));
+    cats.put("Domh", new Cat("Domh"));
+    cats.put("More", new Cat("More"));
+    cats.put("Alea", new Cat("Alea"));
+    return cats;
   }
 
+
+
   public static Set<Cat> convertMapToSet(Map<String, Cat> map) {
-    //напишите тут ваш код
+   return new HashSet(map.values()); //напишите тут ваш код
   }
 
   public static void printCatSet(Set<Cat> set) {
@@ -47,5 +66,5 @@ public class Task0927 {
     }
   }
 
-*/
+
 }
