@@ -19,14 +19,19 @@ import java.io.*;
 6. В методе main должен вызывать метод getOutputStream.
 7. Метод getOutputStream изменять нельзя.
  */
-public class Task0929 {
+public class Task0929done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-    String sourceFileName = reader.readLine();
+    String sourceFileName = "";
+    InputStream fileInputStream = null;
+    sourceFileName = reader.readLine();
+     try {
+      fileInputStream = getInputStream(sourceFileName);
+    } catch(Exception e) {
+       System.out.println("Файл не существует.");
+       sourceFileName = reader.readLine();
+    }
     String destinationFileName = reader.readLine();
-
-    InputStream fileInputStream = getInputStream(sourceFileName);
     OutputStream fileOutputStream = getOutputStream(destinationFileName);
 
     while (fileInputStream.available() > 0) {
