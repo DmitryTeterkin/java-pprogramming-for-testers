@@ -19,13 +19,21 @@ l = (long) f / 1000;
 7. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 8. Программа должна выводить текст 1234567.
  */
-public class Task1007 {
+public class Task1007ready {
   public static void main(String[] args) {
-    long l = (byte) 1234_564_890L;
+ /* long l = (byte) 1234_564_890L;
     int x = (byte) 0b1000_1100_1010;
     double m = (byte) 110_987_654_6299.123_34;
     float f = (byte) l++ + 10 + ++x - (float) m;
     l = (long) f / 1000;
     System.out.println(l);
+*/
+    long l =  1234_564_890L;
+    int x =  0b1000_1100_1010;
+    double m = (byte) 110_987_654_6299.123_34;
+    float f =  l++ + 10 + ++x - (float) m;
+    l = (long) f / 1000;
+    System.out.println(l);
   }
+
 }

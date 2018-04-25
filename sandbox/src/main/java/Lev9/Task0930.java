@@ -3,6 +3,7 @@ package Lev9;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
 Задача: Пользователь вводит с клавиатуры список слов (и чисел).
@@ -57,7 +58,33 @@ public class Task0930 {
   }
 
   public static void sort(String[] array) {
-    //напишите тут ваш код
+    // распихиваем слова и цифры по двум массивам.
+    ArrayList<Integer> numbers = new ArrayList<Integer>();
+    ArrayList<String> words = new ArrayList<String>();
+    for (int i = 0; i < array.length; i++) {
+      if (isNumber(array[i])){
+          numbers.add(Integer.parseInt(array[i]));
+      } else {
+        words.add(array[i]);
+      }
+    }
+    // сортируем массивы слов и цифр
+
+    int[] num = new int[numbers.size()];
+    for (int i = 0; i < num.length; i++) {
+      num[i] = numbers.get(i);
+    }
+    Arrays.sort(num);
+    System.out.println(num);
+    String[] mas = words.toArray(new String[words.size()]);
+    for (int i = 0; i < mas.length; i++) {
+      String n = mas[i];
+
+    }
+
+    // пихаем в исходный массив отсортированные слова и цифры
+
+
   }
 
   // Метод для сравнения строк: 'а' больше чем 'b'
