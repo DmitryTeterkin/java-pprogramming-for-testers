@@ -3,7 +3,6 @@ package Lev9;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /*
@@ -40,7 +39,7 @@ import java.util.Collections;
 6. Метод sort должен использовать метод isGreaterThan.
 7. Метод sort должен использовать метод isNumber.
  */
-public class Task0930 {
+public class Task0930ready {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     ArrayList<String> list = new ArrayList<String>();
@@ -69,28 +68,27 @@ public class Task0930 {
         words.add(array[i]);
       }
     }
+
     // сортируем массивы слов и цифр
     Collections.sort(numbers);
     Collections.sort(words);
-    System.out.println(numbers);
-    System.out.println(words);
 
-    /* int[] num = new int[numbers.size()];
-    for (int i = 0; i < num.length; i++) {
-      num[i] = numbers.get(i);
+    // пихаем в исходный массив отсортированные слова и цифры в заданном порядке
+    int n = 0, m = numbers.size()-1;
+    for (int i = 0; i < array.length; i++) {
+      if (isNumber(array[i])){
+        String s = String.valueOf(numbers.get(m));
+        array[i] = s;
+       m--;
+      } else{
+        array[i] = words.get(n);
+        n++;
+      }
     }
-    Arrays.sort(num);
-    System.out.println(num);
-    String[] mas = words.toArray(new String[words.size()]);
-    for (int i = 0; i < mas.length; i++) {
-      String n = mas[i];
-    */
+
     String a = "", b = "";
     isGreaterThan(a, b);
   }
-
-  // пихаем в исходный массив отсортированные слова и цифры
-
 
   // Метод для сравнения строк: 'а' больше чем 'b'
   public static boolean isGreaterThan(String a, String b) {
