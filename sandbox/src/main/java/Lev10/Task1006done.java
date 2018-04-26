@@ -22,7 +22,7 @@ double result = f + (i / c) - (d * s) - 500e-3;
 9. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 10. Программа должна выводить текст "result: 1000.0".
  */
-public class Task1006ready {
+public class Task1006done {
   public static void main(String[] args) {
 
     double d = (short) 2.50256e2d;
