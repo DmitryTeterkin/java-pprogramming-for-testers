@@ -70,9 +70,19 @@ public class Task0930ready {
     }
 
     // сортируем массивы слов и цифр
-    Collections.sort(numbers);
-    Collections.sort(words);
+     Collections.sort(numbers);
+//    Collections.sort(words);
 
+    for (int j = 0; j < words.size()-1; j++) {
+      for (int i = 0; i < words.size()-1; i++) {
+        if (isGreaterThan(words.get(i), words.get(i+1))) {
+          String min = words.get(i+1);
+          words.set(i+1,words.get(i));
+          words.set(i, min);
+        }
+      }
+    }
+   // System.out.println(words);
     // пихаем в исходный массив отсортированные слова и цифры в заданном порядке
     int n = 0, m = numbers.size()-1;
     for (int i = 0; i < array.length; i++) {
@@ -86,8 +96,8 @@ public class Task0930ready {
       }
     }
 
-    String a = "", b = "";
-    isGreaterThan(a, b);
+   // String a = "", b = "";
+   // isGreaterThan(a, b);
   }
 
   // Метод для сравнения строк: 'а' больше чем 'b'
