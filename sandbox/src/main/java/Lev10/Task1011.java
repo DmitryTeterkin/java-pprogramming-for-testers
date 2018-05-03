@@ -23,7 +23,9 @@ package Lev10;
 public class Task1011 {
   public static void main(String[] args) {
     String s = "Я не хочу изучать Java, я хочу большую зарплату";
-
+/*
+sdfsdfsdfsdfsdfsdfsdfd
+ */
     //напишите тут ваш код
   }
 }
