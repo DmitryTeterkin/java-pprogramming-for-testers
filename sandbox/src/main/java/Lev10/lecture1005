@@ -1,0 +1,34 @@
+Преобразование к типу String
+Java Syntax
+10 уровень, 5 лекция
+— Сейчас будет меленькая, но интересная тема – преобразование к типу String.
+
+— В Java к типу String можно преобразовать любые типы данных.
+
+— Звучит заманчиво.
+
+— На самом деле все еще лучше. Практически все типы можно приводить к типу String неявно. Лучше всего это заметно, когда мы складываем две переменных: String и «не String». При этом «не String» переменная преобразовывается к типу String.
+
+— Вот посмотри пару примеров:
+
+Команда	                      Что происходит на самом деле
+int x = 5;                     int x = 5;
+String text = "X=" + x;        String s = "X=" + Integer.toString(x);
+int x = 5;                      String s = "X=" + Integer.toString(x);
+Cat cat = new Cat("Vaska");     String text = "My cat is " + cat;
+Cat cat = new Cat("Vaska");     String text = "My cat is" + cat.toString();
+Object o = null;                String text = "Object is " + o;
+Object o = null;                String text = "Object is " + "null";
+String text = 5 + '\u0000' + "Log";
+int i2 = 5 + (int) '\u0000';
+String text = Integer.toString(i2) + "Log";
+String text = "Object is " + (float) 2 / 3;
+float f2 = ((float) 2) / 3;
+String text="Object is "+Float.toString(f2);
+Вывод: Если мы складываем String и «любой другой тип», то второй объект преобразуется к типу String.
+
+— Обрати еще внимание на четвертую строку таблицы. Все операции выполняются слева направо, поэтому сложение 5 + ‘\u0000’ происходит как сложение целых чисел.
+
+— Т.е. если я напишу, код типа: String s = 1+2+3+4+5+"m", то получу s = "15m" ?
+
+— Ага. Сначала произойдет сложение чисел, а затем – преобразование их к строке.
