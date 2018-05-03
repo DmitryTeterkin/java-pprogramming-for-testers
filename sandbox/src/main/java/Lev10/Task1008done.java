@@ -16,11 +16,11 @@ package Lev10;
 6. Начальное значение переменных при инициализации менять нельзя. Можно добавлять только операторы приведения типа.
 7. Программа должна выводить число 2.9411764705882355.
  */
-public class Task1008 {
+public class Task1008done {
   public static void main(String[] args) {
     int a = 50;
     int b = 17;
-    double d = a / b;
+    double d = a / (double) b;
     System.out.println(d);
   }
 }

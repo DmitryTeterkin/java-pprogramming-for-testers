@@ -22,7 +22,7 @@ int safeGetElement(ArrayList<Integer> list, int index, int defaultValue)
 5. Метод safeGetElement не должен кидать исключения.
  */
 public class Task1017 {
-  public static void main(String[] args) throws Exception {
+ /* public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     ArrayList<Integer> list = new ArrayList<Integer>();
@@ -39,4 +39,5 @@ public class Task1017 {
   public static int safeGetElement(ArrayList<Integer> list, int index, int defaultValue) {
     //напишите тут ваш код
   }
+  */
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 3. Класс Solution должен содержать три переменные.
 4. Программа должна помещать в HashMap 10 пар считанных с клавиатуры.
 5. Программа должна выводить на экран содержимое HashMap. Каждое значение с новой строки.
- */
+
 public class Solution {
   HashMap<int, String> map;
   static Integer index;
@@ -45,3 +45,4 @@ public class Solution {
     }
   }
 }
+*/
