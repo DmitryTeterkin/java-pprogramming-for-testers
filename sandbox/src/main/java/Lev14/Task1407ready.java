@@ -18,41 +18,9 @@ Player and Dancer
 4. Метод haveRest должен вызывать метод dance, если переданный ему объект является танцором(Dancer).
 5. Метод main должен считывать данные с клавиатуры.
 6. Метод main должен прекращать считывать данные с клавиатуры, если введенная строка равна "exit".
-  public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        Person person = null;
-        String key;
-        while (!(key = reader.readLine()).equals("exit")) {
-            if ("player".equals(key)) {
-                person = new Player();
-            } else if ("dancer".equals(key)) {
-                person = new Dancer();
-            }
-            haveRest(person);
-        }
-    }
-
-    public static void haveRest(Person person) {
-        //напишите тут ваш код
-    }
-
-    interface Person {
-    }
-
-    static class Player implements Person {
-        void play() {
-            System.out.println("playing");
-        }
-    }
-
-    static class Dancer implements Person {
-        void dance() {
-            System.out.println("dancing");
-        }
-    }
  */
-public class Task1407 {
+public class Task1407ready {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -69,7 +37,13 @@ public class Task1407 {
   }
 
   public static void haveRest(Person person) {
-    //напишите тут ваш код
+   if (person instanceof Player){
+     ((Player) person).play();
+
+   } else if (person instanceof Dancer){
+     ((Dancer) person).dance();
+
+   }//напишите тут ваш код
   }
 
   interface Person {

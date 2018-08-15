@@ -42,4 +42,5 @@ public class Task1405 {
       System.out.println("food was eaten");
     }
   }
+
 }

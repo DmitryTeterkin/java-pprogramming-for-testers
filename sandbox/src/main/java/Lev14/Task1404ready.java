@@ -1,4 +1,8 @@
 package Lev14;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /*
 Коты
 1. Считывать строки(параметры) с консоли, пока пользователь не введет пустую строку(Enter).
@@ -16,9 +20,13 @@ package Lev14;
 4. Программа должна создавать объект класса Cat для каждого введенного имени кота(строки считанной с клавиатуры)
 c помощью метода getCatByKey.
  */
-public class Task1404 {
+public class Task1404ready {
   public static void main(String[] args) throws Exception {
-    //напишите тут ваш код
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //напишите тут ваш код
+    String key;
+    while (!(key = reader.readLine()).equals("")) {
+      System.out.println(CatFactory.getCatByKey(key).toString());
+    }
   }
 
   static class CatFactory {
