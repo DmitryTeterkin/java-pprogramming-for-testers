@@ -20,7 +20,7 @@ Player and Dancer
 6. Метод main должен прекращать считывать данные с клавиатуры, если введенная строка равна "exit".
 
  */
-public class Task1407ready {
+public class Task1407done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

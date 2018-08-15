@@ -36,7 +36,7 @@ package Lev14;
     static class Jerry extends GreyMouse {
     }
  */
-public class Task1406ready {
+public class Task1406done {
   public static void main(String[] args) {
     Object obj = new Jerry();//Add your code here
 

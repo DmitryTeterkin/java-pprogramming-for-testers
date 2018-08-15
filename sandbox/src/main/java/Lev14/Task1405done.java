@@ -15,7 +15,7 @@ Food
 3. В методе foodMethods должны вызываться методы объекта типа Food.
 4. В методе selectableMethods должны вызываться методы доступные у любого объекта реализующего интерфейс Selectable.
  */
-public class Task1405ready {
+public class Task1405done {
   public static void main(String[] args) {
     Food food = new Food();
     Selectable selectable = new Food();

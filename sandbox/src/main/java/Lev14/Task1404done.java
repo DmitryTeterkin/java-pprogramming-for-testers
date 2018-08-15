@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 4. Программа должна создавать объект класса Cat для каждого введенного имени кота(строки считанной с клавиатуры)
 c помощью метода getCatByKey.
  */
-public class Task1404ready {
+public class Task1404done {
   public static void main(String[] args) throws Exception {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //напишите тут ваш код
     String key;
