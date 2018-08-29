@@ -1,4 +1,4 @@
-package Lev14.Task1408;
+package Lev14.Task1408done;
 
 public interface Country {
   String UKRAINE = "Ukraine";

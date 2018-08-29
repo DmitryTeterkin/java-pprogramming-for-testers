@@ -1,4 +1,4 @@
-package Lev14.Task1408;
+package Lev14.Task1408done;
 
 /*
 Куриная фабрика
@@ -38,7 +38,7 @@ package Lev14.Task1408;
 месяц.> где Sssss - название страны, а N - количество яиц в месяц.
 7. Метод getHen должен быть реализован в классе HenFactory и должен возвращать тип кур для переданной в него страны.
  */
-public class Task1408 {
+public class Task1408done {
   public static void main(String[] args) {
     Hen hen = HenFactory.getHen("Belarus");
     System.out.println(hen.getDescription());
