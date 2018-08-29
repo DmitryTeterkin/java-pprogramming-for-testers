@@ -1,4 +1,5 @@
 package Lev14.Task1408;
+
 /*
 Куриная фабрика
 Написать Фабрику(Factory) по производству кур(Hen):
@@ -38,18 +39,35 @@ package Lev14.Task1408;
 7. Метод getHen должен быть реализован в классе HenFactory и должен возвращать тип кур для переданной в него страны.
  */
 public class Task1408 {
- public static void main(String[] args) {
-    Hen hen = HenFactory.getHen(Country.BELARUS);
-    hen.getCountOfEggsPerMonth();
+  public static void main(String[] args) {
+    Hen hen = HenFactory.getHen("Belarus");
+    System.out.println(hen.getDescription());
+    Hen hen1 = HenFactory.getHen("Russia");
+    System.out.println(hen1.getDescription());
+    Hen hen2 = HenFactory.getHen("Ukraine");
+    System.out.println(hen2.getDescription());
+    Hen hen3 = HenFactory.getHen("Moldova");
+    System.out.println(hen3.getDescription());
   }
 
   static class HenFactory {
 
-    static Hen getHen(String country) {
-      Hen hen = Hen();
-      //напишите тут ваш код
-      return hen;
+    public static Hen getHen(String s) {
+      if (s.equals(Country.BELARUS)) {
+        return new BelarusianHen();
+      }
+      if (s.equals(Country.RUSSIA)) {
+        return new RussianHen();
+      }
+      if (s.equals(Country.MOLDOVA)) {
+        return new MoldovanHen();
+      }
+      if (s.equals(Country.UKRAINE)) {
+        return new UkrainianHen();
+      }
+      return null;
     }
   }
-
 }
+
+
