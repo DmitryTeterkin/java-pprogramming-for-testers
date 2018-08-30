@@ -21,10 +21,10 @@ package Lev14.Task1409;
  */
 
 public class Task1409 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     println(new WaterBridge());
     println(new SuspensionBridge());
   }
 
-  //add println method here
+ */ //add println method here
 }

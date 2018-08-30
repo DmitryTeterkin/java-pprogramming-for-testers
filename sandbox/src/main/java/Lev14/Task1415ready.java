@@ -22,7 +22,7 @@ import java.util.List;
 4. В методе cleanAllApartments для всех трехкомнатных аппартаментов(Apt3Room) содержащихся в списке необходимо вызвать метод clean3Rooms.
 5. Классы Apt1Room, Apt2Room, Apt3Room должны поддерживать(реализовывать) интерфейс Apartment.
  */
-public class Task1415 {
+public class Task1415ready {
   public static void main(String[] args) {
     List<Apartment> apartments = new ArrayList<Apartment>();
     apartments.add(new Apt1Room());
@@ -33,7 +33,17 @@ public class Task1415 {
   }
 
   public static void cleanAllApartments(List<Apartment> apartments) {
-    //написать тут вашу реализацию пунктов 1-4
+    for (int i = 0; i < apartments.size(); i++) {
+     if (apartments.get(i) instanceof Apt1Room){
+        ((Apt1Room) apartments.get(i)).clean1Room();
+     }
+     if (apartments.get(i) instanceof Apt2Room){
+       ((Apt2Room) apartments.get(i)).clean2Rooms();
+     }
+     if (apartments.get(i) instanceof Apt3Room){
+       ((Apt3Room) apartments.get(i)).clean3Rooms();
+     }
+    }//написать тут вашу реализацию пунктов 1-4
   }
 
   static interface Apartment {

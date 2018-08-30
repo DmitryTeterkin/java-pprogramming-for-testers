@@ -20,7 +20,7 @@ package Lev14.Task1410;
 9. В классе Solution должен быть реализован метод getBubblyWine(), который возвращает объект типа BubblyWine.
  */
 public class Task1410 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     getDeliciousDrink().taste();
     System.out.println(getWine().getHolidayName());
     System.out.println(getBubblyWine().getHolidayName());
@@ -38,4 +38,5 @@ public class Task1410 {
   public static Wine getBubblyWine() {
 
   }
+  */
 }

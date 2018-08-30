@@ -25,7 +25,7 @@ Computer
 7. Для полей keyboard, mouse и monitor Computer должны быть созданы геттеры(getKeyboard, getMouse, getMonitor), которые будут возвращать соответствующие поля класса Computer.
  */
 public class Task1413 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     Computer computer = new Computer(new Keyboard(), new Mouse(), new Monitor());
     if (isWork(computer.getKeyboard()) &&
             isWork(computer.getMonitor()) &&
@@ -38,5 +38,5 @@ public class Task1413 {
     System.out.println(item.getName());
     return item.getName() != null && item.getName().length() > 4;
   }
-
+*/
 }

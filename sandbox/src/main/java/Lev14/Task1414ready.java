@@ -1,4 +1,8 @@
 package Lev14;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /*
 MovieFactory
 Расширение функционала по аналогии, чтение с консоли:
@@ -28,9 +32,29 @@ MovieFactory
  .jrtc
 
  */
-public class Task1414 {
+public class Task1414ready {
   public static void main(String[] args) throws Exception {
-    //ввести с консоли несколько ключей (строк), пункт 7
+    Boolean a = true;
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    while (a == true) {
+      String key = reader.readLine();
+      Movie movie = MovieFactory.getMovie(key);
+     // System.out.println(movie.getClass().getSimpleName());
+      if (key.equals("cartoon")) {
+        System.out.println(movie.getClass().getSimpleName());
+      } else if (key.equals("thriller")) {
+        System.out.println(movie.getClass().getSimpleName());
+      } else if (key.equals("soapOpera")) {
+        System.out.println(movie.getClass().getSimpleName());
+      } else {
+        a = false;
+      }
+    }
+
+
+
+
+  //ввести с консоли несколько ключей (строк), пункт 7
 
         /*
 8 Создать переменную movie класса Movie и для каждой введенной строки(ключа):
@@ -38,29 +62,38 @@ public class Task1414 {
 8.2 вывести на экран movie.getClass().getSimpleName()
         */
 
-  }
+}
 
-  static class MovieFactory {
+static class MovieFactory {
 
-    static Movie getMovie(String key) {
-      Movie movie = null;
-
-      //создание объекта SoapOpera (мыльная опера) для ключа "soapOpera"
-      if ("soapOpera".equals(key)) {
-        movie = new SoapOpera();
-      }
-
-      //напишите тут ваш код, пункты 5,6
-
-      return movie;
+  static Movie getMovie(String key) {
+    Movie movie = null;
+    //создание объекта SoapOpera (мыльная опера) для ключа "soapOpera"
+    if ("soapOpera".equals(key)) {
+      movie = new SoapOpera();
     }
-  }
+    if ("cartoon".equals(key)) {
+      movie = new Cartoon();
+    }
+    if ("thriller".equals(key)) {
+      movie = new Thriller();
+    }
+    //напишите тут ваш код, пункты 5,6
 
-  static abstract class Movie {
+    return movie;
   }
+}
 
-  static class SoapOpera extends Movie {
-  }
+static abstract class Movie {
+}
 
-  //Напишите тут ваши классы, пункт 3
+static class SoapOpera extends Movie {
+}
+
+static class Cartoon extends Movie {
+}
+
+static class Thriller extends Movie {
+}
+//Напишите тут ваши классы, пункт 3
 }

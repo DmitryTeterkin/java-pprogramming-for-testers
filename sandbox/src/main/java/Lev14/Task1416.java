@@ -17,7 +17,7 @@ package Lev14;
 5. Кит(Whale) и Косатка(Orca) НЕ умеют ходить(не поддерживают интерфейс Walkable).
  */
 public class Task1416 {
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     Swimmable animal = new Orca();
     animal.swim();
     animal = new Whale();
@@ -61,5 +61,5 @@ public class Task1416 {
   static class Otter {
 
   }
-
+*/
 }
