@@ -32,7 +32,7 @@ MovieFactory
  .jrtc
 
  */
-public class Task1414ready {
+public class Task1414done {
   public static void main(String[] args) throws Exception {
     Boolean a = true;
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

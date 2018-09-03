@@ -1,4 +1,4 @@
-package Lev14.Task1410ready;
+package Lev14.Task1410done;
 /*
 Дегустация вин
 1. Создать абстрактный класс Drink с реализованным методом public void taste(), который выводит в консоль "Вкусно".
@@ -19,7 +19,7 @@ package Lev14.Task1410ready;
 8. В классе Solution должен быть реализован метод getWine(), который возвращает объект типа Wine.
 9. В классе Solution должен быть реализован метод getBubblyWine(), который возвращает объект типа BubblyWine.
  */
-public class Task1410ready {
+public class Task1410done {
  public static void main(String[] args) {
     getDeliciousDrink().taste();
     System.out.println(getWine().getHolidayName());

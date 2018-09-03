@@ -1,4 +1,4 @@
-package Lev14.Task1413ready;
+package Lev14.Task1413done;
 /*
 Computer
 1. Создай интерфейс CompItem.
@@ -24,7 +24,7 @@ Computer
 6. Конструктор класса Computer должен принимать 3 параметра(keyboard, mouse, monitor) и корректно инициализировать соответствующие поля класса.
 7. Для полей keyboard, mouse и monitor Computer должны быть созданы геттеры(getKeyboard, getMouse, getMonitor), которые будут возвращать соответствующие поля класса Computer.
  */
-public class Task1413ready {
+public class Task1413done {
  public static void main(String[] args) {
     Computer computer = new Computer(new Keyboard(), new Mouse(), new Monitor());
     if (isWork(computer.getKeyboard()) &&

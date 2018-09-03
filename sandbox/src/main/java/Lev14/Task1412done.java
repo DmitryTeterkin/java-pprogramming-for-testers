@@ -13,7 +13,7 @@ package Lev14;
 4. Метод printMainInfo должен вызывать у переданного ему в качестве параметра объекта метод draw, если этот объект реализует интерфейс Drawable.
 5. Метод printMainInfo должен вызывать у переданного ему в качестве параметра объекта метод move, если этот объект реализует интерфейс Movable.
 */
-public class Task1412ready {
+public class Task1412done {
   public static void main(String[] args) {
     Object obj = new Circle();
     Movable movable = (Movable) obj;

@@ -1,4 +1,4 @@
-package Lev14.Task1409ready;
+package Lev14.Task1409done;
 /*
 Мосты
 1. Создать интерфейс Bridge с методом int getCarsCount().
@@ -20,13 +20,13 @@ package Lev14.Task1409ready;
 7. В интерфейсе Bridge должен быть определен метод int getCarsCount().
  */
 
-public class Task1409ready {
+public class Task1409done {
   public static void main(String[] args) {
     println(new WaterBridge());
     println(new SuspensionBridge());
   }
 
-  private static void println(Bridge bridge) {
+  public static void println(Bridge bridge) {
     System.out.println(bridge.getCarsCount());
   }
 

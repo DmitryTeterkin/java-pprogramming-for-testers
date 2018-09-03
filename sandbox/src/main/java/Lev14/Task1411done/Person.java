@@ -1,4 +1,4 @@
-package Lev14.Task1411ready;
+package Lev14.Task1411done;
 
 public interface Person {
   class User implements Person {

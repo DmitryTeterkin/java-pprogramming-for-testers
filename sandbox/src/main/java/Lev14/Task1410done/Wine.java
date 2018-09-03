@@ -1,4 +1,4 @@
-package Lev14.Task1410ready;
+package Lev14.Task1410done;
 
 public class Wine extends Drink {
   public String getHolidayName(){

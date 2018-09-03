@@ -1,4 +1,4 @@
-package Lev14.Task1411ready;
+package Lev14.Task1411done;
 /*
 User, Loser, Coder and Proger
 1. Ввести [в цикле] с клавиатуры несколько строк (ключей).
@@ -30,9 +30,9 @@ User, Loser, Coder and Proger
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import static Lev14.Task1411ready.Person.*;
+import static Lev14.Task1411done.Person.*;
 
-public class Task1411ready {
+public class Task1411done {
   public static void main(String[] args) throws Exception {
     Boolean a = true;
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
