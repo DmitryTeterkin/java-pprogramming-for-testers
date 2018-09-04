@@ -1,4 +1,4 @@
-package Lev14.Task1417;
+package Lev14.Task1417done;
 
 public class Hrivna extends Money {
   public Hrivna(double amount) {
@@ -7,7 +7,7 @@ public class Hrivna extends Money {
 
   @Override
   public double getAmount() {
-    return 25.9;
+    return super.getAmount();
   }
 
   @Override

@@ -16,30 +16,28 @@ import java.io.InputStreamReader;
 3. Программа должна выводить данные на экран.
 4. Программа должна выводить на экран наибольший общий делитель(НОД) чисел считанных с клавиатуры и успешно завершаться.
  */
-public class Task1420ready {
+public class Task1420done {
   public static void main(String[] args) throws Exception {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    int a = 0, b = 0;
-    try {
+
+      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+      int a = 0, b = 0;
+
       a = Integer.parseInt(reader.readLine());
-    } catch (Exception e) {
-      //System.out.println(e);
-    }
-    try {
+      if (a <= 0){ throw new Exception(); }
       b = Integer.parseInt(reader.readLine());
-    } catch (Exception e) {
-    //  System.out.println(e);
-    }
-    reader.close();
-    if (a > 0 & b > 0) {
-      while (a != b) {
-        if (a > b) {
-          a = a - b;
-        } else {
-          b = b - a;
-        }
+      if (b <= 0){ throw new Exception();
       }
-      System.out.println(a);
+      // reader.close();
+      if (a > 0 & b > 0) {
+        while (a != b) {
+          if (a > b) {
+            a = a - b;
+          } else {
+            b = b - a;
+          }
+        }
+        System.out.println(a);
+      }
     }
-  }
+
 }

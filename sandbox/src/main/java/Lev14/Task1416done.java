@@ -16,7 +16,7 @@ package Lev14;
 4. Выдра(Otter) НЕ является животным океана(потомком OceanAnimal).
 5. Кит(Whale) и Косатка(Orca) НЕ умеют ходить(не поддерживают интерфейс Walkable).
  */
-public class Task1416ready {
+public class Task1416done {
   public static void main(String[] args) {
     Swimmable animal = new Orca();
     animal.swim();

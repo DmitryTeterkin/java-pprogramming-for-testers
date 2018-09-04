@@ -1,4 +1,4 @@
-package Lev14.Task1417;
+package Lev14.Task1417done;
 
 public class Ruble extends Money {
   public Ruble(double amount) {
@@ -7,7 +7,7 @@ public class Ruble extends Money {
 
   @Override
   public double getAmount() {
-    return 10.0;
+    return super.getAmount();
   }
 
   @Override

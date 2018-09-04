@@ -20,7 +20,7 @@ import java.util.List;
 4. Метод initExceptions должен быть статическим.
 
  */
-public class Task1419ready {
+public class Task1419done {
   public static List<Exception> exceptions = new ArrayList<Exception>();
 
   public static void main(String[] args) {

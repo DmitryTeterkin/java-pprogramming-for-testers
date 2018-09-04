@@ -22,7 +22,7 @@ import java.util.List;
 3. Метод printListValues должен выводить содержимое полученного списка на экран.
 4. Метод processCastedObjects должен анализировать элементы списка и для объектов типа Float или Double выводить на экран текст согласно условию задачи.
  */
-public class Task1418ready {
+public class Task1418done {
   public static void main(String[] args) {
     List<Number> list = new LinkedList<Number>();
     initList(list);

@@ -1,4 +1,4 @@
-package Lev14.Task1417;
+package Lev14.Task1417done;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import java.util.List;
 7. В классах Hrivna, Ruble и USD должен быть реализован публичный конструктор с одним параметром типа double, который устанавливает
 значение поля amount класса Money путем вызова конструктора класса родителя c тем же параметром.
  */
-public class Task1417 {
+public class Task1417done {
   public static void main(String[] args) {
     Person ivan = new Person("Иван");
     for (Money money : ivan.getAllMoney()) {
@@ -39,7 +39,9 @@ public class Task1417 {
     Person(String name) {
       this.name = name;
       this.allMoney = new ArrayList<Money>();
-      //напишите тут ваш код
+      allMoney.add(0, new USD(20));
+      allMoney.add(1, new Hrivna(300));
+      allMoney.add(2, new Ruble(500));//напишите тут ваш код
     }
 
     private List<Money> allMoney;
