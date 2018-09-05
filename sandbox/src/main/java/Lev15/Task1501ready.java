@@ -13,7 +13,7 @@ package Lev15;
 5. В классе Clothes должен быть реализован метод getAllowedAction без параметров.
 6. В классе Clothes должен быть реализован метод getAllowedAction с одним параметром типа String.
  */
-public class Task1501 {
+public class Task1501ready {
   public static void main(String[] args) {
 
   }
@@ -30,6 +30,20 @@ public class Task1501 {
     Object getAllowedAction();
   }
 
-  public static class Clothes {
+  public static class Clothes implements Movable, Sellable, Discountable {
+    @Override
+    public boolean isMovable() {
+      return true;
+    }
+
+    @Override
+    public Object getAllowedAction(String name) {
+      return null;
+    }
+
+    @Override
+    public Object getAllowedAction() {
+      return null;
+    }
   }
 }

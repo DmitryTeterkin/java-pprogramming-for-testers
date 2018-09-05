@@ -9,7 +9,8 @@ package Lev15;
 6. Унаследуйте Ferrari и Lanos от CheapCar и LuxuriousCar, подумайте, какой класс для кого.
 7. В классе LuxuriousCar реализуйте метод printlnDesire, чтобы он выводил на экран "Я хочу ездить на роскошной машине".
 8. В классе CheapCar реализуйте метод printlnDesire, чтобы он выводил на экран "Я хочу ездить на дешевой машине".
-9. В классах LuxuriousCar и CheapCar для метода printlnDesire расставьте различными способами модификаторы доступа так, чтобы в классах Ferrari и Lanos выполнялось расширение видимости.
+9. В классах LuxuriousCar и CheapCar для метода printlnDesire расставьте различными
+способами модификаторы доступа так, чтобы в классах Ferrari и Lanos выполнялось расширение видимости.
 
 
 Требования:
@@ -21,23 +22,35 @@ package Lev15;
 6. Метод printlnDesire в классе CheapCar, должен выводить на экран фразу "Я хочу ездить на дешевой машине".
 7. Метод printlnDesire в классе Ferrari, должен выводить на экран фразу "Я хочу ездить на Феррари".
  */
-public class Task1503 {
-  public static void main(String[] args) {
-    new Task1503.LuxuriousCar().printlnDesire();
-    new Task1503.CheapCar().printlnDesire();
-    new Task1503.Ferrari().printlnDesire();
-    new Task1503.Lanos().printlnDesire();
+public class Task1503ready {
+ public static void main(String[] args) {
+   new LuxuriousCar().printlnDesire();
+   new CheapCar().printlnDesire();
+   new Ferrari().printlnDesire();
+   new Lanos().printlnDesire();
   }
 
-  public static class Ferrari {
-    public void printlnDesire() {
-      //add your code here
+  public static class CheapCar{
+    String printlnDesire(){
+      return Constants.WANT_STRING + Constants.CHEAP_CAR;
     }
   }
 
-  public static class Lanos {
-    public void printlnDesire() {
-      //add your code here
+  public static class LuxuriousCar{
+    String printlnDesire(){
+      return Constants.WANT_STRING + Constants.LUXURIOUS_CAR;
+    }
+  }
+
+  public static class Ferrari extends LuxuriousCar {
+    public String printlnDesire() {
+      return Constants.WANT_STRING + Constants.FERRARI_NAME;
+    }
+  }
+
+  public static class Lanos extends CheapCar {
+    public String  printlnDesire() {
+      return Constants.WANT_STRING + Constants.LANOS_NAME;
     }
   }
 

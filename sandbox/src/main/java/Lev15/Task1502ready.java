@@ -1,4 +1,5 @@
 package Lev15;
+
 /*
 ООП - Наследование животных
 1. Создать public static класс Goose(Гусь).
@@ -9,20 +10,34 @@ package Lev15;
 6. В классе Goose метод getSize должен возвращать строку "Гусь маленький, " + [getSize родительского класса].
 7. В классе Dragon метод getSize должен возвращать строку "Дракон большой, " + [getSize родительского класса].
 
-
 Требования:
 1. Класс Goose должен быть создан внутри класса Solution и быть статическим.
 2. Класс Dragon должен быть создан внутри класса Solution и быть статическим.
 3. Класс Goose должен быть потомком класса SmallAnimal.
 4. Класс Dragon должен быть потомком класса BigAnimal.
-5. В классе Goose должен быть переопределен метод getSize, который должен возвращать строку формата "Гусь маленький, " + [getSize родительского класса].
-6. В классе Dragon должен быть переопределен метод getSize, который должен возвращать строку формата "Дракон большой, " + [getSize родительского класса].
+5. В классе Goose должен быть переопределен метод getSize, который должен возвращать
+строку формата "Гусь маленький, " + [getSize родительского класса].
+6. В классе Dragon должен быть переопределен метод getSize, который должен возвращать
+строку формата "Дракон большой, " + [getSize родительского класса].
  */
-public class Task1502 {
-  //добавьте классы Goose и Dragon тут
+public class Task1502ready {
+  public static class Goose extends SmallAnimal {
+    public String getSize() {
+      return "Гусь маленький, " + super.getSize();
+    }
+  }
+
+  public static class Dragon extends BigAnimal {
+    public String getSize() {
+      return "Дракон большой, " + super.getSize();
+    }
+  }
 
   public static void main(String[] args) {
-
+    Goose goose = new Goose();
+    System.out.println(goose.getSize());
+    Dragon dragon = new Dragon();
+    System.out.println(dragon.getSize());
   }
 
   public static class BigAnimal {
