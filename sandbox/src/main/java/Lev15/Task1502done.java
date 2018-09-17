@@ -20,7 +20,7 @@ package Lev15;
 6. В классе Dragon должен быть переопределен метод getSize, который должен возвращать
 строку формата "Дракон большой, " + [getSize родительского класса].
  */
-public class Task1502ready {
+public class Task1502done {
   public static class Goose extends SmallAnimal {
     public String getSize() {
       return "Гусь маленький, " + super.getSize();

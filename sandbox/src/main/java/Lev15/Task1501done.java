@@ -13,7 +13,7 @@ package Lev15;
 5. В классе Clothes должен быть реализован метод getAllowedAction без параметров.
 6. В классе Clothes должен быть реализован метод getAllowedAction с одним параметром типа String.
  */
-public class Task1501ready {
+public class Task1501done {
   public static void main(String[] args) {
 
   }

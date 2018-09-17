@@ -30,37 +30,20 @@ import java.util.List;
 12. Метод getOutputByBookType должен возвращать корректную строку для объектов типа AgathaChristieBook.
 13. Метод getOutputByBookType должен возвращать корректную строку для объектов типа MarkTwainBook.
  */
-public class Task1504 {
+public class Task1504done {
 
- public static void main(String[] args) {
+  public static void main(String[] args) {
     List<Book> books = new LinkedList<Book>();
     books.add(new MarkTwainBook("Tom Sawyer"));
     books.add(new AgathaChristieBook("Hercule Poirot"));
     System.out.println(books);
   }
 
-public static class AgathaChristieBook extends Book{
-   public AgathaChristieBook (String title){
-     super("Agatha Christie");
-   }
-
-  @Override
-  public AgathaChristieBook getBook() {
-    return this;
-  }
-
-  @Override
-  public String getTitle() {
-    return AgathaChristieBook.this.getTitle();
-  }
-
-
-}
-
-
-  public static class MarkTwainBook extends Book{
+  public static class MarkTwainBook extends Book {
+    public String title;
     public MarkTwainBook(String title) {
       super("Mark Twain");
+      this.title = title;
     }
 
     @Override
@@ -70,32 +53,46 @@ public static class AgathaChristieBook extends Book{
 
     @Override
     public String getTitle() {
-
-      return MarkTwainBook.this.getTitle(); //getBook().getTitle();
+      return title;
     }
   }
 
+  public static class AgathaChristieBook extends Book {
+    public String title;
 
+    public AgathaChristieBook(String title) {
+      super("Agatha Christie");
+      this.title = title;
+    }
+    @Override
+    public AgathaChristieBook getBook() {
+      return this;
+    }
+    @Override
+    public String getTitle() {
+      return title;
+    }
+  }
 
   abstract static class Book {
     private String author;
-
     public Book(String author) {
       this.author = author;
     }
-
     public abstract Book getBook();
-
     public abstract String getTitle();
-
 
     private String getOutputByBookType() {
       String agathaChristieOutput = author + ", " + getBook().getTitle() + " is a detective";
       String markTwainOutput = getBook().getTitle() + " book was written by " + author;
 
       String output = "output";
-      //Add your code here
-
+      if (getBook() instanceof MarkTwainBook){
+        return markTwainOutput;
+      }     //Add your code here
+      if (getBook() instanceof AgathaChristieBook){
+        return agathaChristieOutput;
+      }
       return output;
     }
 
