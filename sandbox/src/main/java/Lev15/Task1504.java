@@ -1,5 +1,8 @@
 package Lev15;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /*
 ООП - книги
 1. Создайте public static класс MarkTwainBook, который наследуется от Book. Имя автора [Mark Twain].
@@ -28,7 +31,7 @@ package Lev15;
 13. Метод getOutputByBookType должен возвращать корректную строку для объектов типа MarkTwainBook.
  */
 public class Task1504 {
-  /*
+
  public static void main(String[] args) {
     List<Book> books = new LinkedList<Book>();
     books.add(new MarkTwainBook("Tom Sawyer"));
@@ -36,15 +39,28 @@ public class Task1504 {
     System.out.println(books);
   }
 
+public static class AgathaChristieBook extends Book{
+   public AgathaChristieBook (String title){
+     super("Agatha Christie");
+   }
+
+  @Override
+  public AgathaChristieBook getBook() {
+    return this;
+  }
+
+  @Override
+  public String getTitle() {
+    return AgathaChristieBook.this.getTitle();
+  }
+
+
+}
+
 
   public static class MarkTwainBook extends Book{
-
-
-
-    public MarkTwainBook(String bookname) {
-      new Book("Mark Twain") {
-
-      };
+    public MarkTwainBook(String title) {
+      super("Mark Twain");
     }
 
     @Override
@@ -54,9 +70,11 @@ public class Task1504 {
 
     @Override
     public String getTitle() {
-      return null;
+
+      return MarkTwainBook.this.getTitle(); //getBook().getTitle();
     }
   }
+
 
 
   abstract static class Book {
@@ -69,6 +87,7 @@ public class Task1504 {
     public abstract Book getBook();
 
     public abstract String getTitle();
+
 
     private String getOutputByBookType() {
       String agathaChristieOutput = author + ", " + getBook().getTitle() + " is a detective";
@@ -84,5 +103,5 @@ public class Task1504 {
       return getOutputByBookType();
     }
   }
-*/
+
 }

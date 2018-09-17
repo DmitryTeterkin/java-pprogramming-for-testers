@@ -16,8 +16,8 @@ public class Task1509 {
     Man man = new Man();
     Woman woman = new Woman();
 
-    printName(man);
-    printName(woman);
+//    printName(man);
+//    printName(woman);
   }
 
   public static void printName(Man man) {
