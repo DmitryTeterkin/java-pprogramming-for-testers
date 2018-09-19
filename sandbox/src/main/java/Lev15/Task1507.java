@@ -28,4 +28,12 @@ public class Task1507 {
       System.out.println();
     }
   }
+public static void printMatrix(int m, int n, Integer value){
+  for (int i = 0; i < m; i++) {
+    for (int j = 0; j < n; j++) {
+      System.out.print(value);
+    }
+    System.out.println();
+  }
+}
 }

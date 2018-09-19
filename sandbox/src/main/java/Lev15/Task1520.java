@@ -17,7 +17,7 @@ moving
 5. Класс Duck должен реализовывать интерфейс Movable.
 6. Класс Duck должен реализовывать интерфейс Flyable.
  */
-public class Task1520 {
+public class Task1520 { /*
   public static void main(String[] args) {
     Duck duck = new Duck();
     Util.fly(duck);
@@ -47,5 +47,5 @@ public class Task1520 {
 
   public static interface Movable {
     void doAnotherAction();
-  }
+  } */
 }
