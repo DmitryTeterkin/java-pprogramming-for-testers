@@ -11,7 +11,7 @@ package Lev15;
 3. Класс Man должен быть потомком класса Human.
 4. Класс Woman должен быть потомком класса Human.
  */
-public class Task1509ready {
+public class Task1509done {
   public static void main(String[] args) {
     Man man = new Man();
     Woman woman = new Woman();

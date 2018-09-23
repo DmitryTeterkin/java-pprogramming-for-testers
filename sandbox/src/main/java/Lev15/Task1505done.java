@@ -22,7 +22,7 @@ import java.util.List;
 "name(имя части тела) содержит кости", если метод containsBones возвращает "Yes"
 для этой части тела, а если "No", то строку формата "name(имя части тела) не содержит кости".
  */
-public class Task1505ready {
+public class Task1505done {
   public static interface Alive {
     Object containsBones();
   }

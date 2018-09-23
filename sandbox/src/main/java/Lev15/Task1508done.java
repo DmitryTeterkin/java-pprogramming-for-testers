@@ -11,7 +11,7 @@ package Lev15;
 3. Метод print должен быть статическим.
 4. Программа должна выводить на экран строку "Я буду Java прогером!".
  */
-public class Task1508ready {
+public class Task1508done {
   public static void main(String[] args) {
     print(1);
   }

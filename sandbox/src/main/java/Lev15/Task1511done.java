@@ -15,7 +15,7 @@ PS: Взаимосвязь между объектами me и zapp - Has-a (и�
 
 import java.io.Serializable;
 
-public class Task1511ready {
+public class Task1511done {
 
   public static void main(String[] args) {
     JuniorJavaDev me = new JuniorJavaDev();
@@ -26,13 +26,13 @@ public class Task1511ready {
   public interface SpecificSerializable extends Serializable {
   }
 
-  public static class JavaDev extends Object implements SpecificSerializable {
+  public static class JavaDev implements SpecificSerializable {
     String answerQuestion(String question) {
       return String.format("I'll be thinking of [%s]", question);
     }
   }
 
-  public static class JuniorJavaDev extends JavaDev implements SpecificSerializable {
+  public static class JuniorJavaDev extends JavaDev {
     JavaDev zapp = new JavaDev();
     JavaDev hubert = new JavaDev();
 

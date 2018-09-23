@@ -17,7 +17,7 @@ package Lev15;
 3. В классе Solution должен остаться метод print с одним параметром типа double.
 4. Вывод на экран должен соответствовать условию.
  */
-public class Task1506ready {
+public class Task1506done {
   public static void main(String[] args) {
     print((short) 1);
     print((Number) 1);
