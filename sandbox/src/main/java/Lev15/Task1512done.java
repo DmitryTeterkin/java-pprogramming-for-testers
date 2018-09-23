@@ -14,21 +14,19 @@ http://cs7002.vk.me/c7007/v7007577/1411a/_dAiEola310.jpg
 3. В классе NakedCat не должно быть явно реализованных конструкторов без параметров.
 4. В конструкторе без параметров класса NormalCat не должно быть явного вызова конструктора родительского класса.
  */
-public class Task1512 {
+public class Task1512done {
   public static void main(String[] args) {
     SiamCat simka = new SiamCat("Simka");
     NakedCat nakedSimka = simka.shave();
   }
 
   public static class NakedCat {
- public NakedCat() {
-     super();
-   }
+
   }
 
   public static class NormalCat extends NakedCat {
  public NormalCat() {
-  super();
+
   }
 
     public NormalCat(String name) {

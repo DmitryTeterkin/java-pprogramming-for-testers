@@ -1,4 +1,10 @@
 package Lev15;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
 /*
 Статики-2
 1. В статическом блоке считайте две переменные с консоли А и В с типом int.
@@ -13,10 +19,20 @@ package Lev15;
 4. Программа должна инициализировать поля A и B в статическом блоке согласно введенным с клавиатуры значениям.
 5. Программа должна выводить в консоль минимальное из введенных с клавиатуры значений.
  */
-public class Task1515 {
+public class Task1515done {
   public static int A;
   public static int B;
 
+  static {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    try {
+      A = Integer.parseInt(reader.readLine());
+      B = Integer.parseInt(reader.readLine());
+      reader.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
   public static final int MIN = min(A, B);
 
   public static void main(String[] args) {

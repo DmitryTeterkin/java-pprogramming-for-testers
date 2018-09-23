@@ -14,7 +14,7 @@ package Lev15;
 4. В коде не должно быть явного наследования от Object (extends Object).
 5. Класс Car не должен явно наследовать интерфейс Runnable.
  */
-public class Task1513 {
+public class Task1513done {
   public static void main(String[] args) {
   }
 
@@ -22,15 +22,11 @@ public class Task1513 {
 
   }
 
-  public class Machine extends Object implements Runnable {
-    public Machine() {
-      super();
-    }
+  public class Machine implements Runnable {
+
   }
 
-  public class Car extends Machine implements Runnable {
-    public Car() {
-      super();
-    }
+  public class Car extends Machine{
+
   }
 }

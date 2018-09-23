@@ -14,8 +14,14 @@ import java.util.Map;
 3. Поле labels должно быть заполнено 5 различными парами ключ-значение в статическом блоке.
 4. Метод main должен выводить содержимое labels на экран.
  */
-public class Task1514 {
+public class Task1514done {
   public static Map<Double, String> labels = new HashMap<Double, String>();
+
+  static {
+    for (int i = 0; i < 5; i++) {
+      labels.put(i * 0.03, " че, проблемы?");
+    }
+  }
 
   public static void main(String[] args) {
     System.out.println(labels);
