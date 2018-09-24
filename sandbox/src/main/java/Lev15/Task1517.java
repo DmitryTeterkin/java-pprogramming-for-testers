@@ -1,4 +1,5 @@
 package Lev15;
+
 /*
 Статики и исключения
 В статическом блоке выбросьте Exception
@@ -24,12 +25,13 @@ java: unreachable statement
  */
 public class Task1517 {
   public static int A = 0;
-  private static Exception e1 = new Exception();
-  //public static final ExceptionInInitializerError Exception;
+  public static ExceptionInInitializerError Exception;
 
   static {
-  //  throw e1; //throw an exception here - выбросьте эксепшн тут
-     }
+
+    Exception.getException();
+
+  }
 
   public static int B = 5;
 

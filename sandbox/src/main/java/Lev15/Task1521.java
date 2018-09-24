@@ -1,5 +1,9 @@
 package Lev15;
 
+import sun.reflect.generics.tree.Tree;
+
+import java.math.BigDecimal;
+
 /*
 ООП. Перегрузка
 1. В классе Tree перегрузи метод info(Object s) два раза так, чтобы получилось три метода info(Object s), info(Number s), info(String s).
@@ -15,7 +19,8 @@ package Lev15;
 5. Метод info(String s) должен выводить на экран строку аналогичную строке из метода info(Object s), заменив лишь фразу("метод Object" на "метод String").
  */
 public class Task1521 {
-  public static void main(String[] args) { /*
+
+  public static void main(String[] args) {
     //Блок 2.
     //Вызов для Object
     new Tree().info((Object)new Integer("4"));
@@ -34,5 +39,5 @@ public class Task1521 {
     new Tree().info(new Integer("4").toString());
     new Tree().info(new Short("4").toString());
     new Tree().info(new BigDecimal("4").toString());
- */ }
+}
 }
