@@ -24,10 +24,12 @@ java: unreachable statement
  */
 public class Task1517 {
   public static int A = 0;
+  private static Exception e1 = new Exception();
+  //public static final ExceptionInInitializerError Exception;
 
   static {
-    //throw an exception here - выбросьте эксепшн тут
-  }
+  //  throw e1; //throw an exception here - выбросьте эксепшн тут
+     }
 
   public static int B = 5;
 
