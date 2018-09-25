@@ -1,4 +1,7 @@
 package Lev15;
+
+import java.lang.reflect.Field;
+
 /*
 Значения по умолчанию
 1. Создать 7 public полей класса. Убедитесь, что они инициализируются дефолтными значениями.
@@ -23,22 +26,20 @@ StringVar типа String
 8. Метод main должен выводить значения полей на экран(каждое с новой строки или через пробел) в заданном порядке.
 Инициализировать переменные не нужно.
  */
-public class Task1516ready {
-  public static int intVar;
-  public static double doubleVar;
-  public static Double DoubleVar;
-  public static boolean booleanVar;
-  public static Object ObjectVar;
-  public static Exception ExceptionVar;
-  public static String StringVar;
+public class Task1516done {
+    int intVar;
+    double doubleVar;
+    Double DoubleVar;
+    boolean booleanVar;
+    Object ObjectVar;
+    Exception ExceptionVar;
+    String StringVar;
+    public static void main(String[] args) throws IllegalAccessException {
+      Task1516done solution = new Task1516done();
+      for (Field field : solution.getClass().getDeclaredFields()) {
+        System.out.println(field.get(solution));
+      }
 
-  public static void main(String[] args) {
-    System.out.println(intVar);
-    System.out.println(doubleVar);
-    System.out.println(DoubleVar);
-    System.out.println(booleanVar);
-    System.out.println(ObjectVar);
-    System.out.println(ExceptionVar);
-    System.out.println(StringVar);
-  }
+    }
+
 }

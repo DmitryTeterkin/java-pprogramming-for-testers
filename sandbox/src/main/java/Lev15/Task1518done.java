@@ -14,17 +14,18 @@ package Lev15;
 4. В статическом блоке на экран должно быть выведено имя созданного кота.
 5. Класс Cat не должен содержать конструкторы с параметрами.
  */
-public class Task1518ready {
+public class Task1518done {
   public static Cat cat;
-static {
-  cat = new Cat();
-  System.out.println(cat.Name);
-}
+  static {
+    cat = new Cat();
+    cat.name = "vasia";
+    System.out.println(cat.name);
+  }
   public static void main(String[] args) {
 
   }
 
   public static class Cat {
-    public String Name = "Vasia";
+    public String name;
   }
 }

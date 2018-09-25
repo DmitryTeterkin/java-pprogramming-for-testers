@@ -24,45 +24,64 @@ import java.io.InputStreamReader;
 public class Task1519ready {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    boolean t = true;
-    boolean a = false;
-    while (t) {
-      String s = reader.readLine();
-      if (!s.equals("exit")) {
-        char[] mas = s.toCharArray();
-        for (int i = 0; i < mas.length; i++) {
-          if (mas[i] == '.') {
-            a = true;
-          }
-        }
-        if (a) {
-          try {
-            double d = Double.parseDouble(s);
-            print(d);
-            a = false;
-          } catch (NumberFormatException eDouble) {
-            print(s);
-            a = false;
-          }
-        } else try {
-          int iN = Integer.parseInt(s);
-          if (iN >= 0 & iN <= 128) {
-            short sh = Short.parseShort(s);
-            print(sh);
-          } else {
-            if (iN <= 0 | iN >= 128) {
-              print(iN);
-            }
-          }
-        } catch (NumberFormatException eInt) {
+    String s = reader.readLine();
+    try {
+      while (true) {
+        s = reader.readLine();
+        if (s.equals("exit")) break;
+        try {
+          if (s.contains(".")) print(Double.parseDouble(s));
+          else if (Integer.parseInt(s) > 0 && Integer.parseInt(s) < 0) print(Short.parseShort(s));
+          else if (Integer.parseInt(s) <= 0 || Integer.parseInt(s) >= 0) print(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
           print(s);
         }
-      } else {
-        reader.close();
-        t = false;
       }
+    } catch (NumberFormatException e) {
+      print(s);
     }
+
   }
+
+//    boolean t = true;
+//    boolean a = false;
+//    while (t) {
+//      String s = reader.readLine();
+//      if (!s.equals("exit")) {
+//        char[] mas = s.toCharArray();
+//        for (int i = 0; i < mas.length; i++) {
+//          if (mas[i] == '.') {
+//            a = true;
+//          }
+//        }
+//        if (a) {
+//          try {
+//            double d = Double.parseDouble(s);
+//            print(d);
+//            a = false;
+//          } catch (NumberFormatException eDouble) {
+//            print(s);
+//            a = false;
+//          }
+//        } else try {
+//          int iN = Integer.parseInt(s);
+//          if (iN >= 0 & iN <= 128) {
+//            short sh = Short.parseShort(s);
+//            print(sh);
+//          } else {
+//            if (iN <= 0 | iN >= 128) {
+//              print(iN);
+//            }
+//          }
+//        } catch (NumberFormatException eInt) {
+//          print(s);
+//        }
+//      } else {
+//        reader.close();
+//        t = false;
+//      }
+//    }
+//  }
 
 
   public static void print(Double value) {

@@ -20,7 +20,7 @@ import java.math.BigDecimal;
  */
 public class Task1521 {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) { /*
     //Блок 2.
     //Вызов для Object
     new Tree().info((Object)new Integer("4"));
@@ -39,5 +39,5 @@ public class Task1521 {
     new Tree().info(new Integer("4").toString());
     new Tree().info(new Short("4").toString());
     new Tree().info(new BigDecimal("4").toString());
-}
+*/ }
 }

@@ -23,13 +23,13 @@ java: unreachable statement
 3. Программа не должна считывать данные с клавиатуры.
 4. Класс Solution должен быть public.
  */
-public class Task1517 {
+public class Task1517done {
   public static int A = 0;
-  public static ExceptionInInitializerError Exception;
+
 
   static {
 
-    Exception.getException();
+    int i = 34 / A;
 
   }
 
