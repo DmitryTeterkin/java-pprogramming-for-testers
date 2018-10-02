@@ -5,4 +5,3 @@ public interface Planet {
   static String MOON = "moon";
   static String EARTH = "earth";
 }
-

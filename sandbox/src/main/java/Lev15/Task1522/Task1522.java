@@ -1,4 +1,9 @@
 package Lev15.Task1522;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /*
 Закрепляем паттерн Singleton
 1. Найти пример реализации паттерна Singleton с ленивой реализацией(lazy initialization). Используй свой любимый поисковик(например google).
@@ -32,15 +37,21 @@ package Lev15.Task1522;
 19. Классы Sun, Moon и Earth должны быть созданы в отдельных файлах.
  */
 public class Task1522 {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    String s = reader.readLine();
 
   }
 
   public static Planet thePlanet;
+  // static Solution{
 
+//   }
   //add static block here - добавьте статический блок тут
 
   public static void readKeyFromConsoleAndInitPlanet() {
     // implement step #5 here - реализуйте задание №5 тут
+
+
   }
 }
