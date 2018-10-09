@@ -17,7 +17,7 @@ moving
 5. Класс Duck должен реализовывать интерфейс Movable.
 6. Класс Duck должен реализовывать интерфейс Flyable.
  */
-public class Task1520ready {
+public class Task1520done {
   public static void main(String[] args) {
     Duck duck = new Duck();
     Util.fly(duck);

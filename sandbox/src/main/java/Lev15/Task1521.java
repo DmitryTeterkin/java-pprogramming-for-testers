@@ -22,13 +22,15 @@ public class Task1521 {
 
   public static void main(String[] args) {
     class Tree {
-      void info(Object s) {
-        System.out.println(s.getClass().getDeclaredFields().toString());
-        System.out.println(s.getClass().getTypeName());
+      public Object number = null;
+
+      public void info(Object s) {
+        number = s;
+          System.out.println(String.format("Дерево № %d , метод Object, " +
+                  "параметр %s", number, s.getClass().getSimpleName()));
+
      }
-     void info(Number s){
-       System.out.println(s.getClass());
-     }
+
    } //Блок 2.
     //Вызов для Object
     new Tree().info((Object)new Integer("4"));

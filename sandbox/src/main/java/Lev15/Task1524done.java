@@ -23,7 +23,7 @@ First name
 3. Результатом работы статического инициализатора класса Solution должен быть вывод на экран строк "static void init()" и "Static block".
 4. Программа не должна считывать данные с клавиатуры.
  */
-public class Task1524ready {
+public class Task1524done {
 
   static {
     init();
@@ -46,7 +46,7 @@ public class Task1524ready {
 
 
 
-  public Task1524ready() {
+  public Task1524done() {
     System.out.println("Solution constructor");
     printAllFields(this);
   }
@@ -55,10 +55,10 @@ public class Task1524ready {
 
   public static void main(String[] args) {
     System.out.println("public static void main");
-    Task1524ready s = new Task1524ready();
+    Task1524done s = new Task1524done();
   }
 
-  public static void printAllFields(Task1524ready obj) {
+  public static void printAllFields(Task1524done obj) {
     System.out.println("static void printAllFields");
     System.out.println(obj.i);
     System.out.println(obj.name);
