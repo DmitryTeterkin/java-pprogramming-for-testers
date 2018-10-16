@@ -21,21 +21,30 @@ import java.math.BigDecimal;
 public class Task1521 {
 
   public static void main(String[] args) {
+    final int[] number = {0};
     class Tree {
-      public Object number = null;
 
       public void info(Object s) {
-        number = s;
-          System.out.println(String.format("Дерево № %d , метод Object, " +
-                  "параметр %s", number, s.getClass().getSimpleName()));
-
+        number[0]++;
+        System.out.println(String.format("Дерево № %d , метод Object, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
      }
 
-   } //Блок 2.
+      public void info(Number s) {
+        number[0]++;
+        System.out.println(String.format("Дерево № %d , метод Number, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
+      }
+
+      public void info(String s) {
+        number[0]++;
+        System.out.println(String.format("Дерево № %d , метод String, " + "параметр %s" , number[0], s.getClass().getTypeName()));
+      }
+    }
+
+    //Блок 2.
     //Вызов для Object
-    new Tree().info((Object)new Integer("4"));
-    new Tree().info((Object)new Short("4"));
-    new Tree().info((Object)new BigDecimal("4"));
+    new Tree().info((Object) new Integer("4"));
+    new Tree().info((Object) new Short("4"));
+    new Tree().info((Object) new BigDecimal("4"));
 
     //Блок 3.
     //Вызов для Number
@@ -49,7 +58,5 @@ public class Task1521 {
     new Tree().info(new Integer("4").toString());
     new Tree().info(new Short("4").toString());
     new Tree().info(new BigDecimal("4").toString());
-
-
-   }
  }
+}
