@@ -1,4 +1,9 @@
 package Lev15.Task1529;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /*
 Осваивание статического блока
 1. В отдельных файлах создать классы Plane и Helicopter, реализующие интерфейс Flyable.
@@ -27,12 +32,24 @@ public class Task1529 {
   }
 
   static {
-    //add your code here - добавьте код тут
+    try {
+      reset(); //add your code here - добавьте код тут
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public static Flyable result;
 
-  public static void reset() {
-    //add your code here - добавьте код тут
+  public static void reset() throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //add your code here - добавьте код тут
+    String s = reader.readLine();
+    if (s.equals("helicopter")) {
+      result = new Helicopter();
+    } else if (s.equals("plane")){
+      String num = reader.readLine();
+      result = new Plane(Integer.parseInt(num));
+    }
+    reader.close();
   }
 }
