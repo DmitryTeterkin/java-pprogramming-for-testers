@@ -2,7 +2,6 @@ package Lev15;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /*
 Файл в статическом блоке
 1. Инициализируй переменную Statics.FILE_NAME полным путем к файлу с данными, который содержит несколько строк.

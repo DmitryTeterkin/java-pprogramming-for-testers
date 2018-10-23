@@ -15,7 +15,7 @@ F8 - переход к следующей строке кода
  */
 public class Task1526 {
   public static void main(String[] args) {
-    new B(6);
+    new A(6);
   }
 
   public static class A {
