@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 5. Метод info(String s) должен выводить на экран строку аналогичную строке из метода info(Object s),
 заменив лишь фразу("метод Object" на "метод String").
  */
+
 public class Task1521 {
 
   public static void main(String[] args) {
@@ -36,7 +37,7 @@ public class Task1521 {
 
       public void info(String s) {
         number[0]++;
-        System.out.println(String.format("Дерево № %d , метод String, " + "параметр %s" , number[0], s.getClass().getTypeName()));
+        System.out.println(String.format("Дерево № %d , метод String, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
       }
     }
 

@@ -13,9 +13,9 @@ F8 - переход к следующей строке кода
 3. Метод initialize в классе A должен иметь самый строгий модификатор доступа.
 4. Программа не должна считывать данные с клавиатуры.
  */
-public class Task1526 {
+public class Task1526ready {
   public static void main(String[] args) {
-    new A(6);
+    new B(6);
   }
 
   public static class A {
@@ -26,7 +26,7 @@ public class Task1526 {
       initialize();
     }
 
-    protected void initialize() {
+    private void initialize() {
       System.out.println(f1);
     }
   }
@@ -40,7 +40,7 @@ public class Task1526 {
       initialize();
     }
 
-    protected void initialize() {
+     protected void initialize() {
       System.out.println(f1);
     }
   }

@@ -2,6 +2,7 @@ package Lev15;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /*
 Файл в статическом блоке
 1. Инициализируй переменную Statics.FILE_NAME полным путем к файлу с данными, который содержит несколько строк.
@@ -14,6 +15,7 @@ import java.util.List;
 3. Поле FILE_NAME НЕ должно быть final.
 4. Класс Solution должен содержать список lines.
  */
+
 public class Task1525 {
   public static List<String> lines = new ArrayList<String>();
 
