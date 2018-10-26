@@ -167,7 +167,9 @@ public class ContactHelper extends HelperBase {
     wd.navigate().back();
 
     return new ContactData().withId(contact.getId())
-            .withFirstName(firstname).withSecondName(lastname).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3).withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
+            .withFirstName(firstname).withSecondName(lastname).withAddress(address).
+                    withEmail(email).withEmail2(email2).withEmail3(email3).withHomePhone(homePhone).
+                    withMobilePhone(mobilePhone).withWorkPhone(workPhone);
   }
 
   // получение информации со страницы редактирования контакта для сравнения информации
