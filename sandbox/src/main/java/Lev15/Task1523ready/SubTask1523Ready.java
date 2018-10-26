@@ -1,4 +1,4 @@
-package Lev15.Task1523;
+package Lev15.Task1523ready;
 
 public class SubTask1523Ready extends Task1523ready {
    SubTask1523Ready() {

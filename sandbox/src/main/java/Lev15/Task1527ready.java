@@ -43,7 +43,7 @@ http://javarush.ru/alpha/index.html?obj=3fgfg.14&name=Amigo
 4. Программа должна вызывать метод alert с параметром double в случае, если значение параметра obj может быть корректно преобразовано в число типа double.
 5. Программа должна вызывать метод alert с параметром String в случае, если значение параметра obj НЕ может быть корректно преобразовано в число типа double.
  */
-public class Task1527 {
+public class Task1527ready {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String url = reader.readLine();
@@ -52,7 +52,7 @@ public class Task1527 {
     String parameters = url.substring(indexOfQestion + 1);
     ArrayList<String> List = new ArrayList<String>();
     int j = 0;
-    HashMap<String, String> P = new HashMap<>();
+    HashMap<String, String> paramarersHashMap = new HashMap<>();
     // парсим строчку с параметрами на части параметр + значение.
     if (parameters.contains("&")) {
       StringBuilder s = new StringBuilder();
@@ -70,22 +70,24 @@ public class Task1527 {
     } else {
       List.add(j, parameters);
     }
-    // делим параметры на значения и добавляем их в MAP параметр + значение, и сразу выводим на печать.
+
+    // делим параметры на значения и добавляем их в HashMap параметр + значение, и сразу выводим на печать key.
     for (int i = 0; i < List.size(); i++) {
       if (List.get(i).contains("=")) {
         int indexOfEqals = List.get(i).indexOf("=");
         String key = List.get(i).substring(0, indexOfEqals);
         String value = List.get(i).substring(indexOfEqals + 1);
         System.out.print(key + " ");
-        P.put(key, value);
+        paramarersHashMap.put(key, value);
       } else {
-        P.put(List.get(i), "");
+        paramarersHashMap.put(List.get(i), "");
         System.out.print(List.get(i) + " ");
       }
     }
     System.out.println();
+
     // проверяем наличие паарметра obj и вызываем соответствующий метод alert
-    for (HashMap.Entry<String, String> pair : P.entrySet()) {
+    for (HashMap.Entry<String, String> pair : paramarersHashMap.entrySet()) {
       if (pair.getKey().equals("obj")) {
         try {
           alert(Double.parseDouble(pair.getValue()));
@@ -93,7 +95,6 @@ public class Task1527 {
           alert(pair.getValue());
         }
       }
-      //System.out.print(pair.getKey() + " ");
     }
   }
 
