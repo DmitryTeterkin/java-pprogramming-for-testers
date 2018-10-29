@@ -43,7 +43,7 @@ http://javarush.ru/alpha/index.html?obj=3fgfg.14&name=Amigo
 4. Программа должна вызывать метод alert с параметром double в случае, если значение параметра obj может быть корректно преобразовано в число типа double.
 5. Программа должна вызывать метод alert с параметром String в случае, если значение параметра obj НЕ может быть корректно преобразовано в число типа double.
  */
-public class Task1527ready {
+public class Task1527done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String url = reader.readLine();

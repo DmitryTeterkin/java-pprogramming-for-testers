@@ -1,4 +1,4 @@
-package Lev15.Task1530ready;
+package Lev15.Task1530done;
 /*
 Template pattern
 1. В отдельном файле создать класс DrinkMaker с тремя абстрактными методами:
@@ -34,7 +34,7 @@ Template pattern
 10. Метод putIngredient в классе TeaMaker должен выводить на экран фразу "Насыпаем чай".
 11. Метод pour в классе TeaMaker должен выводить на экран фразу "Заливаем кипятком".
  */
-public class Task1530ready {
+public class Task1530done {
   public static void main(String[] args) {
    LatteMaker latteMaker = new LatteMaker();
     TeaMaker teaMaker = new TeaMaker();

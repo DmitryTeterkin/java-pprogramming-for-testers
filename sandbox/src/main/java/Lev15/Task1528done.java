@@ -10,7 +10,7 @@ package Lev15;
 3. Метод getAmount в классе Hrivna должен возвращать значение поля amount.
 4. В процессе выполнения программы НЕ должны возникать исключения или ошибки.
  */
-public class Task1528ready {
+public class Task1528done {
   public static void main(String[] args) {
     System.out.println(new Hrivna().getAmount());
   }

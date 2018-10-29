@@ -13,7 +13,7 @@ F8 - переход к следующей строке кода
 3. Метод initialize в классе A должен иметь самый строгий модификатор доступа.
 4. Программа не должна считывать данные с клавиатуры.
  */
-public class Task1526ready {
+public class Task1526done {
   public static void main(String[] args) {
     new B(6);
   }

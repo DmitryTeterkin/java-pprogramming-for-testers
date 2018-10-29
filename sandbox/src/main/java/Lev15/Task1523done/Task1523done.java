@@ -1,4 +1,4 @@
-package Lev15.Task1523ready;
+package Lev15.Task1523done;
 /*
 Перегрузка конструкторов
 1. В классе Solution создай 4 конструктора с разными модификаторами доступа.
@@ -15,27 +15,27 @@ package Lev15.Task1523ready;
 4. В классе SubSolution должны быть объявлены конструкторы со всеми возможными модификаторами доступа кроме private.
 5. Класс Solution должен быть родителем класса SubSolution.
  */
-public class Task1523ready {
-  public Task1523ready(){
+public class Task1523done {
+  public Task1523done(){
     System.out.println("public");
    }
 
-  private Task1523ready(int i){
+  private Task1523done(int i){
     System.out.println("private " + i);
   }
 
-  Task1523ready(String s){
+  Task1523done(String s){
     System.out.println("usual "+ s);
   }
 
-  protected Task1523ready(Boolean b){
+  protected Task1523done(Boolean b){
     System.out.println("protected " + b);
   }
 
 
   public static void main(String[] args) {
-    new SubTask1523Ready();
-    new SubTask1523Ready("dfdf");
-    new SubTask1523Ready(true);
+    new SubTask1523done();
+    new SubTask1523done("dfdf");
+    new SubTask1523done(true);
   }
 }

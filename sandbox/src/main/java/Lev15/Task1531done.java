@@ -24,7 +24,7 @@ import java.math.BigInteger;
 3. Метод factorial должен возвращать строковое представление факториала числа переданного ему в качестве параметра.
 4. Метод factorial должен принимать один параметр типа int.
  */
-public class Task1531ready {
+public class Task1531done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

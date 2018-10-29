@@ -1,4 +1,4 @@
-package Lev15.Task1530ready;
+package Lev15.Task1530done;
 
 public class TeaMaker extends DrinkMaker {
   @Override
