@@ -14,9 +14,17 @@ My second thread
 5. Метод run класса TestThread должен выводить "it's a run method".
 6. Метод main не изменять.
  */
-public class Task1602 {
+public class Task1602ready {
   public static void main(String[] args) {
     TestThread thread = new TestThread();
     thread.start();
+  }
+  public static class TestThread extends Thread{
+    static {
+      System.out.println("it's a static block inside TestThread");
+    }
+   public void run(){
+     System.out.println("it's a run method");
+   }
   }
 }

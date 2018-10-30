@@ -15,11 +15,16 @@ import java.util.List;
 4. Каждая нить из списка list должна работать со своим объектом класса SpecialThread.
 5. Метод run класса SpecialThread должен выводить "it's a run method inside SpecialThread".
  */
-public class Task1603 {
+public class Task1603ready {
   public static volatile List<Thread> list = new ArrayList<Thread>(5);
 
   public static void main(String[] args) {
-    //Add your code here - добавьте свой код тут
+    for (int i = 0; i < 5; i++) {
+      SpecialThread specialThread = new SpecialThread();
+      Thread thread = new Thread(specialThread);
+      thread.start();
+      list.add(thread);
+    }   //Add your code here - добавьте свой код тут
   }
 
   public static class SpecialThread implements Runnable {
