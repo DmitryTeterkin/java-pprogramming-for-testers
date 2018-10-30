@@ -20,7 +20,7 @@ import static java.lang.Thread.sleep;
 4. Методы, которые отвечают за вывод в консоль, не изменять.
 5. Вывод программы должен отображать выполнение требований условия.
  */
-public class Task1610ready {
+public class Task1610done {
   public static void main(String[] args) throws InterruptedException {
     Cat cat1 = new Cat("Мурка");
     Cat cat2 = new Cat("Пушинка");

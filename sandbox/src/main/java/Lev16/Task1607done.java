@@ -25,7 +25,7 @@ Horse Racing
 5. После завершения работы программы, консоль должна содержать информацию о том, что все лошади финишировали.
 Пример сообщения для первой лошади: "Horse_01 has finished the race!".
  */
-public class Task1607ready {
+public class Task1607done {
   public static int horseCount = 10;
 
   public static void main(String[] args) throws InterruptedException {
@@ -37,12 +37,15 @@ public class Task1607ready {
   public static int calculateHorsesFinished(List<Horse> horses) throws InterruptedException {
     int finishedCount = 0;
     for (int i = 0; i < horses.size(); i++) {
-      if (!horses.get(i).isFinished()){
+      if (horses.get(i).isFinished()){
+        finishedCount++;
+      } else
+        // if (!horses.get(i).isFinished()){
         System.out.println("Waiting for " + horses.get(i).getName());
         horses.get(i).join();
-      }
-        //System.out.println(horses.get(i).getName() + " has finished the race!");
-        finishedCount++;
+      // }
+      //System.out.println(horses.get(i).getName() + " has finished the race!");
+
     }//add your implementation here - добавь свою реалзацию тут
     return finishedCount;
   }

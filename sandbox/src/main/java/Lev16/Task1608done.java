@@ -13,7 +13,7 @@ package Lev16;
 4. Методы, которые отвечают за вывод в консоль, не изменять.
 5. Вывод программы должен свидетельствовать о том, что Иванов сказал больше всего речей на политических дебатах.
  */
-public class Task1608ready {
+public class Task1608done {
   public static int totalSpeechCount = 200;
   public static int utterancesPerSpeech = 1000000;
 

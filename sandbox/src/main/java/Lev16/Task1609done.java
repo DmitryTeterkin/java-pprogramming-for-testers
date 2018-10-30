@@ -13,7 +13,7 @@ package Lev16;
 3. Программа должна создавать 3 объекта типа Mouse.
 4. Методы, которые отвечают за вывод в консоль, не изменять.
  */
-public class Task1609ready {
+public class Task1609done {
   public static void main(String[] args) throws InterruptedException {
     Mouse alpha = new Mouse("#1");
     // alpha.join();

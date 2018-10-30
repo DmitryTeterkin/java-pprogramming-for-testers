@@ -14,7 +14,7 @@ My second thread
 5. Метод run класса TestThread должен выводить "it's a run method".
 6. Метод main не изменять.
  */
-public class Task1602ready {
+public class Task1602done {
   public static void main(String[] args) {
     TestThread thread = new TestThread();
     thread.start();
