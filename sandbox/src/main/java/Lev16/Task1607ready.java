@@ -18,11 +18,14 @@ Horse Racing
 Требования:
 1. Метод calculateHorsesFinished должен вернуть количество финишировавших лошадей.
 2. Метод calculateHorsesFinished должен вызывать метод isFinished у каждой лошади из переданного списка.
-3. Если какая-либо из переданных в списке лошадей еще не финишировала, метод calculateHorsesFinished должен вывести в консоль "Waiting for " + horse.getName(). Пример сообщения для первой лошади: "Waiting for Horse_01".
-4. Если какая-либо из переданных в списке лошадей еще не финишировала, метод calculateHorsesFinished должен подождать пока она финиширует. Используй правильный метод для ожидания.
-5. После завершения работы программы, консоль должна содержать информацию о том, что все лошади финишировали. Пример сообщения для первой лошади: "Horse_01 has finished the race!".
+3. Если какая-либо из переданных в списке лошадей еще не финишировала, метод calculateHorsesFinished должен вывести в
+консоль "Waiting for " + horse.getName(). Пример сообщения для первой лошади: "Waiting for Horse_01".
+4. Если какая-либо из переданных в списке лошадей еще не финишировала, метод calculateHorsesFinished должен подождать
+пока она финиширует. Используй правильный метод для ожидания.
+5. После завершения работы программы, консоль должна содержать информацию о том, что все лошади финишировали.
+Пример сообщения для первой лошади: "Horse_01 has finished the race!".
  */
-public class Task1607 {
+public class Task1607ready {
   public static int horseCount = 10;
 
   public static void main(String[] args) throws InterruptedException {
@@ -33,7 +36,14 @@ public class Task1607 {
 
   public static int calculateHorsesFinished(List<Horse> horses) throws InterruptedException {
     int finishedCount = 0;
-    //add your implementation here - добавь свою реалзацию тут
+    for (int i = 0; i < horses.size(); i++) {
+      if (!horses.get(i).isFinished()){
+        System.out.println("Waiting for " + horses.get(i).getName());
+        horses.get(i).join();
+      }
+        //System.out.println(horses.get(i).getName() + " has finished the race!");
+        finishedCount++;
+    }//add your implementation here - добавь свою реалзацию тут
     return finishedCount;
   }
 

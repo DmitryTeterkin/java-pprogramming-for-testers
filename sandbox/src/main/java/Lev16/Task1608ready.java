@@ -13,15 +13,15 @@ package Lev16;
 4. Методы, которые отвечают за вывод в консоль, не изменять.
 5. Вывод программы должен свидетельствовать о том, что Иванов сказал больше всего речей на политических дебатах.
  */
-public class Task1608 {
+public class Task1608ready {
   public static int totalSpeechCount = 200;
   public static int utterancesPerSpeech = 1000000;
 
   public static void main(String[] args) throws InterruptedException {
     Politician ivanov = new Politician("Иванов");
+    ivanov.join();
     Politician petrov = new Politician("Петров");
     Politician sidorov = new Politician("Сидоров");
-
     while (ivanov.getSpeechCount() + petrov.getSpeechCount() + sidorov.getSpeechCount() < totalSpeechCount) {
     }
 
@@ -33,7 +33,7 @@ public class Task1608 {
   public static class Politician extends Thread {
     private volatile int utteranceCount;
 
-    public Politician(String name) {
+    public Politician(String name)  {
       super(name);
       start();
     }

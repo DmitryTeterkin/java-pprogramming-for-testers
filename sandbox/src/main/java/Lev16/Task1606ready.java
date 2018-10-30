@@ -26,11 +26,12 @@ secondThread : String 20
 3. Метод main не должен вызывать System.out.println() или System.out.print().
 4. Вывод программы должен соответствовать примеру из задания.
  */
-public class Task1606 {
+public class Task1606ready {
   public static void main(String[] args) throws InterruptedException {
     PrintListThread firstThread = new PrintListThread("firstThread");
     PrintListThread secondThread = new PrintListThread("secondThread");
     firstThread.start();
+    firstThread.join();
     secondThread.start();
   }
 

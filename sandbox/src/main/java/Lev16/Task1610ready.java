@@ -1,4 +1,7 @@
 package Lev16;
+
+import static java.lang.Thread.sleep;
+
 /*
 Расставь вызовы методов join()
 1. Разберись, что делает программа.
@@ -17,14 +20,18 @@ package Lev16;
 4. Методы, которые отвечают за вывод в консоль, не изменять.
 5. Вывод программы должен отображать выполнение требований условия.
  */
-public class Task1610 {
+public class Task1610ready {
   public static void main(String[] args) throws InterruptedException {
     Cat cat1 = new Cat("Мурка");
     Cat cat2 = new Cat("Пушинка");
   }
 
   private static void investigateWorld() {
-
+    try {
+      sleep(200);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public static class Cat extends Thread {
@@ -49,7 +56,9 @@ public class Task1610 {
 
     private void initAllKittens() throws InterruptedException {
       kitten1.start();
+      kitten1.join();
       kitten2.start();
+      kitten2.join();
     }
   }
 
@@ -62,5 +71,6 @@ public class Task1610 {
       System.out.println(getName() + ", вылез из корзинки");
       investigateWorld();
     }
+
   }
 }

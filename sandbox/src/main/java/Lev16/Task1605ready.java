@@ -22,10 +22,11 @@ import java.util.Date;
 5. Метод run класса Violin должен вызывать метод stopPlaying.
 6. Метод run класса Violin должен выводить на консоль продолжительность игры в миллисекундах. Используй формат из примера.
  */
-public class Task1605 {
+public class Task1605ready {
   public static int delay = 1000;
 
   public static void main(String[] args) {
+
     Thread violin = new Thread(new Violin("Player"));
     violin.start();
   }
@@ -44,13 +45,20 @@ public class Task1605 {
     Date stopPlaying();
   }
 
-  public static class Violin {
+  public static class Violin implements MusicalInstrument {
     private String owner;
 
     public Violin(String owner) {
       this.owner = owner;
     }
 
+     public void run(){
+     Date startDate = startPlaying();
+      sleepNSeconds(1);
+     Date stopDate = stopPlaying();
+       long result = stopDate.getTime() - startDate.getTime();
+       System.out.println("Playing " + result + " ms");
+     }
     public Date startPlaying() {
       System.out.println(this.owner + " is starting to play");
       return new Date();
