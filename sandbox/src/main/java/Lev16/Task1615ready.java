@@ -13,7 +13,7 @@ package Lev16;
 4. В классе Solution должен быть вложенный класс Plane (самолет).
 5. В классе Solution должен быть вложенный класс Runway (взлетная полоса).
  */
-public class Task1615 {
+public class Task1615ready {
   public static volatile Runway RUNWAY = new Runway();   //1 взлетная полоса
 
   public static void main(String[] args) throws InterruptedException {
@@ -23,13 +23,16 @@ public class Task1615 {
   }
 
   private static void waiting() {
-    //add your code here - добавь код тут
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {
+    } //add your code here - добавь код тут
   }
 
   private static void takingOff() {
     //fix this method - исправь этот метод
     try {
-      Thread.sleep(10000);
+      Thread.sleep(100);
     } catch (InterruptedException e) {
     }
   }
