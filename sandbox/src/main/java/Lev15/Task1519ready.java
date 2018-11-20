@@ -24,21 +24,21 @@ import java.io.InputStreamReader;
 public class Task1519ready {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    String s = reader.readLine();
+ //   String s = reader.readLine();
     try {
       while (true) {
-        s = reader.readLine();
+        String s = reader.readLine();
         if (s.equals("exit")) break;
         try {
           if (s.contains(".")) print(Double.parseDouble(s));
-          else if (Integer.parseInt(s) > 0 && Integer.parseInt(s) < 0) print(Short.parseShort(s));
-          else if (Integer.parseInt(s) <= 0 || Integer.parseInt(s) >= 0) print(Integer.parseInt(s));
+          else if (Integer.parseInt(s) > 0 && Integer.parseInt(s) < 128) print(Short.parseShort(s));
+          else if (Integer.parseInt(s) <= 128 || Integer.parseInt(s) >= 0) print(Integer.parseInt(s));
         } catch (NumberFormatException e) {
           print(s);
         }
       }
     } catch (NumberFormatException e) {
-      print(s);
+     // print();
     }
 
   }
