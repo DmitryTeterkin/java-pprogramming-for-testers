@@ -25,7 +25,7 @@ import java.util.List;
 4. Метод main должен создавать один объект типа Countdown.
 5. Вывод программы должен соответствовать примеру из условия.
  */
-public class Task1614ready {
+public class Task1614done {
   public static volatile List<String> list = new ArrayList<String>(5);
 
   static {
@@ -35,7 +35,7 @@ public class Task1614ready {
   }
 
   public static void main(String[] args) throws InterruptedException {
-    Thread t = new Thread(new Countdown(5), "Countdown");
+    Thread t = new Thread(new Countdown(3), "Countdown");
     t.start();
   }
 
@@ -50,7 +50,7 @@ public class Task1614ready {
       try {
         while (countFrom > 0) {
           printCountdown();
-          Thread.sleep(500);
+
         }
       } catch (InterruptedException e) {
       }
@@ -58,6 +58,7 @@ public class Task1614ready {
 
     public void printCountdown() throws InterruptedException {
       System.out.println(list.get(countFrom-1));//add your code here - добавь код тут
+      Thread.sleep(500);
       countFrom = countFrom - 1;
     }
   }

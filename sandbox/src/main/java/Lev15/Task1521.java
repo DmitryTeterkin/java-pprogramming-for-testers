@@ -29,11 +29,13 @@ public class Task1521 {
         number[0]++;
         System.out.println(String.format("Дерево № %d , метод Object, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
      }
-
       public void info(Number s) {
-        number[0]++;
-        System.out.println(String.format("Дерево № %d , метод Number, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
+        System.out.println(String.format("Дерево № %d , метод Number, параметр %s", number, s.getClass().getSimpleName()));
       }
+    //  public void info(Number s) {
+    //    number[0]++;
+    //    System.out.println(String.format("Дерево № %d , метод Number, " + "параметр %s" , number[0], s.getClass().getSimpleName()));
+     // }
 
       public void info(String s) {
         number[0]++;

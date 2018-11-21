@@ -19,7 +19,7 @@ Big Ben clock
 4. Минут, после икрементирования времени, не может быть больше 59. Должно увеличиться количество часов.
 5. Часов, после икрементирования времени, не может быть больше 23.
  */
-public class Task1613ready {
+public class Task1613done {
     public static volatile boolean isStopped = false;
 
     public static void main(String[] args) throws InterruptedException {

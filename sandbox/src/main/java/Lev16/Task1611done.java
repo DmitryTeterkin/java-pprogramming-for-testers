@@ -14,7 +14,7 @@ package Lev16;
 4. В консоли не должно быть сообщений после фразы "Double-check".
 5. Метод main должен создавать объект типа Clock.
  */
-public class Task1611ready {
+public class Task1611done {
   public static volatile boolean isStopped = false;
 
   public static void main(String[] args) throws InterruptedException {

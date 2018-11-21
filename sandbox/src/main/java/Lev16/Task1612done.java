@@ -20,11 +20,11 @@ Stopwatch (Секундомер)
 пол секунды; если скорость бегуна 4 шага в секунду, метод должен работать четверть секунды.
 5. Вывод программы должен отображать сколько шагов сделали Иванов и Петров за 2 секунды.
  */
-public class Task1612ready {
+public class Task1612done {
   public static volatile boolean isStopped = false;
 
   public static void main(String[] args) throws InterruptedException {
-    Runner ivanov = new Runner("Ivanov", 3);
+    Runner ivanov = new Runner("Ivanov", 4);
     Runner petrov = new Runner("Petrov", 2);
     //на старт!
     //внимание!

@@ -21,10 +21,10 @@ import java.io.InputStreamReader;
 5. Если введенная строка может быть корректно преобразована в число типа Integer и полученное число меньше или равно
       0 или больше или равно 128 - должен быть вызван метод print(Integer value).
 6. Во всех остальных случаях должен быть вызван метод print(String value). */
-public class Task1519ready {
+public class Task1519done {
   public static void main(String[] args) throws IOException {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
- //   String s = reader.readLine();
+
     try {
       while (true) {
         String s = reader.readLine();
@@ -38,50 +38,10 @@ public class Task1519ready {
         }
       }
     } catch (NumberFormatException e) {
-     // print();
+
     }
 
   }
-
-//    boolean t = true;
-//    boolean a = false;
-//    while (t) {
-//      String s = reader.readLine();
-//      if (!s.equals("exit")) {
-//        char[] mas = s.toCharArray();
-//        for (int i = 0; i < mas.length; i++) {
-//          if (mas[i] == '.') {
-//            a = true;
-//          }
-//        }
-//        if (a) {
-//          try {
-//            double d = Double.parseDouble(s);
-//            print(d);
-//            a = false;
-//          } catch (NumberFormatException eDouble) {
-//            print(s);
-//            a = false;
-//          }
-//        } else try {
-//          int iN = Integer.parseInt(s);
-//          if (iN >= 0 & iN <= 128) {
-//            short sh = Short.parseShort(s);
-//            print(sh);
-//          } else {
-//            if (iN <= 0 | iN >= 128) {
-//              print(iN);
-//            }
-//          }
-//        } catch (NumberFormatException eInt) {
-//          print(s);
-//        }
-//      } else {
-//        reader.close();
-//        t = false;
-//      }
-//    }
-//  }
 
 
   public static void print(Double value) {
