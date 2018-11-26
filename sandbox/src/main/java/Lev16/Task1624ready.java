@@ -23,12 +23,13 @@ inside main 9
 5. Всего программа должна вывести 20 строк.
  */
 
-public class Task1624 {
+public class Task1624ready {
   public static MyThread t = new MyThread();
   static String message = "inside main ";
 
   public static void main(String a[]) throws Exception {
     t.start();
+    t.join();
     for (int i = 0; i < 10; i++) {
       System.out.println(message + i);
       sleep();
@@ -48,7 +49,7 @@ public class Task1624 {
     public void run() {
       for (int i = 0; i < 10; i++) {
         System.out.println(message + i);
-        Task1624.sleep();
+        Task1624ready.sleep();
       }
     }
   }

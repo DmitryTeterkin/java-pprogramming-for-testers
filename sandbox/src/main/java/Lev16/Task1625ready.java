@@ -15,13 +15,15 @@ package Lev16;
 6. Вывод программы должен состоять из 2х строк, информирующих о завершении нитей. Например: "T1 was interrupted" и "T2 finished".
 7. Нити t1 и t2 должны завершаться (не обязательно успешно).
  */
-public class Task1625 {
+public class Task1625ready {
   static Thread t1 = new T1();
   static Thread t2 = new T2();
 
   public static void main(String[] args) throws InterruptedException {
     t1.start();
     t2.start();
+    t1.interrupt();
+    t2.interrupt();
   }
 
   public static class T1 extends Thread {
