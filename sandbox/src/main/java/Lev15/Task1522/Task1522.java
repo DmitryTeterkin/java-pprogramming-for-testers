@@ -44,9 +44,9 @@ public class Task1522 {
   }
 
   public static Planet thePlanet;
-  // static Solution{
+ // static Task1522{
 
-//   }
+ //}
   //add static block here - добавьте статический блок тут
 
   public static void readKeyFromConsoleAndInitPlanet() {

@@ -14,10 +14,10 @@ package Lev16;
  */
 public class Task1626 {
   public static int number = 5;
-
+/*
   public static void main(String[] args) {
     new Thread(new CountdownRunnable(), "Уменьшаем").start();
-    new Thread(new CountUpRunnable(), "Увеличиваем").start();
+    //new Thread(new CountUpRunnable(), "Увеличиваем").start();
   }
 
   public static class CountUpRunnable {
@@ -26,7 +26,7 @@ public class Task1626 {
 
 
   public static class CountdownRunnable implements Runnable {
-    private int countIndexDown = Solution.number;
+ //   private int countIndexDown = Solution.number;
 
     public void run() {
       try {
@@ -44,5 +44,5 @@ public class Task1626 {
       return Thread.currentThread().getName() + ": " + countIndexDown;
     }
   }
-
+*/
 }

@@ -66,3 +66,4 @@ public class Task1628 {
       return result.toString();
     }
   }
+}

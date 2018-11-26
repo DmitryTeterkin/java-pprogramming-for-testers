@@ -1,8 +1,5 @@
 package Lev16.Task1631;
 
-import Lev16.Task1631.common.ImageReader;
-import Lev16.Task1631.common.ImageTypes;
-
 /*
 Factory method pattern
 1. Внимательно посмотри, какие классы у тебя есть.
@@ -26,6 +23,6 @@ Factory method pattern
  */
 public class Task1631 {
   public static void main(String[] args) {
-    ImageReader reader = ImageReaderFactory.getImageReader(ImageTypes.JPG);
+//    ImageReader reader = ImageReaderFactory.getImageReader(ImageTypes.JPG);
   }
 }

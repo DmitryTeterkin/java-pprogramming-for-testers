@@ -26,7 +26,7 @@ package Lev16;
 7. Вывод программы должен состоять из 2х строк. Каждая строка - содержимое одного файла.
  */
 public class Task1630 {
-  public static String firstFileName;
+ /* public static String firstFileName;
   public static String secondFileName;
 
   //add your code here - добавьте код тут
@@ -56,4 +56,5 @@ public class Task1630 {
   }
 
   //add your code here - добавьте код тут
+  */
 }
