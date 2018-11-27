@@ -32,10 +32,10 @@ toString.
  */
 public class Task1623 {
   static int count = 15;
-  static volatile int createdThreadCount;
+  static volatile int createdThreadCount = 1;
 
-  public static void main(String[] args) {
-  //  System.out.println(new GenerateThread());
+  public static void main(String[] args) throws InterruptedException {
+    System.out.println(new GenerateThread());
   }
 
   public static class GenerateThread extends Thread {
@@ -43,14 +43,29 @@ public class Task1623 {
       super(name);
     }
 
+    public GenerateThread() {
+      new GenerateThread(String.valueOf(createdThreadCount));
+      start();
+      createdThreadCount = createdThreadCount + 1;
+    }
     public void run() {
-
+     if (createdThreadCount <= count){
+      new GenerateThread();
+      Thread t = Thread.currentThread();
+      System.out.println(t);
+       try {
+        t.join();
+       System.out.println(new GenerateThread());
+           } catch (InterruptedException e) {
+          e.printStackTrace();
+      }
+     }
     }
 
     @Override
     public String toString() {
-      return Thread.currentThread().getName() + " created";
+      String s = Thread.currentThread().getName() + " created";
+      return s;
     }
   }
-
 }
