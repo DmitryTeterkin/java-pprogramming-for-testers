@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static Lev15.Task1522.Planet.EARTH;
+
 /*
 Закрепляем паттерн Singleton
 1. Найти пример реализации паттерна Singleton с ленивой реализацией(lazy initialization). Используй свой любимый поисковик(например google).
@@ -44,13 +46,13 @@ public class Task1522 {
   }
 
   public static Planet thePlanet;
- // static Task1522{
-
- //}
+  static {
+  readKeyFromConsoleAndInitPlanet();
+  }
   //add static block here - добавьте статический блок тут
 
   public static void readKeyFromConsoleAndInitPlanet() {
-    // implement step #5 here - реализуйте задание №5 тут
+     // implement step #5 here - реализуйте задание №5 тут
 
 
   }

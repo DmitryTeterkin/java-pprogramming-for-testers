@@ -64,7 +64,7 @@ public class Task1623 {
 
     @Override
     public String toString() {
-      String s = Thread.currentThread().getName() + " created";
+      String s = currentThread().getName() + " created";
       return s;
     }
   }
