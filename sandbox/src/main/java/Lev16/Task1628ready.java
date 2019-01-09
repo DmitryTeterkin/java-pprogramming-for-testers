@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 4. Метод run должен после каждого считывания увеличивать счетчик прочитанных строк readStringCount на 1.
 5. Программа должна выводить данные, считанные каждым потоком.
  */
-public class Task1628 {
+public class Task1628ready {
   public static volatile AtomicInteger readStringCount = new AtomicInteger(0);
   public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -58,7 +58,14 @@ public class Task1628 {
     private List<String> result = new ArrayList<String>();
 
     public void run() {
-      //add your code here - добавьте код тут
+     while (Thread.currentThread().interrupted() == false){
+       try {
+         result.add(Task1628ready.reader.readLine());
+         readStringCount.incrementAndGet();
+       } catch (IOException e) {
+         e.printStackTrace();
+       }
+     } //add your code here - добавьте код тут
     }
 
     @Override

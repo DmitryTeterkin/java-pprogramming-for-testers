@@ -36,10 +36,12 @@ Ivanov:Начало игры
 надписи getName() + ":проиграл". Например: Petrov:проиграл
 5. Метод run не должен кидать исключение при прерывании.
  */
-public class Task1627 {
+public class Task1627ready {
   public static void main(String[] args) throws InterruptedException {
     OnlineGame onlineGame = new OnlineGame();
     onlineGame.start();
+
+
   }
 
   public static class OnlineGame extends Thread {
@@ -54,9 +56,9 @@ public class Task1627 {
       steps.add("Убийство врагов");
     }
 
-    protected Gamer gamer1 = new Gamer("Ivanov", 3);
+    protected Gamer gamer1 = new Gamer("Ivanov", 4);
     protected Gamer gamer2 = new Gamer("Petrov", 1);
-    protected Gamer gamer3 = new Gamer("Sidorov", 5);
+    protected Gamer gamer3 = new Gamer("Sidorov", 3);
 
     public void run() {
       gamer1.start();
@@ -71,6 +73,7 @@ public class Task1627 {
     }
   }
 
+
   public static class Gamer extends Thread {
     private int rating;
 
@@ -81,8 +84,18 @@ public class Task1627 {
 
     @Override
     public void run() {
-      //Add your code here - добавь код тут
+      try {
+        for (int i = 0; i < OnlineGame.steps.size(); i++) {
+          System.out.println(Thread.currentThread().getName() + ":" + OnlineGame.steps.get(i));
+          Thread.sleep(1000 / rating);
+          if (i == OnlineGame.steps.size() - 1 & !OnlineGame.isWinnerFound) {
+            System.out.println(Thread.currentThread().getName() + ":победитель!");
+            OnlineGame.isWinnerFound = true;
+         }
+        }
+      } catch (InterruptedException e) {
+        System.out.println(Thread.currentThread().getName() + ":" + "проиграл");
+      }
     }
-  }
-
+  } //Add your code here - добавь код тут
 }

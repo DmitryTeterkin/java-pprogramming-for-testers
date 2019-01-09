@@ -1,7 +1,10 @@
 package Lev15;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /*
 Файл в статическом блоке
@@ -19,7 +22,29 @@ import java.util.List;
 public class Task1525 {
   public static List<String> lines = new ArrayList<String>();
 
+public static String FILE_NAME = "";
+
+
   public static void main(String[] args) {
     System.out.println(lines);
   }
+
+  static {
+    Properties p = new Properties();
+
+
+
+
+
+
+  try {
+      FileInputStream inStream = new FileInputStream(FILE_NAME);
+
+
+
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
 }

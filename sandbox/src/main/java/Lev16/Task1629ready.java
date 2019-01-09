@@ -1,5 +1,11 @@
 package Lev16;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Только по-очереди!
 1. В классе Solution создать public static класс нити Read3Strings унаследовавшись от Thread.
@@ -33,19 +39,46 @@ d e f
 7. Метод main должен вызывать методы join у созданных нитей.
 8. Вывод программы должен отображать, что потоки считывали строки последовательно, а не параллельно.
 */
-public class Task1629 {
- /* public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+public class Task1629ready {
+  public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
   public static void main(String[] args) throws InterruptedException {
     Read3Strings t1 = new Read3Strings();
     Read3Strings t2 = new Read3Strings();
-
-    //add your code here - добавьте код тут
-
+    t1.start();
+    t1.join();
+    t2.start();
+    t2.join();
     t1.printResult();
     t2.printResult();
   }
 
-  //add your code here - добавьте код тут
-  */
+  public static class Read3Strings extends Thread {
+    private List<String> result = new ArrayList<String>();
+    int i = 0;
+
+    public void run() {
+      while (i < 3) {
+        try {
+          result.add(reader.readLine());
+          i++;
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+
+    public void printResult() {
+      String s = "";
+      for (int j = 0; j < result.size(); j++) {
+        s = s + result.get(j);
+        if (j != result.size() - 1) {
+          s = s + " ";
+        }
+      }
+    System.out.println(s);
+    }
+
+  }
+
 }
