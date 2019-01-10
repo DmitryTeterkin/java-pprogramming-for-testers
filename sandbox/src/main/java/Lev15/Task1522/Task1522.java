@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static Lev15.Task1522.Planet.EARTH;
-
 /*
 Закрепляем паттерн Singleton
 1. Найти пример реализации паттерна Singleton с ленивой реализацией(lazy initialization). Используй свой любимый поисковик(например google).
@@ -38,22 +36,45 @@ import static Lev15.Task1522.Planet.EARTH;
 18. Метод readKeyFromConsoleAndInitPlanet должен корректно обновлять значение переменной thePlanet в соответствии с условием задачи.
 19. Классы Sun, Moon и Earth должны быть созданы в отдельных файлах.
  */
-public class Task1522 {
-  public static void main(String[] args) throws IOException {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    String s = reader.readLine();
+public class Task1522  {
+  private static String s;
+
+  public static void main(String[] args) {
 
   }
-
   public static Planet thePlanet;
   static {
-  readKeyFromConsoleAndInitPlanet();
-  }
-  //add static block here - добавьте статический блок тут
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    try {
+      s = reader.readLine();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      readKeyFromConsoleAndInitPlanet();
+    } catch (IOException e) {
 
-  public static void readKeyFromConsoleAndInitPlanet() {
-     // implement step #5 here - реализуйте задание №5 тут
 
+    }
 
-  }
+  }   //add static block here - добавьте статический блок тут
+
+  public static void readKeyFromConsoleAndInitPlanet() throws IOException {
+
+    switch (s) {
+      case "earth":
+        Earth earth = Earth.getInstance();
+
+      case "moon":
+        Moon moon = Moon.getInstance();
+
+      case "sun":
+       Sun sun = Sun.getInstance();
+
+      default:
+        throw new IllegalArgumentException();
+    }
+
+  } // implement step #5 here - реализуйте задание №5 тут
+
 }
