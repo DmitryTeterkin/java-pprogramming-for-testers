@@ -1,4 +1,4 @@
-package Lev16.Task1631.common;
+package Lev16.Task1631ready.common;
 
 public enum ImageTypes {
   BMP,

@@ -62,7 +62,7 @@ public class Task1627ready {
 
     protected Gamer gamer1 = new Gamer("Ivanov", 4);
     protected Gamer gamer2 = new Gamer("Petrov", 1);
-    protected Gamer gamer3 = new Gamer("Sidorov", 3);
+    protected Gamer gamer3 = new Gamer("Sidorov", 5);
 
     public void run() {
       gamer1.start();
@@ -92,13 +92,14 @@ public class Task1627ready {
         for (int i = 0; i < OnlineGame.steps.size(); i++) {
           System.out.println(Thread.currentThread().getName() + ":" + OnlineGame.steps.get(i));
           Thread.sleep(1000 / rating);
-          if (i == OnlineGame.steps.size() - 1 & !OnlineGame.isWinnerFound) {
+          if (i == (OnlineGame.steps.size() - 1) /*& !OnlineGame.isWinnerFound*/) {
             System.out.println(Thread.currentThread().getName() + ":победитель!");
             OnlineGame.isWinnerFound = true;
-         }
+          }
+        //  Thread.sleep(1000 / rating);
         }
       } catch (InterruptedException e) {
-        System.out.println(Thread.currentThread().getName() + ":" + "проиграл");
+        System.out.println(Thread.currentThread().getName() + ":проиграл");
       }
     }
   } //Add your code here - добавь код тут

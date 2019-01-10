@@ -51,10 +51,11 @@ public class Task1633 {
     }
 
     public void run() {
+    Thread  t = Thread.currentThread();
       try {
         Thread.sleep(3000);
       } catch (InterruptedException e) {
-        throw new RuntimeException("My exception message");
+         System.out.println(t.getName() + ": " + "My exception message"); //throw new RuntimeException("My exception message");
       }
     }
   }

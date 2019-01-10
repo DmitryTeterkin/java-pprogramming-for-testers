@@ -1,4 +1,7 @@
-package Lev16.Task1631;
+package Lev16.Task1631ready;
+
+import Lev16.Task1631ready.common.ImageReader;
+import Lev16.Task1631ready.common.ImageTypes;
 
 /*
 Factory method pattern
@@ -21,8 +24,11 @@ Factory method pattern
 6. Метод getImageReader должен создавать и возвращать подходящий Reader.
 7. Метод getImageReader должен кидать исключение IllegalArgumentException, если передан неправильный параметр.
  */
-public class Task1631 {
+public class Task1631ready {
   public static void main(String[] args) {
-//    ImageReader reader = ImageReaderFactory.getImageReader(ImageTypes.JPG);
+    ImageReader reader = ImageReaderFactory.getImageReader(ImageTypes.PNG);
+    ImageReader reader1 = ImageReaderFactory.getImageReader(ImageTypes.JPG);
+    ImageReader reader2 = ImageReaderFactory.getImageReader(ImageTypes.BMP);
   }
+
 }
