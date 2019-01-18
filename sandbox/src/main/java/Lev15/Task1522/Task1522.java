@@ -43,6 +43,7 @@ public class Task1522  {
 
   }
   public static Planet thePlanet;
+
   static {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     try {
@@ -63,13 +64,13 @@ public class Task1522  {
 
     switch (s) {
       case "earth":
-        Earth earth = Earth.getInstance();
+        thePlanet = Earth.getInstance();
 
       case "moon":
-        Moon moon = Moon.getInstance();
+        thePlanet = Moon.getInstance();
 
       case "sun":
-       Sun sun = Sun.getInstance();
+        thePlanet = Sun.getInstance();
 
       default:
         throw new IllegalArgumentException();

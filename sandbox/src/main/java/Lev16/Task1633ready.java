@@ -28,7 +28,7 @@ package Lev16;
 7. Вывод программы должен содержать строки: "Нить 1: My exception message" и "Нить 2: My exception message".
  */
 
-public class Task1633 {
+public class Task1633ready {
   public static Thread.UncaughtExceptionHandler handler = new OurUncaughtExceptionHandler();
 
   public static void main(String[] args) {
