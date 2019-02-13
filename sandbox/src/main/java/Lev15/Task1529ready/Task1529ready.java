@@ -1,4 +1,8 @@
-package Lev15.Task1529;
+package Lev15.Task1529ready;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /*
 Осваивание статического блока
@@ -22,11 +26,11 @@ package Lev15.Task1529;
 7. Если введенная строка равна "plane", в переменную result должен быть сохранен объект типа Plane.
 8. Поле result класса Solution должно быть инициализировано в статическом блоке путем вызова метода reset.
  */
-public class Task1529 {
+public class Task1529ready {
   public static void main(String[] args) {
 
   }
-/*
+
   static {
     try {
       reset(); //add your code here - добавьте код тут
@@ -40,12 +44,14 @@ public class Task1529 {
     String s = reader.readLine();
     if (s.equals("helicopter")) {
       result = new Helicopter();
+      System.out.println(result);
     } else if (s.equals("plane")){
       String num = reader.readLine();
       result = new Plane(Integer.parseInt(num));
+      System.out.println(result);
     }
     reader.close();
   }
 
-  public static Flyable result;  */
+  public static Flyable result;
 }
