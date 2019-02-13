@@ -1,9 +1,10 @@
-package Lvl17;
+package Lev17;
 /*
 Заметки
 Асинхронность выполнения нитей.
 1. Класс Note будет использоваться нитями.
-2. Создай public static нить NoteThread (Runnable не является нитью), которая в методе run 1000 раз (index = 0-999) сделает следующие действия:
+2. Создай public static нить NoteThread (Runnable не является нитью),
+которая в методе run 1000 раз (index = 0-999) сделает следующие действия:
 2.1. Используя метод addNote добавит заметку с именем [getName() + "-Note" + index], например, при index=4
 "Thread-0-Note4"
 2.2. Заснет на 1 миллисекунду
@@ -23,7 +24,7 @@ package Lvl17;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Task1701 {
+public class Task1701ready {
   public static void main(String[] args) {
     new NoteThread().start();
     new NoteThread().start();
@@ -45,6 +46,19 @@ public class Task1701 {
         System.out.println("Нить [" + threadName + "] удалила чужую заметку [" + note + "]");
       } else {
         System.out.println("Нить [" + threadName + "] удалила свою заметку [" + note + "]");
+      }
+    }
+  }
+  public static class NoteThread  extends Thread {
+    public void run() {
+      for (int i = 0; i < 1000; i++) {
+        Note.addNote(currentThread().getName()+"-Name"+i);
+        try {
+          currentThread().sleep(1);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+        Note.removeNote(currentThread().getName());
       }
     }
   }

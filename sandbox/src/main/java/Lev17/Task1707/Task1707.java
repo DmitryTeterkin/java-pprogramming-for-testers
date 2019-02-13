@@ -1,4 +1,4 @@
-package Lvl17.Task1707;
+package Lev17.Task1707;
 /*
 МВФ
 Singleton паттерн - синхронизация в методе.

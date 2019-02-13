@@ -1,4 +1,4 @@
-package Lvl17;
+package Lev17;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,13 @@ import java.util.List;
 3. В методе run класса SortThread должен вызывать метод sort() с параметром testArray.
 4. Программа должна выводить текст на экран.
  */
-public class Task1702 {
+public class Task1702ready {
+
   public static int threadCount = 10;
   public static int[] testArray = new int[1000];
 
   static {
-    for (int i = 0; i < Solution.testArray.length; i++) {
+    for (int i = 0; i < Task1702ready.testArray.length; i++) {
       testArray[i] = i;
     }
   }
@@ -57,6 +58,12 @@ public class Task1702 {
           array[j] = k;
         }
       }
+    }
+  }
+
+  public static class SortThread extends Thread {
+    public void run() {
+      sort(testArray);
     }
   }
 }

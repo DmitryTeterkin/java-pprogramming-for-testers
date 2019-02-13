@@ -1,4 +1,4 @@
-package Lvl17.Task1706;
+package Lev17.Task1706;
 
 public class OurPresident {
   private static OurPresident president;
