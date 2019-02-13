@@ -23,10 +23,13 @@ Factory method pattern
 5. Добавь в класс ImageReaderFactory открытый статический метод getImageReader с параметром ImageTypes.
 6. Метод getImageReader должен создавать и возвращать подходящий Reader.
 7. Метод getImageReader должен кидать исключение IllegalArgumentException, если передан неправильный параметр.
+
+ переделать на ифы
+
  */
 public class Task1631ready {
   public static void main(String[] args) {
-    ImageReader reader = ImageReaderFactory.getImageReader(ImageTypes.PNG);
+    ImageReader reader = ImageReaderFactory.getImageReader(null);
     ImageReader reader1 = ImageReaderFactory.getImageReader(ImageTypes.JPG);
     ImageReader reader2 = ImageReaderFactory.getImageReader(ImageTypes.BMP);
   }
