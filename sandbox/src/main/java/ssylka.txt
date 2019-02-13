@@ -1,1 +1,3 @@
 https://github.com/vitalliuss/automation-training/blob/master/README.md
+
+http://conference.comaqa.by/
