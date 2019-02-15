@@ -24,7 +24,7 @@ import java.util.List;
 8. Метод removeVegetable(int index) должен удалять из vegetables элемент с индексом index.
 9. Все методы класса Garden должны блокировать мьютекс this (быть синхронизированы).
  */
-public class Task1705 {
+public class Task1705ready {
 
 
   public static void main(String[] args) {
@@ -35,6 +35,28 @@ public class Task1705 {
 
     public final List<String> fruits = new ArrayList<String>();
     public final List<String> vegetables = new ArrayList<String>();
+
+    public void addFruit(int index, String fruit) {
+      synchronized (this){
+        fruits.add(index, fruit);
+      }
+      //fruits.add(index, fruit);
+    }
+    public void removeFruit(int index) {
+      synchronized (this) {
+        fruits.remove(index);
+      }
+    }
+    public synchronized void addVegetable(int index, String vegetable){
+      synchronized (this) {
+      vegetables.add(index, vegetable);
+      }
+    }
+    public void removeVegetable(int index){
+      synchronized (this) {
+        vegetables.remove(index);
+      }
+    }
 
   }
 }
