@@ -15,7 +15,7 @@ synchronized существенно замедляет программу, по�
 public class Task1717 {
   char[] value;
   int count;
-
+/*
   public Solution append(CharSequence s) {
     synchronized (Solution.class) {
       if (s == null) {
@@ -73,5 +73,5 @@ public class Task1717 {
 
   public static void main(String[] args) {
 
-  }
+  } */
 }

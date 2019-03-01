@@ -1,8 +1,5 @@
 package Lev17.Task1715;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
 Аптека
 Реализуй интерфейс Runnable в классах Apteka и Person.
@@ -29,7 +26,7 @@ import java.util.List;
 public class Task1715 {
   public static DrugsController drugsController = new DrugsController();
   public static boolean isStopped = false;
-
+/*
   public static void main(String[] args) throws InterruptedException {
     Thread apteka = new Thread(new Apteka());
     Thread man = new Thread(new Person(), "Мужчина");
@@ -67,5 +64,5 @@ public class Task1715 {
     } catch (InterruptedException e) {
     }
   }
-
+*/
 }
