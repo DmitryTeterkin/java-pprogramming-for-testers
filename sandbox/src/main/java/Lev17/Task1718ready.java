@@ -16,7 +16,7 @@ package Lev17;
 5. В методе run() класса Person должен быть synchronized блок.
 6. Synchronized блок должен использовать блокировку на уровне класса.
  */
-public class Task1718 {
+public class Task1718ready {
   public static void main(String[] args) {
     Person diana = new Person("Diana");
     Person igor = new Person("Igor");
@@ -32,10 +32,12 @@ public class Task1718 {
 
     @Override
     public void run() {
+      synchronized (Iron.class){
       Iron iron = takeIron();
       Clothes clothes = takeClothes();
       iron(iron, clothes);
       returnIron();
+      }
     }
 
     protected Iron takeIron() {

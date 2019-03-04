@@ -1,7 +1,8 @@
 package Lev17;
 /*
 Посчитаем
-1. Сделай так, чтобы результат успел посчитаться для всех элементов массива values НЕ используя Thread.sleep в методе main(String[] args)
+1. Сделай так, чтобы результат успел посчитаться для всех элементов массива values
+НЕ используя Thread.sleep в методе main(String[] args)
 2. Исправь synchronized блок так, чтобы массив values заполнился значением 1
 
 
@@ -47,6 +48,7 @@ public class Task1722 {
   }
 
   public static int getCount() {
+   // System.out.println(count);
     return count;
   }
 
@@ -54,16 +56,17 @@ public class Task1722 {
     @Override
     public void run() {
       do {
-        synchronized (this) {
+        synchronized (count) {}
           incrementCount();
           values[getCount()]++;
-        }
+          //incrementCount();
+        //}
 
         try {
           Thread.sleep(1);
         } catch (InterruptedException e) {
         }
-      } while (getCount() < 100);
+      } while (getCount() < 105);
     }
   }
 }
