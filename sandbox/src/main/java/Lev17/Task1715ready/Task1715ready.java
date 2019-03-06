@@ -1,4 +1,7 @@
-package Lev17.Task1715;
+package Lev17.Task1715ready;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 Аптека
@@ -23,10 +26,10 @@ package Lev17.Task1715;
 11. Нить Person должна ждать 100мс между закупками, используя метод waitAMoment().
 12. Методы класса DrugsController должны быть synchronized.
  */
-public class Task1715 {
+public class Task1715ready {
   public static DrugsController drugsController = new DrugsController();
   public static boolean isStopped = false;
-/*
+
   public static void main(String[] args) throws InterruptedException {
     Thread apteka = new Thread(new Apteka());
     Thread man = new Thread(new Person(), "Мужчина");
@@ -40,12 +43,24 @@ public class Task1715 {
     isStopped = true;
   }
 
-  public static class Apteka {
-
+  public static class Apteka implements Runnable{
+    public void run() {
+     while (!isStopped) {
+       drugsController.buy(getRandomDrug(), getRandomCount());
+       waitAMoment();
+       waitAMoment();
+       waitAMoment();
+     }
+    }
   }
 
-  public static class Person {
-
+  public static class Person implements Runnable{
+    public void run() {
+     while (!isStopped ){
+       drugsController.sell(getRandomDrug(), getRandomCount());
+       waitAMoment();
+     }
+    }
   }
 
   public static int getRandomCount() {
@@ -64,5 +79,5 @@ public class Task1715 {
     } catch (InterruptedException e) {
     }
   }
-*/
+
 }

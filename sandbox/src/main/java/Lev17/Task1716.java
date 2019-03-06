@@ -58,9 +58,18 @@ public class Task1716 {
   }
 
   public static void main(String[] args) {
-    Thread t1 = new Thread();
-    Thread t2 = new Thread();
+    Thread t1 = new Thread(new Test());
+    Thread t2 = new Thread(new Test());
 
   }
+
+  public static class Test implements Runnable{
+
+    public void run() {
+
+    }
+  }
+
+
 
 }

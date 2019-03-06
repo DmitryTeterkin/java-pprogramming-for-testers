@@ -12,34 +12,27 @@ synchronized существенно замедляет программу, по�
 5. Метод main(String[] args) класса Solution не должен быть synchronized.
 6. В классе Solution не должно быть synchronized блоков.
  */
-public class Task1717 {
+public class Task1717ready {
   char[] value;
   int count;
-/*
-  public Solution append(CharSequence s) {
-    synchronized (Solution.class) {
+
+  public Task1717ready append(CharSequence s) {
       if (s == null) {
-        synchronized (this) {
           s = "null";
-        }
       }
 
       if (s instanceof String) {
-        synchronized (this) {
           return this.append((String) s);
-        }
       }
 
-      if (s instanceof Solution) {
-        synchronized (this) {
-          return this.appendThis((Solution) s);
-        }
+      if (s instanceof Task1717ready) {
+          return this.appendThis((Task1717ready) s);
       }
-    }
+
     return this.append(s);
   }
 
-  public synchronized Solution appendThis(Solution s) {
+  public synchronized Task1717ready appendThis(Task1717ready s) {
     //do something here....
     return this;
   }
@@ -73,5 +66,5 @@ public class Task1717 {
 
   public static void main(String[] args) {
 
-  } */
+  }
 }

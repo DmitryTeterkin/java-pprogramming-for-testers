@@ -1,4 +1,4 @@
-package Lev17.Task1714;
+package Lev17.Task1714ready;
 /*
 Comparable
 Реализуйте интерфейс Comparable<Beach> в классе Beach. Пляжи(Beach) будут использоваться нитями, поэтому позаботьтесь, чтобы все методы были синхронизированы.
@@ -54,9 +54,7 @@ public class Beach implements  Comparable<Beach>{
 
   @Override
   public synchronized int compareTo(Beach o) {
-    if (o.getQuality() > 0) {
-      return 0;
-    }
+   return Float.compare((distance + quality), (o.getDistance() + o.getQuality()));
   }
 }
 

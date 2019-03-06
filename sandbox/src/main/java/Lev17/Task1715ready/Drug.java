@@ -1,4 +1,4 @@
-package Lev17.Task1715;
+package Lev17.Task1715ready;
 
 public class Drug {
   private String name;
