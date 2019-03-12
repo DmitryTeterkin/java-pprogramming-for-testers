@@ -19,7 +19,7 @@ public class Task1716 {
   private double param = Math.random();
   private StringBuilder sb = new StringBuilder();
 
-  private void method0() {
+  private  void method0() {
     Double d = method3();
   }
 
@@ -32,7 +32,7 @@ public class Task1716 {
     param1++;
   }
 
-  double method3() {
+   double method3() {
     double random = Math.random();
     param += 40.7;
     return random + param;
@@ -58,18 +58,26 @@ public class Task1716 {
   }
 
   public static void main(String[] args) {
-    Thread t1 = new Thread(new Test());
-    Thread t2 = new Thread(new Test());
+  Test test = new Test();
+  Test test1 = new Test();
+  test.run();
+  test1.run();
+
 
   }
-
   public static class Test implements Runnable{
 
     public void run() {
-
+      Task1716 t = new Task1716();
+      t.method0();
+      t.method1(""); // need  String, return
+      t.method2(3);  // need int, return  int + 1
+      t.method3();
+      t.method4();
+      t.method5("s");
+      t.method6(3);
+      t.method7(t.method3());
     }
   }
-
-
 
 }

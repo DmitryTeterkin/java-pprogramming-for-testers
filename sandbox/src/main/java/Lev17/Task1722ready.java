@@ -1,4 +1,5 @@
 package Lev17;
+
 /*
 Посчитаем
 1. Сделай так, чтобы результат успел посчитаться для всех элементов массива values
@@ -14,7 +15,7 @@ package Lev17;
 5. Метод main(String[] args) класса Solution не должен использовать Thread.sleep().
 6. Для каждой нити, в методе main(String[] args) класса Solution используй метод, который ожидает завершение нити.
  */
-public class Task1722 {
+public class Task1722ready {
   public static void main(String[] args) throws InterruptedException {
     Counter counter1 = new Counter();
     Counter counter2 = new Counter();
@@ -57,13 +58,15 @@ public class Task1722 {
   }
 
   public static class Counter extends Thread {
+
+
     @Override
     public void run() {
       do {
-        synchronized (values) {
-          //incrementCount();
+        synchronized (Counter.class) {
+          incrementCount();
           values[getCount()]++;
-           incrementCount();
+          // incrementCount();
 
 
           try {

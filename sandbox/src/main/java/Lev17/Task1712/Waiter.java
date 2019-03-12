@@ -9,7 +9,8 @@ public class Waiter implements Runnable {
 
     while (continueWorking || !manager.getDishesQueue().isEmpty()) {
       if (!manager.getDishesQueue().isEmpty()) {       //относим готовый заказ
-        Dishes dishes = manager.getDishesQueue().poll();
+        Dishes dishes = manager.getDishesQueue().poll(); //manager.getDishesQueue().poll();
+        System.out.println(dishes);
         System.out.println("Официант отнес заказ для стола №" + dishes.getTableNumber());
       } else {                                         //берем новый заказ
         Table table = manager.getNextTable();
