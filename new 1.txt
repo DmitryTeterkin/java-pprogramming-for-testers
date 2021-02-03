@@ -1,0 +1,3 @@
+https://support.tricentis.com/community/manuals_detail.do?lang=en&version=On-Demand&module=Tricentis%20qTest%20On-Demand&url=qtest_manager/integrations/getting_started_with_jira_integration.htm
+
+https://documentation.tricentis.com/qtest/od/en/content/qtest_manager/integrations/connect_to_jira_server.htm
