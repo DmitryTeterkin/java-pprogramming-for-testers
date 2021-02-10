@@ -3,3 +3,5 @@ https://support.tricentis.com/community/manuals_detail.do?lang=en&version=On-Dem
 https://documentation.tricentis.com/qtest/od/en/content/qtest_manager/integrations/connect_to_jira_server.htm
 
 https://www.gurock.com/testrail/tour/modern-test-management
+
+https://www.gurock.com/testrail/docs/admin/installation/windows
